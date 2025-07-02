@@ -8,7 +8,7 @@ export const theme = {
     white: "#ffffff",
   },
   fonts: {
-    heading: "'Pretendard'",
+    Pretendard: "'Pretendard'",
     weights: {
       thin: 100,
       extraLight: 200,
