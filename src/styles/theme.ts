@@ -4,11 +4,22 @@ export const theme = {
     primary: "#0070f3",
     gray100: "#f5f5f5",
     black: "#000000",
+    black100: "#374151",
     white: "#ffffff",
   },
   fonts: {
-    heading: "Pretendard, sans-serif",
-    body: "Pretendard, sans-serif",
+    heading: "'Pretendard'",
+    weights: {
+      thin: 100,
+      extraLight: 200,
+      light: 300,
+      regular: 400,
+      medium: 500,
+      semiBold: 600,
+      bold: 700,
+      extraBold: 800,
+      black: 900,
+    },
   },
 };
 
