@@ -1,3 +1,4 @@
+# --- Yarn Berry ---
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -5,13 +6,46 @@
 !.yarn/sdks
 !.yarn/versions
 
-# Whether you use PnP or not, the node_modules folder is often used to store
-# build artifacts that should be gitignored
-node_modules
+# Optional: uncomment to enable zero-installs (requires setting enableGlobalCache false)
+# !.yarn/cache
 
-# Swap the comments on the following lines if you wish to use zero-installs
-# In that case, don't forget to run `yarn config set enableGlobalCache false`!
-# Documentation here: https://yarnpkg.com/features/caching#zero-installs
-
-#!.yarn/cache
 .pnp.*
+.pnp-loader.js
+
+# --- Node Modules (in case of non-PnP fallback or tools using it) ---
+node_modules/
+
+# --- Next.js ---
+.next/
+out/
+
+# --- Build output (for static exports or Vercel preview) ---
+*.log
+*.next
+*.out
+
+# --- Environment variables ---
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# --- System / IDE files ---
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Test coverage ---
+coverage/
+
+# --- Misc ---
+*.tgz
