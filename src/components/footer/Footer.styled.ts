@@ -44,5 +44,7 @@ export const Content2 = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.colors.gray200};
 
+  display: inline-block;
+  width: fit-content;
   cursor: pointer;
 `;
