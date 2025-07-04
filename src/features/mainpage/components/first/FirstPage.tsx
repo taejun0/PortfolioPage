@@ -1,8 +1,7 @@
 import * as S from "./FirstPage.styled";
 
-import Link from "next/link";
-
 import { SiVelog, SiGithub } from "react-icons/si";
+import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 
 import TypewriterComponent from "typewriter-effect";
 
@@ -25,7 +24,9 @@ const FirstPage = () => {
         }}
       />
       <S.ButtonList>
-        <S.Buttons1>프로젝트 보러가기</S.Buttons1>
+        <a href="/projects">
+          <S.Buttons1>프로젝트 보러가기</S.Buttons1>
+        </a>
         <S.Buttons2>이력서 다운하기</S.Buttons2>
       </S.ButtonList>
       <S.IconList>
@@ -44,6 +45,18 @@ const FirstPage = () => {
           <SiVelog />
         </a>
       </S.IconList>
+      <S.DownArrow
+        animate={{
+          y: [0, 16, 0],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 1.0,
+          ease: "easeInOut",
+        }}
+      >
+        <HiOutlineChevronDoubleDown />
+      </S.DownArrow>
     </S.Wrapper>
   );
 };

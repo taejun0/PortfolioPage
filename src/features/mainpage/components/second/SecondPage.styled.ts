@@ -2,9 +2,10 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
-  position: relative;
+  position: sticky;
+  top: 1;
   display: flex;
-  min-height: calc(100dvh - 51px);
+  min-height: calc(100dvh - 1px);
 `;
 
 export const Container1 = styled.div`
@@ -35,10 +36,11 @@ export const PortfolioImage = styled.img`
 `;
 
 export const GoAboutMe = styled.div`
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+
+  padding-top: 3rem;
+
+  cursor: pointer;
 `;
 
 export const AboutTitle = styled.div`

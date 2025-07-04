@@ -33,11 +33,14 @@ const GlobalStyle = () => (
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        text-decoration: none;
+        color: #000000;
+        scroll-behavior: smooth;
       }
 
       body {
         font-family: "Pretendard", sans-serif;
-        background-color: #ffffff;
+        background-color: #f2f2f2;
         color: #111111;
       }
     `}

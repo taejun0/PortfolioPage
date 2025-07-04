@@ -2,26 +2,28 @@ import * as S from "./SecondPage.styled";
 
 const SecondPage = () => {
   return (
-    <S.Wrapper>
+    <S.Wrapper id="about">
       <S.Container1>
         <S.AboutTitle>About ME</S.AboutTitle>
         <S.AboutText>
-          {`FrontEnd는 화면(View)를 통해
-          사용자와 직접 소통하는 것이라 생각합니다.
+          {`소통, 경험, 협업
 
-          단순히 기능이 굴러가는 UI가 아닌, 사용자와 소통하는
-          "경험"을 설계하고 구현하는 것에 가장 집중합니다.
+          FrontEnd는 화면(View)를 통해 사용자와 가장 먼저 소통합니다.
+          복잡한 내용을 명확하게 전달하고,  
+          사용자 흐름에 따라 자연스럽게 이어지는 화면을 설계합니다.
 
-          사용자의 입장에서 끊임없이 고민하고,
-          팀원들과는 적극적인 소통과 협업으로 더 나은 방향을 함께 찾아갑니다.
+          단순한 UI가 아닌 머무르고 싶은 경험을 만드는 것이 목표입니다.  
+          한 줄의 문구, 한 픽셀의 마진에도 이유를 담고
+          사용자의 입장에서 반복해 고민합니다.
 
-          설득과 조율, 그리고 타협이 필요한 순간마다
-          적극적으로 대화하며 모두가 납득할 수 있는 결정을 이끌어냅니다.
-
-          UI는 결국 사람과의 대화라고 믿기에,
-          직관적이고 따뜻한 인터페이스를 만들어가고 싶습니다.`}
+          저는 혼자일 때보다 함께일 때
+          더 나은 결과가 만들어진다고 믿습니다.
+          팀원들과 끊임없이 대화하고, 설득하고, 조율하며  
+          모두가 납득할 수 있는 방향으로 나아가고자 합니다.`}
         </S.AboutText>
-        <S.GoAboutMe>{"->"} 저에 대해 자세히 알아봐요</S.GoAboutMe>
+        <a href="/about">
+          <S.GoAboutMe>저에 대해 자세히 알아봐요 {"->"}</S.GoAboutMe>
+        </a>
       </S.Container1>
       <S.Container2>
         <S.PortfolioImage src="/images/portFolio/myPicture.jpeg" />

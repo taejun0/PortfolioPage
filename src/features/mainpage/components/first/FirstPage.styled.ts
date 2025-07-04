@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.BG100};
@@ -23,6 +24,20 @@ export const FrontEnd = styled.div`
   top: -5rem;
   left: 50%;
   transform: translateX(-50%);
+
+  @media (max-width: 760px) {
+    font-size: 5.5rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 4rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 3rem;
+  }
 `;
 
 export const NameTitle = styled.div`
@@ -34,13 +49,25 @@ export const NameTitle = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 760px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const ButtonList = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 2rem 0rem 2rem 0;
   gap: 1rem;
 `;
 
@@ -102,5 +129,21 @@ export const IconList = styled.div`
       height: 30px;
       cursor: pointer;
     }
+  }
+`;
+
+export const DownArrow = styled(motion.div)`
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    color: ${({ theme }) => theme.colors.gray300};
   }
 `;
