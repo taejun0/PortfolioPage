@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <S.Wrapper>
       <Link href="/main">
-        <S.Title>Taejun's PortFoilo</S.Title>
+        <S.Title>Taejun's PortFolio</S.Title>
       </Link>
       <S.NaviSet>
         <a href="#">
