@@ -63,9 +63,11 @@ const ThirdPage = () => {
           </S.BoxText>
         </S.Box>
       </S.Container>
-      <S.HowManyUse>
-        제가 사용하는 기술에 대해 자세히 알아봐요 {"->"}
-      </S.HowManyUse>
+      <a href="/skills">
+        <S.HowManyUse>
+          제가 사용하는 기술에 대해 자세히 알아봐요 {"->"}
+        </S.HowManyUse>
+      </a>
     </S.Wrapper>
   );
 };

@@ -2,8 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.BG100};
-  position: sticky;
-  top: 2;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,6 +31,8 @@ export const Container = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1.5rem;
+
+  margin-bottom: 2rem;
 `;
 
 export const Box = styled.div`
@@ -76,8 +77,6 @@ export const BoxText = styled.div`
 
 export const HowManyUse = styled.div`
   position: relative;
-
-  padding-top: 3rem;
 
   cursor: pointer;
 `;

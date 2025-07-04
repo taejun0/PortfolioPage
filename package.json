@@ -15,10 +15,13 @@
     "@tanstack/react-query": "^5.81.5",
     "@tanstack/react-query-devtools": "^5.81.5",
     "framer-motion": "^12.23.0",
+    "jsdom": "^26.1.0",
     "next": "^15.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "4",
+    "rss-parser": "^3.13.0",
+    "swiper": "^11.2.10",
     "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {
