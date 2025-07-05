@@ -101,7 +101,9 @@ const FourPage = () => {
           ))}
         </Swiper>
       </S.Inner>
-      <S.GoProjects>저의 모든 프로젝트를 보러가요 {"->"}</S.GoProjects>
+      <a href="/projects">
+        <S.GoProjects>저의 모든 프로젝트를 보러가요 {"->"}</S.GoProjects>
+      </a>
     </S.Wrapper>
   );
 };
