@@ -2,49 +2,35 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  padding: 3rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 2rem 1rem 2rem;
+  gap: 1rem;
 `;
 
 export const Container = styled.div`
-  display: flex;
-  flex: 1;
-`;
-
-export const StyledLink = styled.a`
-  display: inline-block;
-  width: fit-content;
-  text-decoration: none;
-`;
-
-export const Box = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  flex: 1;
-  gap: 0.25rem;
 `;
 
-export const Title = styled.div`
+export const ContainerTitle = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
-
-  margin-bottom: 0.5rem;
 `;
 
-export const Content = styled.div`
+export const ContainerText = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.colors.gray200};
+  font-weight: ${({ theme }) => theme.fonts.weights.bold};
+  color: ${({ theme }) => theme.colors.gray200};
 
-  display: inline-block;
-
-  white-space: pre-line;
+  font-size: 0.875rem;
 `;
 
-export const Content2 = styled.div`
-  ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.colors.gray200};
-
-  display: inline-block;
-  width: fit-content;
-  cursor: pointer;
+export const Container2 = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
 `;

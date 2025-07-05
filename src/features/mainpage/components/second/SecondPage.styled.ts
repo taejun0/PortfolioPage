@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   position: relative;
   display: flex;
-  min-height: calc(100dvh - 1px);
+  min-height: calc(100dvh);
 `;
 
 export const Container1 = styled.div`
