@@ -10,4 +10,5 @@ const Main: NextPageWithLayout = () => {
 Main.getLayout = function (page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>;
 };
+
 export default Main;
