@@ -37,16 +37,16 @@ const SixPage = () => {
       <S.ContainerWrap>
         <S.Container>
           <S.Box>
-            <S.Title>Let's contact</S.Title>
+            <S.Title>Contact ME</S.Title>
             <S.Content>
-              <SiGmail size={40} />
+              <SiGmail size={47} />
               <S.Content2>
                 <S.Text>Email</S.Text>
                 <S.Text2>xownswns@naver.com</S.Text2>
               </S.Content2>
             </S.Content>
             <S.Content>
-              <SiGithub size={40} />
+              <SiGithub size={47} />
               <S.Content2>
                 <S.Text>Github</S.Text>
                 <S.Text2>github.com/taejun0</S.Text2>

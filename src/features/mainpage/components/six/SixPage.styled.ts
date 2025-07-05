@@ -57,6 +57,7 @@ export const Box = styled.div`
 export const Title = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
+  font-size: 2rem;
 
   margin-bottom: 0.5rem;
 `;
@@ -73,6 +74,10 @@ export const Content = styled.div`
 export const Content2 = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.colors.gray200};
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 
   white-space: pre-line;
 `;

@@ -1,5 +1,5 @@
 import AboutPage from "@features/aboutpage/AboutPage";
-import DefaultLayout from "layouts/DefaultLayout";
+import DetailLayout from "layouts/DetailLayout";
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "types/page";
 
@@ -8,7 +8,7 @@ const About: NextPageWithLayout = () => {
 };
 
 About.getLayout = function (page: ReactElement) {
-  return <DefaultLayout>{page}</DefaultLayout>;
+  return <DetailLayout>{page}</DetailLayout>;
 };
 
 export default About;
