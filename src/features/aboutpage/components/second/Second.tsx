@@ -1,4 +1,3 @@
-// Second.tsx
 import * as S from "./Second.styled";
 
 const philosophies = [
@@ -46,12 +45,13 @@ const cardVariants = {
   },
 };
 
-const Card = ({ title, description }: any) => {
+const Card = ({ title, description, index }: any) => {
   return (
     <S.CardContainer
+      style={{ zIndex: index }}
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ amount: 0.8 }}
+      viewport={{ amount: 0.8, once: true }}
       variants={cardVariants}
     >
       <S.CardInner>
@@ -67,7 +67,7 @@ const Second = () => {
     <S.Wrapper>
       <S.Title>Development Philosophy</S.Title>
       {philosophies.map((p, i) => (
-        <Card key={i} {...p} />
+        <Card key={i} {...p} index={i} />
       ))}
     </S.Wrapper>
   );

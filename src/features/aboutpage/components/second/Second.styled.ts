@@ -22,7 +22,7 @@ export const CardContainer = styled(motion.div)`
   align-items: center;
   position: relative;
   padding-top: 20px;
-  margin-bottom: -60px;
+  margin-bottom: -40px;
   width: 100%;
 `;
 
@@ -39,8 +39,6 @@ export const CardInner = styled(motion.div)`
   text-align: center;
 
   gap: 1rem;
-
-  z-index: 100;
 `;
 
 export const CardTitle = styled.div`
