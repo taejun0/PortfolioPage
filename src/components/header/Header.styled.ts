@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   position: fixed;
   top: 0;
+  min-width: 360px;
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
