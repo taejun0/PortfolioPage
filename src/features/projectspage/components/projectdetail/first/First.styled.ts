@@ -46,4 +46,7 @@ export const SemiTitle = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
   color: ${({ theme }) => theme.colors.gray200};
+
+  text-align: center;
+  white-space: pre-line;
 `;

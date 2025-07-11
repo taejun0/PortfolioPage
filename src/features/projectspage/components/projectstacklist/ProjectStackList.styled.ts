@@ -71,7 +71,11 @@ export const Featured = styled.div`
   position: absolute;
 
   top: 10px;
-  right: 20px;
+  right: 12px;
+
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
 `;
 
 export const TagContainer = styled.div`

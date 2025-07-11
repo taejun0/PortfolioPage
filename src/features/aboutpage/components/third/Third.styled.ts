@@ -94,6 +94,8 @@ export const ContainerTextBox = styled.div`
 export const ContainerTextBoxCOL = styled.div`
   display: flex;
   flex-direction: column;
+
+  gap: 0.25rem;
 `;
 
 export const ContainerText = styled.div`

@@ -19,7 +19,7 @@ interface FeatureProps {
 }
 
 const categories = [
-  "기술 스택",
+  "기술적 의사결정",
   "주요 기능",
   "내 역할",
   "Challenge & Solution",
@@ -30,7 +30,7 @@ const Third = ({ stack, features, roles, challenges }: FeatureProps) => {
 
   const stackContent = (
     <S.ContentSection>
-      <h3>기술 스택</h3>
+      <h3>기술적 의사결정</h3>
       <ul>
         {stack.map((item, idx) => (
           <li key={idx}>{item}</li>

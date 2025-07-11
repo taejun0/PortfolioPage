@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 3rem 3rem 2rem 3rem;
   gap: 1rem;
 `;
 
