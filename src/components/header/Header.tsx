@@ -22,7 +22,6 @@ const Header = () => {
           <S.NaviTitle>Projects</S.NaviTitle>
         </a>
       </S.NaviSet>
-      <S.Button>다크모드</S.Button>
     </S.Wrapper>
   );
 };

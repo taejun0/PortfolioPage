@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 2rem;
   z-index: 99;
 `;
 
