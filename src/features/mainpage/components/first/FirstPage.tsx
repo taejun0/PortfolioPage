@@ -5,31 +5,74 @@ import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 
 import TypewriterComponent from "typewriter-effect";
 
+import { motion } from "framer-motion";
+
 const FirstPage = () => {
   return (
     <S.Wrapper>
-      <S.NameTitle>
+      <S.NameTitle
+        initial={{ x: -200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 60, delay: 1.4 }}
+      >
         웹의 형태로 표현하고 소통하는 오태준입니다
-        <S.FrontEnd>FRONTEND</S.FrontEnd>
+        <S.FrontEnd
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            type: "tween",
+            duration: 1.2,
+            ease: "easeOut",
+            delay: 0.6,
+          }}
+        >
+          FRONTEND
+        </S.FrontEnd>
       </S.NameTitle>
-      <TypewriterComponent
-        options={{
-          strings: ["만나서 반갑습니다", "제 포트폴리오에 와주셔서 감사합니다"],
-          autoStart: true,
-          loop: true,
-          delay: 60,
-          deleteSpeed: 30,
-          cursor: "|",
-          skipAddStyles: false,
-        }}
-      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
+        <TypewriterComponent
+          options={{
+            strings: [
+              "만나서 반갑습니다",
+              "제 포트폴리오에 와주셔서 감사합니다",
+            ],
+            autoStart: true,
+            loop: true,
+            delay: 60,
+            deleteSpeed: 30,
+            cursor: "|",
+            skipAddStyles: false,
+          }}
+        />
+      </motion.div>
+
       <S.ButtonList>
         <a href="/projects">
-          <S.Buttons1>프로젝트 보러가기</S.Buttons1>
+          <S.Buttons1
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ type: "spring", delay: 2 }}
+          >
+            프로젝트 보러가기
+          </S.Buttons1>
         </a>
-        <S.Buttons2>이력서 다운하기</S.Buttons2>
+        <S.Buttons2
+          initial={{ x: 200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: "spring", delay: 2.2 }}
+        >
+          이력서 다운하기
+        </S.Buttons2>
       </S.ButtonList>
-      <S.IconList>
+      <S.IconList
+        initial={{ scale: 0, rotate: 180, opacity: 0 }}
+        animate={{ scale: 1, rotate: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 80, delay: 2.6 }}
+      >
         <a
           href="https://github.com/taejun0"
           target="_blank"
