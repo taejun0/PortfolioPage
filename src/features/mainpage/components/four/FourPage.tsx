@@ -22,7 +22,7 @@ const projectList = [
     description: `Emotion 기반 스타일 시스템 설계\nNext.js + TypeScript 기반 SSR 구성\n애니메이션과 섹션 스크롤로 시각적 몰입 강화`,
     period: "2025.07",
     tags: ["Solo", "React", "TypeScript", "emotion", "NextJs"],
-    image: "/images/projects/project2.svg",
+    image: "/images/projects/project5.png",
     link: "https://github.com/taejun0/PortfolioPage",
   },
   {
@@ -69,7 +69,7 @@ const FourPage = () => {
           modules={[Navigation, Pagination, A11y]}
           pagination={{ clickable: true, el: ".custom-pagination" }}
           navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
-          slidesPerView={1.5}
+          slidesPerView={1}
           centeredSlides
           loop
           spaceBetween={50}

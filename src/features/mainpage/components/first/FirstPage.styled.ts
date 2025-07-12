@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-export const FrontEnd = styled.div`
+export const FrontEnd = styled(motion.div)`
   color: ${({ theme }) => theme.colors.white};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 6rem;
@@ -22,8 +22,6 @@ export const FrontEnd = styled.div`
   position: absolute;
   z-index: -1;
   top: -5rem;
-  left: 50%;
-  transform: translateX(-50%);
 
   @media (max-width: 760px) {
     font-size: 5.5rem;
@@ -40,7 +38,7 @@ export const FrontEnd = styled.div`
   }
 `;
 
-export const NameTitle = styled.div`
+export const NameTitle = styled(motion.div)`
   font-size: 2.5rem;
 
   position: relative;
@@ -71,7 +69,7 @@ export const ButtonList = styled.div`
   gap: 1rem;
 `;
 
-export const Buttons1 = styled.div`
+export const Buttons1 = styled(motion.div)`
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.gray350};
@@ -90,7 +88,7 @@ export const Buttons1 = styled.div`
   }
 `;
 
-export const Buttons2 = styled.div`
+export const Buttons2 = styled(motion.div)`
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
   color: ${({ theme }) => theme.colors.gray400};
   background-color: ${({ theme }) => theme.colors.white};
@@ -109,7 +107,7 @@ export const Buttons2 = styled.div`
   }
 `;
 
-export const IconList = styled.div`
+export const IconList = styled(motion.div)`
   display: flex;
   gap: 1.5rem;
 

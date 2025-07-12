@@ -1,5 +1,14 @@
-const Home = () => {
-  return <h1>Hello, Next + TypeScript + Yarn Berry!</h1>;
+import MainPage from "@features/mainpage/MainPage";
+import DefaultLayout from "layouts/DefaultLayout";
+import type { ReactElement } from "react";
+import type { NextPageWithLayout } from "types/page";
+
+const Index: NextPageWithLayout = () => {
+  return <MainPage />;
 };
 
-export default Home;
+Index.getLayout = function (page: ReactElement) {
+  return <DefaultLayout>{page}</DefaultLayout>;
+};
+
+export default Index;

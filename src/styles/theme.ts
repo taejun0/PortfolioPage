@@ -3,6 +3,11 @@ export const theme = {
   colors: {
     primary: "#0070f3",
 
+    orange100: "#FFE8CC",
+    blue100: "#D6EAF8",
+    pink100: "#FDE2E4",
+    green100: "#D4EFDF",
+
     black: "#000000",
     black100: "#374151",
 
