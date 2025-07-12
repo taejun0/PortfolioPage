@@ -5,11 +5,11 @@ import Link from "next/link";
 const Header = () => {
   return (
     <S.Wrapper>
-      <Link href="/main">
+      <Link href="/">
         <S.Title>Taejun's PortFolio</S.Title>
       </Link>
       <S.NaviSet>
-        <a href="/main">
+        <a href="/">
           <S.NaviTitle>Main</S.NaviTitle>
         </a>
         <a href="/about">
