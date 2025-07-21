@@ -5,9 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"2025_FE_Studing@workspace:.":
+"2025_PortFolioPage@workspace:.":
   version: 0.0.0-use.local
-  resolution: "2025_FE_Studing@workspace:."
+  resolution: "2025_PortFolioPage@workspace:."
   dependencies:
     "@babel/core": "npm:^7.27.7"
     "@emailjs/browser": "npm:^4.4.1"

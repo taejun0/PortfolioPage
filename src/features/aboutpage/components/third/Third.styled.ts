@@ -38,7 +38,7 @@ export const ContainerWrap = styled.div`
   flex-direction: row;
   justify-content: center;
 
-  gap: 1rem;
+  gap: 1.75rem;
 `;
 
 export const Containers = styled.div`
@@ -81,7 +81,7 @@ export const Container2 = styled.div`
 export const ContainerTitle = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 `;
 
 export const ContainerTextBox = styled.div`
@@ -95,14 +95,14 @@ export const ContainerTextBoxCOL = styled.div`
   display: flex;
   flex-direction: column;
 
-  gap: 0.25rem;
+  gap: 0.5rem;
 `;
 
 export const ContainerText = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
   color: ${({ theme }) => theme.colors.gray200};
-  font-size: 1rem;
+  font-size: 1.125rem;
 
   width: 100%;
 
@@ -112,7 +112,7 @@ export const ContainerText = styled.div`
 export const Time = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
-  font-size: 0.75rem;
+  font-size: 1rem;
 
   background-color: ${({ theme }) => theme.colors.white};
 
@@ -127,7 +127,7 @@ export const Keywords = styled.div`
 `;
 
 export const Keyword = styled.span`
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   padding: 0.25rem 0.5rem;
   background-color: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.gray100};

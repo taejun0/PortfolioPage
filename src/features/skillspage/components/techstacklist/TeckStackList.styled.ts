@@ -19,6 +19,19 @@ export const Item = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media screen and (max-width: 800px) {
+    width: 45%;
+  }
+
+  @media screen and (max-width: 510px) {
+    height: 350px;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 90%;
+    height: 320px;
+  }
 `;
 
 export const TitleBox = styled.div<{ category?: string }>`

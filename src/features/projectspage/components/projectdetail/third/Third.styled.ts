@@ -61,7 +61,7 @@ export const ContentSection = styled.div`
   h4 {
     font-size: 1.25rem;
     font-weight: ${({ theme }) => theme.fonts.weights.bold};
-    margin: 1rem 0 0 0;
+    margin: 1rem 0 0.25rem 0;
     color: ${({ theme }) => theme.colors.black};
   }
 

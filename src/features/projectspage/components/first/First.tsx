@@ -12,10 +12,10 @@ const First = () => {
       </S.SubTitle>
       <S.Tags>
         <S.Tag>
-          <FaCode /> 12 Projects
+          <FaCode /> 4 Projects
         </S.Tag>
         <S.Tag>
-          <FaCalendar /> 6 Tech Stacks
+          <FaCalendar /> 4 Tags
         </S.Tag>
         <S.Tag>
           <HiSquare3Stack3D /> 2024 - 2025

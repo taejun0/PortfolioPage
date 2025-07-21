@@ -21,7 +21,7 @@ interface FeatureProps {
 const categories = [
   "기술적 의사결정",
   "주요 기능",
-  "내 역할",
+  "담당 역할",
   "Challenge & Solution",
 ];
 
@@ -65,7 +65,7 @@ const Third = ({ stack, features, roles, challenges }: FeatureProps) => {
 
   const roleContent = (
     <S.ContentSection>
-      <h3>내 역할</h3>
+      <h3>담당 역할</h3>
       <ul>
         {roles.map((role, idx) => (
           <li key={idx}>{role}</li>

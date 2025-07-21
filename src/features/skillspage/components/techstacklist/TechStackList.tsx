@@ -50,7 +50,7 @@ const techStacks = [
     icon: <TbBrandReactNative />,
     category: "Frontend",
     description:
-      "동아리 앱을 만들기 위해 React Native를 도입하였고, 웹과 다른 네이티브 컴포넌트의 생명주기 및 스타일 시스템을 경험했습니다. Expo 환경으로 시작하여 cross-platform UI 테스트와 디버깅을 진행했습니다.",
+      "동아리 앱을 만들기 위해 React Native를 도입하였고, 웹과 다른 네이티브 컴포넌트의 생명주기 및 스타일 시스템을 경험했습니다.\nExpo 환경으로 시작하여 cross-platform UI 테스트와 디버깅을 진행했습니다.",
     tags: ["Native 컴포넌트", "Expo", "크로스 플랫폼", "디버깅"],
   },
   {
@@ -58,7 +58,7 @@ const techStacks = [
     icon: <SiJavascript />,
     category: "Frontend",
     description:
-      "프로젝트 초기에는 바닐라 JS로 간단한 인터랙션(모달, 토글, 탭 등)을 직접 구현하며 이벤트 버블링, 스코프, 비동기 처리 등 JS의 핵심 개념을 학습했습니다. 이후에는 React에서의 상태 관리와 DOM 조작에 필요한 JS 활용 능력을 심화시켰습니다.",
+      "프로젝트 초기에는 바닐라 JS로 간단한 인터랙션(모달, 토글, 탭 등)을 직접 구현하며 이벤트 버블링, 스코프, 비동기 처리 등 JS의 핵심 개념을 학습했습니다.\n이후에는 React에서의 상태 관리와 DOM 조작에 필요한 JS 활용 능력을 심화시켰습니다.",
     tags: ["이벤트 버블링", "비동기 처리", "DOM 조작", "기초 로직"],
   },
   {
@@ -66,7 +66,7 @@ const techStacks = [
     icon: <SiTypescript />,
     category: "Frontend",
     description:
-      "React 프로젝트의 규모가 커지면서 타입 안정성 확보가 필요해졌고, 이에 따라 기존 JS 코드에서 점진적으로 TS로 마이그레이션을 진행했습니다. props/interface 명세, 유틸 타입 활용을 통해 유지보수성과 개발자 경험을 동시에 개선하였습니다.",
+      "React 프로젝트의 규모가 커지면서 타입 안정성 확보가 필요해졌고, 이에 따라 기존 JS 코드에서 점진적으로 TS로 마이그레이션을 진행했습니다.\nprops/interface 명세, 유틸 타입 활용을 통해 유지보수성과 개발자 경험을 동시에 개선하였습니다.",
     tags: ["타입 안정성", "인터페이스", "유틸 타입", "TS 마이그레이션"],
   },
   {
@@ -74,7 +74,7 @@ const techStacks = [
     icon: <SiNextdotjs />,
     category: "Frontend",
     description:
-      "포트폴리오 웹사이트 제작 시 SSR/SSG 및 App Router 기반의 페이지 구성을 위해 Next.js를 도입했습니다. 특히, getServerSideProps, useParams, next/image, next/head 등을 적극 활용하며 SEO 최적화와 퍼포먼스를 개선했고, Vercel과의 연동으로 CI/CD 흐름도 간결하게 구성했습니다.",
+      "포트폴리오 웹사이트 제작 시 SSR/SSG 및 App Router 기반의 페이지 구성을 위해 Next.js를 도입했습니다.\n특히, getServerSideProps, useParams, next/image, next/head 등을 적극 활용하며 SEO 최적화와 퍼포먼스를 개선했고, Vercel과의 연동으로 CI/CD 흐름도 간결하게 구성했습니다.",
     tags: ["SSR/SSG", "App Router", "SEO 최적화", "Vercel", "Dynamic Routing"],
   },
   {
@@ -90,7 +90,7 @@ const techStacks = [
     icon: <SiSpringboot />,
     category: "Backend",
     description:
-      "많이 사용한 것은 아니지만, 백엔드와의 원활한 의사소통을 위해 개발을 해본 경험이 있습니다. RESTful API 설계 원칙을 따르며, 예매 등록/조회/취소 API를 설계하고 MySQL 연동 및 JPA를 활용한 Repository 계층을 구성했습니다.",
+      "많이 사용한 것은 아니지만, 백엔드와의 원활한 의사소통을 위해 개발을 해본 경험이 있습니다.\nRESTful API 설계 원칙을 따르며, 예매 등록/조회/취소 API를 설계하고 MySQL 연동 및 JPA를 활용한 Repository 계층을 구성했습니다.",
     tags: ["REST API", "JPA", "MySQL 연동", "Repository 계층"],
   },
   {

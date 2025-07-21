@@ -43,6 +43,14 @@ const GlobalStyle = () => (
         background-color: #f2f2f2;
         color: #111111;
       }
+
+      html,
+      body,
+      #__next {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
     `}
   />
 );

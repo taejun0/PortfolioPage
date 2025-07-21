@@ -1,5 +1,5 @@
 {
-  "name": "2025_FE_Studing",
+  "name": "2025_PortFolioPage",
   "packageManager": "yarn@4.9.2",
   "scripts": {
     "test": "jest",
