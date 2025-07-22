@@ -165,14 +165,14 @@ export const stacks: ProjectsStack[] = [
     detailDescription:
       "SMART는 단순한 체력 측정을 넘어서, 병사 개개인의 훈련 데이터를 기반으로\nAI 피드백을 제공하는 웹 기반 훈련 보조 서비스입니다.\n훈련은 단순 반복보다는 정교한 자세와 피드백을 통해 개선되어야 하며,\n이는 병사의 동기부여 및 장기적인 체력 향상에 기여할 수 있습니다.\n특히 MediaPipe 기반 자세 분석, 실시간 카운트 및 피드백 제공, 누적 통계 시각화 기능을 통해\n훈련자에게 구체적이고 직관적인 정보를 제공합니다.",
     categories: ["React", "JavaScript", "AI", "Solo"],
-    feature: true,
+    feature: false,
     image: "/images/projectsImage/SMART.png",
     SemiInfo: [
       "2025.05 - 현재 추가 개발 중",
       "Solo project",
       "기획, 개발",
       "https://github.com/taejun0/SMART_FE",
-      "link1",
+      "https://smart-dgu.vercel.app/",
     ],
     stack: [
       "라우팅: react-router-domv7 -  SPA 방식에서 페이지 간 전환을 자연스럽게 처리하고, URL 기반 라우팅 제어가 필요한 상황에서 가장 보편적이고 안정적인 선택지",
@@ -238,7 +238,7 @@ export const stacks: ProjectsStack[] = [
       "Solo project",
       "기획, 디자인, 개발",
       "https://github.com/taejun0/PortfolioPage",
-      "https://portfolio-taejun.vercel.app/",
+      "https://www.taejun0-portfolio.site/",
     ],
     stack: [
       "React 18 + TypeScript",
@@ -298,6 +298,174 @@ export const stacks: ProjectsStack[] = [
           "GitHub Actions를 활용해 push 이벤트 기반 자동 배포 파이프라인 구성",
         learnings:
           "CI/CD 자동화를 통해 개인 프로젝트에서도 효율적인 개발-배포 루틴을 구성할 수 있음을 경험함",
+      },
+    ],
+  },
+  {
+    name: "MOHAE",
+    description: "부모님과 함께 살아가자는 취지의 가족 건강 및 소통 웹 서비스",
+    overview:
+      "MOHAE는 부모님과 함께 살아가는 삶을 위해 가족 구성원 간 건강 정보 공유와 정서적 연결을 지원하는 웹 기반 서비스입니다.\n가족 캘린더, 건강 챌린지, 병원 예약, 약 복용 체크, 챗봇 대화 등 실생활에 밀접한 기능을 제공합니다.\n음성 인식 및 출력, 챌린지 이미지 업로드 등 다양한 기술을 도입하여 고령 사용자도 쉽게 사용할 수 있는 접근성을 확보했습니다.",
+    detailDescription:
+      "MOHAE는 Django 기반의 백엔드와 React 기반의 프론트엔드로 구성된 가족 건강 및 정서 연결 서비스입니다.\nReact의 컴포넌트 구조를 활용해 캘린더, 챌린지, 병원 예약 등 기능별로 분리된 화면을 구성했고,\nstyled-components를 통해 시각적으로 일관된 UI를 구현하였습니다.\n음성 인식(SpeechRecognition), 음성 출력(SpeechSynthesis), 챌린지 업로드, 알림 시스템 등 다양한 사용자 중심 기능을 통합하였습니다.",
+    categories: ["React", "JavaScript", "Django", "Team"],
+    feature: true,
+    image: "/images/projectsImage/Mohae.png",
+    SemiInfo: [
+      "2025.07 (해커톤 프로젝트)",
+      "Team project",
+      "Frontend Developer",
+      "https://github.com/LikeLion-at-DGU/2024-hackathon-2-mohae-frontend",
+    ],
+    stack: [
+      "React - 기능별 컴포넌트 구조로 주요 기능(캘린더, 챌린지, 예약, 약 복용 등) 구성",
+      "styled-components - 각 기능별 커스텀 UI 스타일링을 위해 도입, props 기반 조건 스타일 사용",
+      "Django + SQLite - 백엔드 API 설계 및 데이터 저장, 병원/예약/챌린지 관련 API 제공",
+      "Axios - 공통 API 인스턴스를 통해 서버 통신 구현 (API.js)",
+      "SpeechRecognition / SpeechSynthesis - 음성 기반 입력 및 출력 기능으로 접근성 향상",
+      "react-calendar / react-datepicker - 캘린더 및 날짜 선택 기능 제공",
+      "emotion-icons - 직관적이고 감성적인 UI를 위한 아이콘 활용",
+    ],
+    features: {
+      problem: [
+        "부모님의 건강 상태, 약 복용 여부, 병원 예약 등을 가족 간 실시간으로 공유하기 어려움",
+        "노년층이 접근 가능한 직관적인 UI와 상호작용 요소가 부족함",
+      ],
+      user: [
+        "가족 캘린더: 일정 등록, 삭제, 메모 기능 (날짜 선택 및 기간 지정)",
+        "건강 챌린지: 가족과 함께하는 건강 실천 미션, 이미지 업로드 및 리워드 제공",
+        "병원 예약: 병원 선택, 시간 선택, 예약 등록 및 수정",
+        "약 복용 체크: 약 복용 시간 등록, 복용 여부 확인 기능",
+        "음성 챗봇: AI 대화, 음성 인식/출력 기반의 감성 인터랙션 제공",
+      ],
+      admin: [
+        "공통 API.js 모듈을 통해 API 호출 일관성 확보",
+        "향후 관리자 기능(이벤트 등록, 챌린지 관리 등) 확장을 고려한 구조 설계",
+      ],
+    },
+    roles: [
+      "CustomCalendar, HealthChallenge, Hospital, Medicine 등 주요 기능별 화면 UI 및 인터랙션 구현",
+      "SpeechRecognition / SpeechSynthesis 기반 음성 기능 통합",
+      "약 복용 시간 기반 체크박스 및 상태 관리 로직 구현",
+      "공통 API 인스턴스를 통한 axios 요청 처리 구조 설계 및 모듈화",
+      "모바일 우선의 반응형 UI 구현 및 styled-components를 활용한 조건부 스타일 처리",
+      "챌린지 이미지 선택, 업로드 기능 구현 및 상태 동기화 처리",
+      "모달, 커서 반응, 드래그 방지 등 세심한 UX/UI 개선",
+    ],
+    challenges: [
+      {
+        problem:
+          "페이지 전환 시 상태 유지가 되지 않고, 로그인 전 사용자의 토큰 미확인으로 인한 리로드 오류가 지속적으로 발생",
+        solution:
+          "토큰 존재 여부와 사용자 상태를 먼저 검사한 후 API 호출을 진행하도록 순서를 명확히 조정. 로그인 전 상태에서는 데이터 요청을 막도록 조건 분기 처리",
+        learnings:
+          "초기 렌더링 순서와 인증 상태 확인은 SPA에서 매우 중요함을 체감. 상태 흐름과 조건부 렌더링 구조의 중요성을 배움",
+      },
+      {
+        problem:
+          "Git 충돌 및 브랜치 전략 미흡으로 가족 초대 기능 손실, 작업물 삭제 등의 문제 발생",
+        solution:
+          "Git push 전에 항상 pull → conflict 확인 → 작업 브랜치에서만 작업하도록 팀에 교육 및 체크리스트 배포",
+        learnings:
+          "Git 브랜치 전략은 단순한 협업 도구가 아닌, 팀 전체 작업의 안정성과 직결됨. 규칙을 강제하고 공유하는 문화가 중요함",
+      },
+      {
+        problem:
+          "프론트 배포 후 일부 디바이스에서 폰트가 깨지거나 배경이 찌그러지는 문제 발생",
+        solution:
+          "폰트를 image화 하거나 CDN/woff 적용으로 처리하고, background-size, position 기준을 픽셀에서 % 단위로 통일",
+        learnings:
+          "실제 배포 시점에서 사용자 환경을 고려하지 않으면 예상치 못한 UI 이슈가 발생함. 완성 후 반드시 여러 환경에서 테스트해야 함",
+      },
+      {
+        problem:
+          "styled-components의 잘못된 cursor 설정, 모달 과도 렌더링, 드래그 불가 설정 누락으로 UX가 저하됨",
+        solution:
+          "`cursor: pointer / not-allowed`, `user-select: none`, `pointer-events: none` 등 요소별 스타일 디버깅 및 최적화",
+        learnings:
+          "작은 UI 피드백 하나로도 사용자 경험은 크게 달라짐. CSS 속성의 의도를 정확히 이해하고 통일된 스타일 전략이 필요함",
+      },
+      {
+        problem:
+          "useState를 과도하게 분리하여 컴포넌트가 복잡해지고, 데이터 흐름이 분산되어 유지보수가 어려움",
+        solution:
+          "하나의 객체로 묶어 상태 관리하도록 리팩토링하고, 공통 상태를 props → hooks 구조로 정리",
+        learnings:
+          "상태 관리는 개수가 아닌 구조가 핵심. 초기 설계에서 데이터 단위를 명확히 나누는 것이 중요함",
+      },
+      {
+        problem:
+          "팀 내 업무 분배 불균형으로 인해 일부 기능이 과하게 집중되었고, 백엔드는 데이터를 프론트에서 처리하도록 방치함",
+        solution:
+          "역할 분배 재조정과 함께 API 응답 형태 재정의 요청. 프론트가 모든 데이터를 처리하지 않도록 백엔드에 기능 분담 요구",
+        learnings:
+          "역할 분담은 기술 역량만이 아닌 책임감과 태도까지 고려해야 함. 불균형은 코드 품질뿐 아니라 팀워크에도 영향을 미침",
+      },
+    ],
+  },
+  {
+    name: "우동친",
+    description: "우리 동네 친구를 위한 지역 생태 지도 기반 커뮤니티 서비스",
+    overview:
+      "우동친은 지역 주민들이 주변의 생태계, 동물, 환경을 주제로 정보와 경험을 공유할 수 있도록 돕는 커뮤니티 서비스입니다. Kakao Maps API 기반 지도 UI를 중심으로 위치 기반 제보, 생태 정보 확인, 커뮤니티 기능을 제공합니다.",
+    detailDescription:
+      "React를 기반으로 한 SPA 서비스이며, 지도와 마커 중심의 인터랙션이 많고 사용자 위치 기반의 실시간 제보와 검색 기능을 제공합니다.\n프론트엔드 개발자로서 메인 구조 및 검색, 마커 생성, 오류 페이지 UX 전반을 담당하였습니다.\n이전 '봄 축제' 프로젝트에서 발생했던 지도 마커 중첩 및 성능 문제를 개선하고, 모듈화된 구조로 리팩토링을 완료하였습니다.",
+    categories: ["React", "JavaScript", "Team"],
+    feature: true,
+    image: "/images/projectsImage/Udongchin.png",
+    SemiInfo: [
+      "2025.03 - 2025.04 (약 1.5개월)",
+      "Team project",
+      "Frontend Developer",
+      "https://github.com/taejun0/2024_udongchin_front",
+      "https://2024-udongchin-front.vercel.app/",
+    ],
+    stack: [
+      "React 18 - 컴포넌트 기반 UI 구조로 인터랙티브한 지도 및 커뮤니티 기능 구현에 적합함",
+      "React Router v6.26.2 - 지도 중심 페이지, 커뮤니티 페이지, 마이페이지 등 SPA 라우팅 처리",
+      "Kakao Maps API - 지도 중심의 마커 생성, 이벤트 처리, 위치기반 제보 UI 구현에 사용",
+      "styled-components - 마커, 버튼, 검색창 등 UI 요소에 컴포넌트 기반 스타일 적용",
+      "Axios - Kakao Map 서버와의 비동기 통신 처리에 사용",
+      "커스텀 훅 (useLocation, useLike, useImageLoad) - 위치 권한, 이미지 lazy loading 등 재사용 가능한 로직 모듈화",
+    ],
+    features: {
+      problem: [
+        "기존 지역 정보 서비스는 공공기관 정보에 치중되어 시민 참여 및 제보 기반의 정보 공유가 어려움",
+        "실시간 제보 기반 커뮤니티 기능과 위치 기반 UX가 결합된 형태가 부족함",
+      ],
+      user: [
+        "지도 기반 제보 기능: 위치 선택 후 사진 및 내용 작성",
+        "검색 기능: 키워드 기반으로 제보 및 지역 정보 탐색 가능",
+        "실시간 마커 생성 및 필터링: 동물, 식물, 쓰레기 등 카테고리별 확인",
+        "마커 클릭 시 상세 정보 및 이미지 보기 가능",
+      ],
+      admin: [
+        "현재는 관리자 페이지는 존재하지 않으며, 향후 제보 검수 기능 확장 고려",
+      ],
+    },
+    roles: [
+      "메인 지도 페이지 구조 설계 및 Kakao Maps API 기반 마커 렌더링, 필터, 이벤트 처리 구현",
+      "Custom Hook: useLocation, useImageLoad, useLike 등 재사용 가능한 로직 분리",
+      "에러 페이지 UX 처리 및 사용자 경험 개선 (404, 검색 결과 없음 등)",
+      "Kakao Map 중심 대형 컴포넌트 구조 분리 및 리팩토링 → 관심사 기반 컴포넌트 분리",
+      "getRandomCoordinateForDong 유틸 함수 도입 → 마커 좌표 중첩 해결",
+    ],
+    challenges: [
+      {
+        problem:
+          "Kakao Maps 중심 대형 컴포넌트 구조에서 마커 중첩 및 ref 충돌 문제가 발생함\n- 마커 렌더링, 이벤트 처리, 필터 기능이 하나의 파일에 집중됨\n- mapRef.current와 DOM ref를 함께 사용할 때 오류 발생\n- 동일 좌표에 마커가 중첩되며 UX 저하 및 클릭 오류 발생",
+        solution:
+          "지도 렌더링 전용 컴포넌트로 분리하고, 위치 정보 관리용 useLocation 훅을 설계함.\nref는 지도 객체와 DOM 요소를 분리하여 관리했고, getRandomCoordinateForDong()을 도입하여 소수점 좌표 랜덤화를 통해 중첩을 해소함.",
+        learnings:
+          "지도 객체와 DOM 참조는 명확히 분리해야 UI 안정성을 확보할 수 있으며,\n대형 컴포넌트는 확장성과 유지보수 측면에서 불리함을 체감함.\n또한 마커 중첩 같은 UI 문제는 데이터 전처리 설계로 예방하는 것이 효과적임.",
+      },
+      {
+        problem:
+          "HTTPS 환경의 Vercel에서 HTTP 백엔드와 연결 시, 브라우저 혼합 콘텐츠 정책에 의해 API 요청이 차단됨",
+        solution:
+          "Vercel의 `vercel.json` 설정에서 rewrites 항목을 추가하여 `/api/:path*` 요청을 HTTP 백엔드로 프록시 처리함.\n이때 SPA 라우팅 문제도 고려해 `/(.*)` → `/` 경로 리디렉션 설정도 병행함.",
+        learnings:
+          "HTTPS ↔ HTTP 혼합 통신은 브라우저 차원에서 차단되며, 이를 우회하기 위해 프론트엔드 배포 플랫폼의 프록시 기능을 적극 활용해야 함.\nVercel은 rewrites 기능을 통해 마치 역방향 프록시처럼 동작시킬 수 있고, 이는 정적 SPA 구조에서도 효율적으로 적용 가능함을 경험함.",
       },
     ],
   },
