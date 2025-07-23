@@ -137,4 +137,15 @@ export const GoProjects = styled.div`
   position: relative;
 
   cursor: pointer;
+
+  padding: 0.25rem;
+
+  border-radius: 0.25rem;
+  box-shadow: inset 0 0 0 0 ${({ theme }) => theme.colors.black};
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  :hover {
+    color: ${({ theme }) => theme.colors.white};
+    box-shadow: inset 300px 0 0 0 ${({ theme }) => theme.colors.black};
+  }
 `;
