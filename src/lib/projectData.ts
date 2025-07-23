@@ -309,7 +309,7 @@ export const stacks: ProjectsStack[] = [
     detailDescription:
       "MOHAE는 Django 기반의 백엔드와 React 기반의 프론트엔드로 구성된 가족 건강 및 정서 연결 서비스입니다.\nReact의 컴포넌트 구조를 활용해 캘린더, 챌린지, 병원 예약 등 기능별로 분리된 화면을 구성했고,\nstyled-components를 통해 시각적으로 일관된 UI를 구현하였습니다.\n음성 인식(SpeechRecognition), 음성 출력(SpeechSynthesis), 챌린지 업로드, 알림 시스템 등 다양한 사용자 중심 기능을 통합하였습니다.",
     categories: ["React", "JavaScript", "Django", "Team"],
-    feature: true,
+    feature: false,
     image: "/images/projectsImage/Mohae.png",
     SemiInfo: [
       "2025.07 (해커톤 프로젝트)",

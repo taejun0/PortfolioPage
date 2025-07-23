@@ -88,7 +88,10 @@ export const ProjectLink = styled.a`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.gray350};
   margin-top: 0.5rem;
-  text-decoration: underline;
+
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 
   &:hover {
     color: ${({ theme }) => theme.colors.gray400};
