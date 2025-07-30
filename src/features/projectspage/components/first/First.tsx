@@ -12,7 +12,7 @@ const First = () => {
       </S.SubTitle>
       <S.Tags>
         <S.Tag>
-          <FaCode /> 4 Projects
+          <FaCode /> 6 Projects
         </S.Tag>
         <S.Tag>
           <FaCalendar /> 4 Tags

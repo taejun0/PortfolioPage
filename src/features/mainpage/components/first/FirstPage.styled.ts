@@ -72,7 +72,7 @@ export const ButtonList = styled.div`
 export const Buttons1 = styled(motion.div)`
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
   color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.gray350};
+  background-color: ${({ theme }) => theme.colors.gray300};
   padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;

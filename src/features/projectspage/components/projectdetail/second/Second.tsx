@@ -22,9 +22,15 @@ const Second = ({ SemiInfo, overview }: Props) => {
           <S.SemiContent>{SemiInfo[2]}</S.SemiContent>
         </S.SemiBox>
         <S.SemiBox>
-          <S.SemiTitle>Links</S.SemiTitle>
+          <S.SemiTitle>Github</S.SemiTitle>
           <S.SemiContent>{SemiInfo[3]}</S.SemiContent>
         </S.SemiBox>
+        {SemiInfo[4] && (
+          <S.SemiBox>
+            <S.SemiTitle>Links</S.SemiTitle>
+            <S.SemiContent>{SemiInfo[4]}</S.SemiContent>
+          </S.SemiBox>
+        )}
       </S.Container1>
       <S.Container2>
         <S.SemiTitle2>Overview</S.SemiTitle2>

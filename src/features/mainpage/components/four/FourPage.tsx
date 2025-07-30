@@ -6,7 +6,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
+import {
+  IoArrowBackOutline,
+  IoArrowForwardOutline,
+  IoLogoGithub,
+} from "react-icons/io5";
 
 const projectList = [
   {
@@ -40,14 +44,6 @@ const projectList = [
     tags: ["Team", "React", "GA", "UX"],
     image: "/images/projects/project3.svg",
     link: "https://github.com/LikeLion-at-DGU/2025_DongBak_Frontend",
-  },
-  {
-    title: "MOHAE",
-    description: `가족 구성원 간 일정·건강·문화생활 공유 플랫폼\n병원 진료 기록, 건강 챌린지, 가족 캘린더 등 일상 케어 기능 포함\nGit 충돌 문제 해결 경험`,
-    period: "2024.06 ~ 2024.08",
-    tags: ["Team", "React", "MVP 설계"],
-    image: "/images/projects/project1.svg",
-    link: "https://github.com/LikeLion-at-DGU/2024-hackathon-2-mohae-frontend",
   },
 ];
 
@@ -93,7 +89,8 @@ const FourPage = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    👉 프로젝트 보러가기
+                    프로젝트 보러가기
+                    <IoLogoGithub />
                   </S.ProjectLink>
                 </S.ProjectInfo>
               </S.ProjectCard>
