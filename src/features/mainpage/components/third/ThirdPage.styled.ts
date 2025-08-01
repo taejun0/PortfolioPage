@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
   align-items: center;
   min-height: calc(100dvh);
   gap: 2rem;
+
+  padding: 2rem;
 `;
 
 export const Title = styled.div`
@@ -16,13 +18,43 @@ export const Title = styled.div`
   color: ${({ theme }) => theme.colors.gray400};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 3rem;
+
+  @media (max-width: 760px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 2rem;
+  }
 `;
 
 export const SemiTitle = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   color: ${({ theme }) => theme.colors.gray200};
 
+  text-align: center;
+
   white-space: pre-line;
+
+  font-size: 1.125rem;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -65,6 +97,25 @@ export const BoxTitle = styled.div`
     background-color: ${({ theme }) => theme.colors.gray150};
     border-radius: 10px;
   }
+
+  @media (max-width: 760px) {
+    font-size: 1.375rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 1rem;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
 `;
 
 export const BoxText = styled.div`
@@ -73,6 +124,20 @@ export const BoxText = styled.div`
   color: ${({ theme }) => theme.colors.gray200};
 
   white-space: pre-line;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 0.625rem;
+  }
 `;
 
 export const HowManyUse = styled.div`

@@ -19,6 +19,19 @@ export const Title = styled.div`
 
 export const SemiTitle = styled.div`
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 1.125rem;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const Line = styled.div`
@@ -82,6 +95,18 @@ export const ContainerTitle = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
   font-size: 1.75rem;
+
+  @media (max-width: 760px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 1rem;
+  }
 `;
 
 export const ContainerTextBox = styled.div`
@@ -103,6 +128,18 @@ export const ContainerText = styled.div`
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
   color: ${({ theme }) => theme.colors.gray200};
   font-size: 1.125rem;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
 
   width: 100%;
 

@@ -21,8 +21,8 @@ const FivePage = () => {
 
   return (
     <S.Wrapper id="blog">
+      <S.Title>Latest Articles</S.Title>
       <S.Inner>
-        <S.Title>Latest Articles</S.Title>
         {posts.map((post, idx) => (
           <S.PostCard key={idx} href={post.link} target="_blank">
             {post.thumbnail && (

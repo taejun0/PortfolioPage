@@ -30,12 +30,38 @@ export const Title = styled.div`
   font-size: 3rem;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 760px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 2rem;
+  }
 `;
 
 export const SubTitle = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
-  font-size: 1rem;
+  font-size: 1.125rem;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
   display: flex;
   justify-content: center;
 `;
