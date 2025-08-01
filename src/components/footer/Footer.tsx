@@ -11,7 +11,7 @@ const Footer = () => {
       </S.Container>
       <S.Container2>
         <PiCopyrightFill />
-        2025 Taejun Oh. All rights reswerved.
+        2025 Taejun Oh. All rights reserved.
       </S.Container2>
     </S.Wrapper>
   );
