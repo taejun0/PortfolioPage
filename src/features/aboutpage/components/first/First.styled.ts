@@ -36,6 +36,20 @@ export const Title = styled.div`
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
 
   font-size: 3rem;
+
+  @media (max-width: 760px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 2rem;
+  }
 `;
 
 export const Text = styled.div`
@@ -44,6 +58,17 @@ export const Text = styled.div`
   color: ${({ theme }) => theme.colors.gray200};
   font-size: 1.125rem;
 
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
   white-space: pre-wrap;
 `;
 
@@ -53,6 +78,18 @@ export const Text2 = styled.div`
   color: ${({ theme }) => theme.colors.gray200};
 
   font-size: 1.125rem;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
   display: flex;
   align-items: center;
   gap: 0.5rem;

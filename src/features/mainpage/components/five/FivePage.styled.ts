@@ -4,9 +4,12 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.BG100};
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: calc(100dvh);
+  padding: 2rem;
+  gap: 2rem;
 `;
 
 export const Title = styled.div`
@@ -14,12 +17,31 @@ export const Title = styled.div`
   color: ${({ theme }) => theme.colors.gray400};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 3rem;
+
+  @media (max-width: 760px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 2rem;
+  }
 `;
 
 export const Inner = styled.div`
   width: 80%;
   display: flex;
+  flex-direction: row;
   gap: 2rem;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 export const PostCard = styled.a`

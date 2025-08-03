@@ -17,7 +17,7 @@ const First = () => {
         <S.Container2>
           <S.Title>About ME</S.Title>
           <S.Text>
-            {`예전에 이런 말을 들은적이 있습니다.
+            {`전에 이런 말을 들은적이 있습니다.
 "집단에서 공유되는 정보가, 곧 그 집단의 IQ다"
 
 아무리 뛰어난 개인이 있더라도,

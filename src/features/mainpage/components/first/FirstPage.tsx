@@ -60,13 +60,15 @@ const FirstPage = () => {
             프로젝트 보러가기
           </S.Buttons1>
         </a>
-        <S.Buttons2
-          initial={{ x: 200, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ type: "spring", delay: 2.2 }}
-        >
-          이력서 다운하기
-        </S.Buttons2>
+        <a href="/resume_otj.pdf" download>
+          <S.Buttons2
+            initial={{ x: 200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ type: "spring", delay: 2.2 }}
+          >
+            이력서 다운하기
+          </S.Buttons2>
+        </a>
       </S.ButtonList>
       <S.IconList
         initial={{ scale: 0, rotate: 180, opacity: 0 }}

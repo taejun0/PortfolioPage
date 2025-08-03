@@ -57,6 +57,20 @@ export const AboutTitle = styled.div`
   color: ${({ theme }) => theme.colors.gray400};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 3rem;
+
+  @media (max-width: 760px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 2rem;
+  }
 `;
 
 export const AboutText = styled.div`
@@ -65,4 +79,18 @@ export const AboutText = styled.div`
   white-space: pre-line;
 
   margin-bottom: 2rem;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 0.625rem;
+  }
 `;

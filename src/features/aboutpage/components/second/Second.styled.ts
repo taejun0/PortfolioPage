@@ -5,15 +5,31 @@ import { motion } from "framer-motion";
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   min-height: 100vh;
-  padding: 2rem 0 6rem 0;
+  padding: 2rem 2rem 6rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  box-sizing: border-box;
 `;
 
 export const Title = styled.div`
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 3rem;
+
+  @media (max-width: 760px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 2rem;
+  }
 `;
 
 export const CardContainer = styled(motion.div)`

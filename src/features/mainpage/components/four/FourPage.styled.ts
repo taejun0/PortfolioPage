@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: calc(100dvh);
+
+  padding: 2rem;
+
+  box-sizing: border-box;
 `;
 
 export const Title = styled.div`
@@ -18,6 +22,20 @@ export const Title = styled.div`
   color: ${({ theme }) => theme.colors.gray400};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 3rem;
+
+  @media (max-width: 760px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    top: -3.5rem;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 430px) {
+    top: -2.5rem;
+    font-size: 2rem;
+  }
 `;
 
 export const Inner = styled.div`
