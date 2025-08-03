@@ -23,7 +23,7 @@ const ProjectStackList = ({ selectedCategory }: Props) => {
 
   return (
     <S.Grid>
-      {filtered.map((item) => {
+      {filtered.map((item, index) => {
         const slug = encodeURIComponent(
           item.name.toLowerCase().replace(/\s+/g, "-")
         );
@@ -43,6 +43,7 @@ const ProjectStackList = ({ selectedCategory }: Props) => {
                 alt={item.name}
                 layout="fill"
                 objectFit="cover"
+                priority={index === 0}
               />
             </S.Thumbnail>
             {item.feature && <S.Featured>featured</S.Featured>}
