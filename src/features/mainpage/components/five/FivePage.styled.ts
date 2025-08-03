@@ -37,6 +37,7 @@ export const Inner = styled.div`
   width: 80%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 2rem;
 
   @media (max-width: 500px) {
@@ -45,7 +46,7 @@ export const Inner = styled.div`
 `;
 
 export const PostCard = styled.a`
-  max-height: 80vh;
+  max-height: 50vh;
   display: flex;
   flex-direction: column;
   padding: 1rem 1.5rem;
@@ -55,6 +56,7 @@ export const PostCard = styled.a`
   transition: transform 0.2s;
   text-decoration: none;
   gap: 0.25rem;
+  max-width: 300px;
 
   &:hover {
     transform: translateY(-3px);
