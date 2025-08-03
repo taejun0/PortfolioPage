@@ -2,6 +2,7 @@ import * as S from "./ProjectStackList.styled";
 
 import { useRouter } from "next/router";
 import { stacks } from "lib/projectData";
+import Image from "next/image";
 
 interface Props {
   selectedCategory: string;
@@ -36,7 +37,14 @@ const ProjectStackList = ({ selectedCategory }: Props) => {
               })
             }
           >
-            <S.Thumbnail src={item.image} alt={item.name} />
+            <S.Thumbnail>
+              <Image
+                src={item.image}
+                alt={item.name}
+                layout="fill"
+                objectFit="cover"
+              />
+            </S.Thumbnail>
             {item.feature && <S.Featured>featured</S.Featured>}
 
             <S.Container>

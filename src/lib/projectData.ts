@@ -32,7 +32,7 @@ export const stacks: ProjectsStack[] = [
       "React와 TypeScript 기반으로 구축된 이 서비스는\n실제 축제 현장에서 3일간 7개의 부스와 함께 운영되었습니다.\n프론트엔드 팀장을 맡아 전체 UI/UX 기획에 참여했으며,\n주문 흐름, 모달 인터랙션, API 연동 등 주요 개발을 주도하였습니다.",
     categories: ["React", "TypeScript", "Team"],
     feature: true,
-    image: "/images/projectsImage/D-order.png",
+    image: "/images/projectsImage/D-order.webp",
     SemiInfo: [
       "2025.05 - 현재 추가 개발 중",
       "Team project",
@@ -102,7 +102,7 @@ export const stacks: ProjectsStack[] = [
       "React 19 기반으로 구축된 본 프로젝트는 지도 일러스트를 중심으로\n공연 및 부스 정보를 직관적으로 확인할 수 있도록 기획되었습니다.\nFramer-motion을 활용한 부드러운 애니메이션과 모바일 최적화 UI, 실시간 검색 기능을 통해\n축제 현장의 몰입감을 웹에서도 그대로 경험할 수 있도록 구현했습니다.",
     categories: ["React", "JavaScript", "Team"],
     feature: true,
-    image: "/images/projectsImage/DongBak.png",
+    image: "/images/projectsImage/DongBak.webp",
     SemiInfo: [
       "2025.02 - 2025.03 (2개월)",
       "Team project",
@@ -166,7 +166,7 @@ export const stacks: ProjectsStack[] = [
       "SMART는 단순한 체력 측정을 넘어서, 병사 개개인의 훈련 데이터를 기반으로\nAI 피드백을 제공하는 웹 기반 훈련 보조 서비스입니다.\n훈련은 단순 반복보다는 정교한 자세와 피드백을 통해 개선되어야 하며,\n이는 병사의 동기부여 및 장기적인 체력 향상에 기여할 수 있습니다.\n특히 MediaPipe 기반 자세 분석, 실시간 카운트 및 피드백 제공, 누적 통계 시각화 기능을 통해\n훈련자에게 구체적이고 직관적인 정보를 제공합니다.",
     categories: ["React", "JavaScript", "AI", "Solo"],
     feature: false,
-    image: "/images/projectsImage/SMART.png",
+    image: "/images/projectsImage/SMART.webp",
     SemiInfo: [
       "2025.05 - 현재 추가 개발 중",
       "Solo project",
@@ -232,7 +232,7 @@ export const stacks: ProjectsStack[] = [
       "React, TypeScript, Next.js를 기반으로 한 정적 포트폴리오 웹사이트로\n프론트엔드 개발자로서의 저를 소개하는 페이지입니다.\nEmotion과 Framer Motion을 활용한 슬라이드 기반 인터페이스를 구성하였습니다.",
     categories: ["React", "TypeScript", "Next.js", "Solo"],
     feature: true,
-    image: "/images/projectsImage/PortFolio.png",
+    image: "/images/projectsImage/PortFolio.webp",
     SemiInfo: [
       "2025.05 - 현재 추가 개발 중",
       "Solo project",
@@ -310,7 +310,7 @@ export const stacks: ProjectsStack[] = [
       "MOHAE는 Django 기반의 백엔드와 React 기반의 프론트엔드로 구성된 가족 건강 및 정서 연결 서비스입니다.\nReact의 컴포넌트 구조를 활용해 캘린더, 챌린지, 병원 예약 등 기능별로 분리된 화면을 구성했고,\nstyled-components를 통해 시각적으로 일관된 UI를 구현하였습니다.\n음성 인식(SpeechRecognition), 음성 출력(SpeechSynthesis), 챌린지 업로드, 알림 시스템 등 다양한 사용자 중심 기능을 통합하였습니다.",
     categories: ["React", "JavaScript", "Django", "Team"],
     feature: false,
-    image: "/images/projectsImage/Mohae.png",
+    image: "/images/projectsImage/Mohae.webp",
     SemiInfo: [
       "2025.07 (해커톤 프로젝트)",
       "Team project",
@@ -412,7 +412,7 @@ export const stacks: ProjectsStack[] = [
       "React를 기반으로 한 SPA 서비스이며, 지도와 마커 중심의 인터랙션이 많고 사용자 위치 기반의 실시간 제보와 검색 기능을 제공합니다.\n프론트엔드 개발자로서 메인 구조 및 검색, 마커 생성, 오류 페이지 UX 전반을 담당하였습니다.\n이전 '봄 축제' 프로젝트에서 발생했던 지도 마커 중첩 및 성능 문제를 개선하고, 모듈화된 구조로 리팩토링을 완료하였습니다.",
     categories: ["React", "JavaScript", "Team"],
     feature: true,
-    image: "/images/projectsImage/Udongchin.png",
+    image: "/images/projectsImage/Udongchin.webp",
     SemiInfo: [
       "2025.03 - 2025.04 (약 1.5개월)",
       "Team project",
