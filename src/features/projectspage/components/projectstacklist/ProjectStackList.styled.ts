@@ -48,11 +48,13 @@ export const Container = styled.div`
   gap: 0.75rem;
 `;
 
-export const Thumbnail = styled.img`
+export const Thumbnail = styled.div`
   width: 100%;
   height: 160px;
-  object-fit: cover;
   border-radius: 1rem 1rem 0 0;
+
+  position: relative;
+  overflow: hidden;
 `;
 
 export const Title = styled.h3`
