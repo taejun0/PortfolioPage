@@ -2,6 +2,8 @@
 import { useSectionObserver } from "@hooks/useSectionObserver";
 import styled from "@emotion/styled";
 
+import Link from "next/link";
+
 const sections = [
   { id: "", label: "Main" },
   { id: "about", label: "About" },
@@ -20,13 +22,13 @@ const ScrollIndicator = () => {
         const isActive = activeId === id || (id === "" && activeId === "");
 
         return (
-          <a href={`#${id}`} key={id}>
+          <Link href={`#${id}`} key={id}>
             <Dot
               data-label={label}
               className={isActive ? "active" : ""}
               data-main={id === "" ? "true" : undefined}
             />
-          </a>
+          </Link>
         );
       })}
     </Wrapper>

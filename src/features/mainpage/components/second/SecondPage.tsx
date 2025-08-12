@@ -1,5 +1,7 @@
 import * as S from "./SecondPage.styled";
 
+import Link from "next/link";
+
 const SecondPage = () => {
   return (
     <S.Wrapper id="about">
@@ -21,9 +23,9 @@ const SecondPage = () => {
           팀원들과 끊임없이 대화하고, 설득하고, 조율하며  
           모두가 납득할 수 있는 방향으로 나아가고자 합니다.`}
         </S.AboutText>
-        <a href="/about">
+        <Link href="/about">
           <S.GoAboutMe>저에 대해 자세히 알아봐요 {"->"}</S.GoAboutMe>
-        </a>
+        </Link>
       </S.Container1>
       <S.Container2>
         <S.PortfolioImage src="/images/portFolio/myPicture.jpeg" />

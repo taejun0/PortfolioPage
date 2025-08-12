@@ -9,18 +9,18 @@ const Header = () => {
         <S.Title>Taejun's PortFolio</S.Title>
       </Link>
       <S.NaviSet>
-        <a href="/">
+        <Link href="/">
           <S.NaviTitle>Main</S.NaviTitle>
-        </a>
-        <a href="/about">
+        </Link>
+        <Link href="/about">
           <S.NaviTitle>About</S.NaviTitle>
-        </a>
-        <a href="/skills">
+        </Link>
+        <Link href="/skills">
           <S.NaviTitle>Skills</S.NaviTitle>
-        </a>
-        <a href="/projects">
+        </Link>
+        <Link href="/projects">
           <S.NaviTitle>Projects</S.NaviTitle>
-        </a>
+        </Link>
       </S.NaviSet>
     </S.Wrapper>
   );

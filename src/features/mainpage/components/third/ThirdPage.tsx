@@ -1,5 +1,7 @@
 import * as S from "./ThirdPage.styled";
 
+import Link from "next/link";
+
 import { SiReact, SiTypescript, SiNextdotjs } from "react-icons/si";
 import { IoColorPalette } from "react-icons/io5";
 
@@ -63,11 +65,11 @@ const ThirdPage = () => {
           </S.BoxText>
         </S.Box>
       </S.Container>
-      <a href="/skills">
+      <Link href="/skills">
         <S.HowManyUse>
           제가 사용하는 기술에 대해 자세히 알아봐요 {"->"}
         </S.HowManyUse>
-      </a>
+      </Link>
     </S.Wrapper>
   );
 };

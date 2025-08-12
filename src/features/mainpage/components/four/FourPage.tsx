@@ -1,5 +1,7 @@
 import * as S from "./FourPage.styled";
 
+import Link from "next/link";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
 import "swiper/css";
@@ -98,9 +100,9 @@ const FourPage = () => {
           ))}
         </Swiper>
       </S.Inner>
-      <a href="/projects">
+      <Link href="/projects">
         <S.GoProjects>저의 모든 프로젝트를 보러가요 {"->"}</S.GoProjects>
-      </a>
+      </Link>
     </S.Wrapper>
   );
 };
