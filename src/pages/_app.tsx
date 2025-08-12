@@ -34,8 +34,6 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-          <link rel="icon" href="/favicon.ico" />
-
           {/* optional: SNS 공유용 */}
           <meta property="og:title" content="오태준 포트폴리오" />
           <meta
