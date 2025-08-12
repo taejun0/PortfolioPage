@@ -12,6 +12,18 @@ export const Wrapper = styled.div`
   padding: 2rem;
 
   box-sizing: border-box;
+
+  @media (max-width: 760px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 430px) {
+    padding: 0.5rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -22,7 +34,7 @@ export const Title = styled.div`
   color: ${({ theme }) => theme.colors.gray400};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 3rem;
-
+  text-align: center;
   @media (max-width: 760px) {
     font-size: 3rem;
   }

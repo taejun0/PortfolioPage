@@ -1,21 +1,43 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: calc(100dvh);
+`;
+
+export const Container = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Container1 = styled.div`
   position: relative;
-  flex: 1.5;
+  flex: 1;
   display: flex;
   padding: 2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+
+  @media (max-width: 760px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 430px) {
+    padding: 0.5rem;
+  }
 `;
 
 export const Container2 = styled.div`
@@ -26,9 +48,24 @@ export const Container2 = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 760px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 430px) {
+    padding: 0.5rem;
+    @media (max-width: 430px) {
+      display: none;
+    }
+  }
 `;
 
-export const PortfolioImage = styled.img`
+export const PortfolioImage = styled(Image)`
   width: 100%;
   object-fit: contain;
   border-radius: 10px;
@@ -82,15 +119,18 @@ export const AboutText = styled.div`
 
   @media (max-width: 760px) {
     font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   @media (max-width: 600px) {
     top: -3.5rem;
     font-size: 0.8rem;
+    margin-bottom: 1rem;
   }
 
   @media (max-width: 430px) {
     top: -2.5rem;
     font-size: 0.625rem;
+    margin-bottom: 0.5rem;
   }
 `;
