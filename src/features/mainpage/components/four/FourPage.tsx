@@ -1,5 +1,6 @@
 import * as S from "./FourPage.styled";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ROUTE_CONSTANTS } from "@constants/routeConstants";
 
@@ -77,7 +78,22 @@ const FourPage = () => {
           {projectList.map((project, index) => (
             <SwiperSlide key={index}>
               <S.ProjectCard>
-                <S.ProjectImage src={project.image} alt={project.title} />
+                <Image
+                  src={project.image}
+                  alt={`${project.title} 대표 이미지`}
+                  width={1200}
+                  height={480}
+                  sizes="(max-width: 768px) 90vw, 70vw"
+                  loading="lazy"
+                  style={{
+                    display: "flex",
+                    alignContent: "center",
+                    width: "100%",
+                    height: "150px",
+                    objectFit: "contain",
+                    borderRadius: "1rem",
+                  }}
+                />
                 <S.ProjectInfo>
                   <S.ProjectTitle>{project.title}</S.ProjectTitle>
                   <S.ProjectPeriod>{project.period}</S.ProjectPeriod>

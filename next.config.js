@@ -4,6 +4,9 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
+  images: {
+    domains: ["velog.velcdn.com"],
+  },
 };
 
 module.exports = nextConfig;

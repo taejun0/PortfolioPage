@@ -133,7 +133,6 @@ export const NavigationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1.5rem;
 `;
 
 export const CustomNav = styled.button`
