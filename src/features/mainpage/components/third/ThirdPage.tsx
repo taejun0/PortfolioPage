@@ -1,6 +1,7 @@
 import * as S from "./ThirdPage.styled";
 
 import Link from "next/link";
+import { ROUTE_CONSTANTS } from "@constants/routeConstants";
 
 import { SiReact, SiTypescript, SiNextdotjs } from "react-icons/si";
 import { IoColorPalette } from "react-icons/io5";
@@ -65,7 +66,7 @@ const ThirdPage = () => {
           </S.BoxText>
         </S.Box>
       </S.Container>
-      <Link href="/skills">
+      <Link href={ROUTE_CONSTANTS.SKILLS}>
         <S.HowManyUse>
           제가 사용하는 기술에 대해 자세히 알아봐요 {"->"}
         </S.HowManyUse>

@@ -1,3 +1,6 @@
 export const ROUTE_CONSTANTS = {
-  TEST: "/",
+  MAIN: "/",
+  ABOUT: "/about",
+  SKILLS: "/skills",
+  PROJECTS: "/projects",
 };

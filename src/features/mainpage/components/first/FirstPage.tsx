@@ -1,6 +1,7 @@
 import * as S from "./FirstPage.styled";
 
 import Link from "next/link";
+import { ROUTE_CONSTANTS } from "@constants/routeConstants";
 
 import { SiVelog, SiGithub } from "react-icons/si";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
@@ -53,7 +54,7 @@ const FirstPage = () => {
       </motion.div>
 
       <S.ButtonList>
-        <Link href="/projects">
+        <Link href={ROUTE_CONSTANTS.PROJECTS}>
           <S.Buttons1
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}

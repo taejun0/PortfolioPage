@@ -1,6 +1,7 @@
 import * as S from "./FourPage.styled";
 
 import Link from "next/link";
+import { ROUTE_CONSTANTS } from "@constants/routeConstants";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
@@ -100,7 +101,7 @@ const FourPage = () => {
           ))}
         </Swiper>
       </S.Inner>
-      <Link href="/projects">
+      <Link href={ROUTE_CONSTANTS.PROJECTS}>
         <S.GoProjects>저의 모든 프로젝트를 보러가요 {"->"}</S.GoProjects>
       </Link>
     </S.Wrapper>

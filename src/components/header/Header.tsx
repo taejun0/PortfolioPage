@@ -2,23 +2,25 @@ import * as S from "./Header.styled";
 
 import Link from "next/link";
 
+import { ROUTE_CONSTANTS } from "@constants/routeConstants";
+
 const Header = () => {
   return (
     <S.Wrapper>
-      <Link href="/">
+      <Link href={ROUTE_CONSTANTS.MAIN}>
         <S.Title>Taejun's PortFolio</S.Title>
       </Link>
       <S.NaviSet>
-        <Link href="/">
+        <Link href={ROUTE_CONSTANTS.MAIN}>
           <S.NaviTitle>Main</S.NaviTitle>
         </Link>
-        <Link href="/about">
+        <Link href={ROUTE_CONSTANTS.ABOUT}>
           <S.NaviTitle>About</S.NaviTitle>
         </Link>
-        <Link href="/skills">
+        <Link href={ROUTE_CONSTANTS.SKILLS}>
           <S.NaviTitle>Skills</S.NaviTitle>
         </Link>
-        <Link href="/projects">
+        <Link href={ROUTE_CONSTANTS.PROJECTS}>
           <S.NaviTitle>Projects</S.NaviTitle>
         </Link>
       </S.NaviSet>

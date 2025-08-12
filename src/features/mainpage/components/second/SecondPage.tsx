@@ -1,6 +1,7 @@
 import * as S from "./SecondPage.styled";
 
 import Link from "next/link";
+import { ROUTE_CONSTANTS } from "@constants/routeConstants";
 
 const SecondPage = () => {
   return (
@@ -23,7 +24,7 @@ const SecondPage = () => {
           팀원들과 끊임없이 대화하고, 설득하고, 조율하며  
           모두가 납득할 수 있는 방향으로 나아가고자 합니다.`}
         </S.AboutText>
-        <Link href="/about">
+        <Link href={ROUTE_CONSTANTS.ABOUT}>
           <S.GoAboutMe>저에 대해 자세히 알아봐요 {"->"}</S.GoAboutMe>
         </Link>
       </S.Container1>
