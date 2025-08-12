@@ -11,6 +11,21 @@ export const Wrapper = styled.div`
   gap: 2rem;
 
   padding: 2rem;
+
+  @media (max-width: 760px) {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  @media (max-width: 430px) {
+    padding: 0.5rem;
+    gap: 0.75rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -73,12 +88,18 @@ export const Box = styled.div`
   width: 20vw;
   gap: 1rem;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 760px) {
     width: 40vw;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    gap: 0.5rem;
   }
 
   @media (max-width: 430px) {
     width: 80vw;
+    gap: 0.25rem;
   }
 `;
 
@@ -100,20 +121,23 @@ export const BoxTitle = styled.div`
 
   @media (max-width: 760px) {
     font-size: 1.375rem;
+    gap: 0.75rem;
   }
 
   @media (max-width: 600px) {
     top: -3.5rem;
     font-size: 1.25rem;
+    gap: 0.5rem;
   }
 
   @media (max-width: 430px) {
     top: -2.5rem;
     font-size: 1rem;
+    gap: 0.5rem;
 
     svg {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
     }
   }
 `;

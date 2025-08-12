@@ -11,6 +11,21 @@ export const Wrapper = styled.div`
 
   padding: 2rem;
   gap: 5rem;
+
+  @media (max-width: 760px) {
+    padding: 1.5rem;
+    gap: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  @media (max-width: 430px) {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
 `;
 
 export const Title1 = styled.div`
@@ -58,6 +73,18 @@ export const Container = styled.div`
   flex: 1;
   flex-direction: column;
   gap: 2rem;
+
+  @media (max-width: 760px) {
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    gap: 1rem;
+  }
+
+  @media (max-width: 430px) {
+    gap: 0.75rem;
+  }
 `;
 
 export const ContainerWrap = styled.div`
@@ -83,7 +110,7 @@ export const Box = styled.div`
 export const Title = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
-  font-size: 2rem;
+  font-size: 1.75rem;
 
   margin-bottom: 0.5rem;
 `;
@@ -95,6 +122,18 @@ export const Content = styled.div`
   justify-content: center;
 
   gap: 1rem;
+
+  @media (max-width: 760px) {
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    gap: 0.625rem;
+  }
+
+  @media (max-width: 430px) {
+    gap: 0.5rem;
+  }
 `;
 
 export const Content2 = styled.div`
@@ -113,6 +152,18 @@ export const Text = styled.div`
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
 
   font-size: 1.125rem;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const Text2 = styled.div`
@@ -121,6 +172,18 @@ export const Text2 = styled.div`
   color: ${({ theme }) => theme.colors.gray200};
 
   font-size: 1.125rem;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const Input = styled.input`
@@ -130,6 +193,20 @@ export const Input = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.gray200};
   border-radius: 6px;
   font-size: 1rem;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 10px;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    padding: 6px;
+    font-size: 0.75rem;
+  }
 `;
 
 export const TextArea = styled.textarea`
@@ -144,6 +221,20 @@ export const TextArea = styled.textarea`
   font-size: 1rem;
   resize: vertical;
   overflow-y: auto;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 10px;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    padding: 6px;
+    font-size: 0.75rem;
+  }
 `;
 
 export const SendButton = styled.button`

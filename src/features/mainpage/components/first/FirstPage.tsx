@@ -1,5 +1,8 @@
 import * as S from "./FirstPage.styled";
 
+import Link from "next/link";
+import { ROUTE_CONSTANTS } from "@constants/routeConstants";
+
 import { SiVelog, SiGithub } from "react-icons/si";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 
@@ -51,7 +54,7 @@ const FirstPage = () => {
       </motion.div>
 
       <S.ButtonList>
-        <a href="/projects">
+        <Link href={ROUTE_CONSTANTS.PROJECTS}>
           <S.Buttons1
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -59,8 +62,8 @@ const FirstPage = () => {
           >
             프로젝트 보러가기
           </S.Buttons1>
-        </a>
-        <a href="/resume_otj.pdf" download>
+        </Link>
+        <Link href="/resume_otj.pdf" download>
           <S.Buttons2
             initial={{ x: 200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -68,7 +71,7 @@ const FirstPage = () => {
           >
             이력서 다운하기
           </S.Buttons2>
-        </a>
+        </Link>
       </S.ButtonList>
       <S.IconList
         initial={{ scale: 0, rotate: 180, opacity: 0 }}

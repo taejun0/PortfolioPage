@@ -10,6 +10,21 @@ export const Wrapper = styled.div`
   min-height: calc(100dvh);
   padding: 2rem;
   gap: 2rem;
+
+  @media (max-width: 760px) {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  @media (max-width: 430px) {
+    padding: 0.5rem;
+    gap: 0.75rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -42,6 +57,19 @@ export const Inner = styled.div`
 
   @media (max-width: 500px) {
     flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 760px) {
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    gap: 1rem;
+  }
+
+  @media (max-width: 430px) {
+    gap: 0.75rem;
   }
 `;
 
@@ -55,22 +83,50 @@ export const PostCard = styled.a`
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s;
   text-decoration: none;
-  gap: 0.25rem;
+  gap: 0.5rem;
   max-width: 300px;
 
   &:hover {
     transform: translateY(-3px);
+  }
+
+  @media (max-width: 430px) {
+    gap: 0.25rem;
   }
 `;
 
 export const PostTitle = styled.h3`
   font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.gray400};
+
+  @media (max-width: 760px) {
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const PostDate = styled.p`
   font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.gray250};
+
+  @media (max-width: 760px) {
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.625rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.5rem;
+  }
 `;
 
 export const PostDesc = styled.p`
@@ -82,6 +138,21 @@ export const PostDesc = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
+
+  @media (max-width: 760px) {
+    font-size: 0.75rem;
+    margin-top: 0.375rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.625rem;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.5rem;
+    margin-top: 0.125rem;
+  }
 `;
 
 export const PostThumbnail = styled.img`

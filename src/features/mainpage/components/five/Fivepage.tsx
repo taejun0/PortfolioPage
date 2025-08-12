@@ -1,6 +1,8 @@
 "use client";
 
 import * as S from "./FivePage.styled";
+
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import fetchVelogPosts from "utils/fetchVelog";
 
@@ -26,7 +28,21 @@ const FivePage = () => {
         {posts.map((post, idx) => (
           <S.PostCard key={idx} href={post.link} target="_blank">
             {post.thumbnail && (
-              <S.PostThumbnail src={post.thumbnail} alt="썸네일" />
+              <Image
+                src={post.thumbnail}
+                alt={`${post.title} 썸네일`}
+                width={600}
+                height={400}
+                sizes="(max-width: 500px) 90vw, 260px"
+                loading="lazy"
+                style={{
+                  width: "100%",
+                  height: "150px",
+                  objectFit: "cover",
+                  borderRadius: "1rem",
+                  marginBottom: "0.75rem",
+                }}
+              />
             )}
             <S.PostTitle>{post.title}</S.PostTitle>
             <S.PostDate>
