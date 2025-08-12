@@ -8,8 +8,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 2rem;
-
-  gap: 4rem;
+  gap: 0.5rem;
 `;
 
 export const Container = styled.div`
@@ -19,7 +18,8 @@ export const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  gap: 1rem;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
 `;
 
 export const Container2 = styled.div`
@@ -54,7 +54,7 @@ export const Title = styled.div`
 
 export const Text = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
+  font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   color: ${({ theme }) => theme.colors.gray200};
   font-size: 1.125rem;
 
@@ -74,7 +74,7 @@ export const Text = styled.div`
 
 export const Text2 = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
+  font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   color: ${({ theme }) => theme.colors.gray200};
 
   font-size: 1.125rem;
@@ -102,10 +102,8 @@ export const Text2 = styled.div`
 `;
 
 export const DownArrow = styled(motion.div)`
-  position: absolute;
   width: 30px;
   height: 30px;
-  bottom: 5.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

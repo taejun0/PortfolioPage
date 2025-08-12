@@ -17,6 +17,8 @@ export const Title = styled.div`
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 3rem;
 
+  padding-bottom: 2rem;
+
   @media (max-width: 760px) {
     font-size: 3rem;
   }

@@ -127,7 +127,7 @@ export const ContainerText = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
   color: ${({ theme }) => theme.colors.gray200};
-  font-size: 1.125rem;
+  font-size: 1rem;
 
   @media (max-width: 760px) {
     font-size: 1rem;
@@ -167,7 +167,7 @@ export const Keyword = styled.span`
   font-size: 0.875rem;
   padding: 0.25rem 0.5rem;
   background-color: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.gray100};
+  color: ${({ theme }) => theme.colors.BG100};
   border-radius: 999px;
   white-space: nowrap;
 `;
