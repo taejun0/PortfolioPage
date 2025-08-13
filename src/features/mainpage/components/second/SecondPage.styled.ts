@@ -67,6 +67,7 @@ export const Container2 = styled.div`
 
 export const PortfolioImage = styled(Image)`
   width: 100%;
+  height: auto;
   object-fit: contain;
   border-radius: 10px;
 `;

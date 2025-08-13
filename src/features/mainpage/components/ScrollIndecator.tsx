@@ -1,4 +1,5 @@
-// components/ScrollIndicator.tsx
+"use client";
+
 import { useSectionObserver } from "@hooks/useSectionObserver";
 import styled from "@emotion/styled";
 

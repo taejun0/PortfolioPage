@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./Header.styled";
 
 import Link from "next/link";

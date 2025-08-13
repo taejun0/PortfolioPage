@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./Third.styled";
 import AnimatedDetails from "./AnimatedDetails";
 

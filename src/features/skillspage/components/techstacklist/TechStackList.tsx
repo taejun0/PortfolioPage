@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./TeckStackList.styled";
 
 import { useState, useRef, useLayoutEffect } from "react";

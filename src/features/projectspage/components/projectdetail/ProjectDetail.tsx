@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./ProjectDetail.styled";
 import { useEffect } from "react";
 

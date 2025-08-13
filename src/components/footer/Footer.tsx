@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./Footer.styled";
 
 import { PiCopyrightFill } from "react-icons/pi";

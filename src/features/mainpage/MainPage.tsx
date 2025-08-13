@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./MainPage.styled";
 import dynamic from "next/dynamic";
 import FirstPage from "./components/first/FirstPage";

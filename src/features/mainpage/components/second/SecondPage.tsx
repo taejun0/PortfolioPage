@@ -35,7 +35,8 @@ const SecondPage = () => {
             alt="오태준 프로필"
             width={640}
             height={800}
-            style={{ paddingRight: 20, minWidth: 80 }}
+            sizes="(max-width: 768px) 100vw, 400px"
+            style={{ paddingRight: 20 }}
             priority
           />
         </S.Container2>

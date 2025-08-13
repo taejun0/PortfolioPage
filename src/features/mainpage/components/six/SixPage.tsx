@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./SixPage.styled";
 
 import { SiMinutemailer, SiGithub, SiGmail } from "react-icons/si";

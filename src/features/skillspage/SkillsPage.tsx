@@ -1,3 +1,5 @@
+"use client";
+
 import * as S from "./SkillsPage.styled";
 
 import First from "./components/first/First";

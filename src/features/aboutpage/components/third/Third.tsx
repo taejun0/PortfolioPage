@@ -21,8 +21,8 @@ const Third = () => {
                   {THIRDCONSTANT.TEXT.CONTENT.ONE.CONTENT.TITLE}
                 </S.ContainerText>
               </S.ContainerTextBox>
-              {THIRDCONSTANT.TEXT.CONTENT.ONE.CONTENT.TEXT.map((i) => (
-                <S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.ONE.CONTENT.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`one-${idx}`}>
                   <S.ContainerText>{i}</S.ContainerText>
                   <div>·</div>
                 </S.ContainerTextBox>
@@ -34,8 +34,8 @@ const Third = () => {
         <S.ContainerWrap>
           <S.Container1>
             <S.Keywords>
-              {THIRDCONSTANT.TEXT.CONTENT.TWO.KEYWORD.map((i) => (
-                <S.Keyword>{i}</S.Keyword>
+              {THIRDCONSTANT.TEXT.CONTENT.TWO.KEYWORD.map((i, idx) => (
+                <S.Keyword key={`two-key-${idx}`}>{i}</S.Keyword>
               ))}
             </S.Keywords>
           </S.Container1>
@@ -50,8 +50,8 @@ const Third = () => {
                   {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT1.TITLE}
                 </S.ContainerText>
               </S.ContainerTextBox>
-              {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT1.TEXT.map((i) => (
-                <S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT1.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`two-c1-${idx}`}>
                   <div>·</div>
                   <S.ContainerText>{i}</S.ContainerText>
                 </S.ContainerTextBox>
@@ -64,8 +64,8 @@ const Third = () => {
                   {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT2.TITLE}
                 </S.ContainerText>
               </S.ContainerTextBox>
-              {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT2.TEXT.map((i) => (
-                <S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT2.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`two-c2-${idx}`}>
                   <div>·</div>
                   <S.ContainerText>{i}</S.ContainerText>
                 </S.ContainerTextBox>
@@ -80,8 +80,8 @@ const Third = () => {
               {THIRDCONSTANT.TEXT.CONTENT.THREE.TITLE}
             </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
-              {THIRDCONSTANT.TEXT.CONTENT.THREE.CONTENT1.TEXT.map((i) => (
-                <S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.THREE.CONTENT1.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`three-c1-${idx}`}>
                   <S.ContainerText>{i}</S.ContainerText>
                   <div>·</div>
                 </S.ContainerTextBox>
@@ -93,8 +93,8 @@ const Third = () => {
         <S.ContainerWrap>
           <S.Container1>
             <S.Keywords>
-              {THIRDCONSTANT.TEXT.CONTENT.FOUR.KEYWORD.map((i) => (
-                <S.Keyword>{i}</S.Keyword>
+              {THIRDCONSTANT.TEXT.CONTENT.FOUR.KEYWORD.map((i, idx) => (
+                <S.Keyword key={`four-key-${idx}`}>{i}</S.Keyword>
               ))}
             </S.Keywords>
           </S.Container1>
@@ -109,8 +109,8 @@ const Third = () => {
                   {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT1.TITLE}
                 </S.ContainerText>
               </S.ContainerTextBox>
-              {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT1.TEXT.map((i) => (
-                <S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT1.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`four-c1-${idx}`}>
                   <div>·</div>
                   <S.ContainerText>{i}</S.ContainerText>
                 </S.ContainerTextBox>
@@ -122,8 +122,8 @@ const Third = () => {
                   {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT2.TITLE}
                 </S.ContainerText>
               </S.ContainerTextBox>
-              {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT2.TEXT.map((i) => (
-                <S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT2.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`four-c2-${idx}`}>
                   <div>·</div>
                   <S.ContainerText>{i}</S.ContainerText>
                 </S.ContainerTextBox>
@@ -143,8 +143,8 @@ const Third = () => {
                   {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT1.TITLE}
                 </S.ContainerText>
               </S.ContainerTextBox>
-              {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT1.TEXT.map((i) => (
-                <S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT1.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`five-c1-${idx}`}>
                   <S.ContainerText>{i}</S.ContainerText>
                   <div>·</div>
                 </S.ContainerTextBox>
@@ -156,8 +156,8 @@ const Third = () => {
                   {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT2.TITLE}
                 </S.ContainerText>
               </S.ContainerTextBox>
-              {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT2.TEXT.map((i) => (
-                <S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT2.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`five-c2-${idx}`}>
                   <S.ContainerText>{i}</S.ContainerText>
                   <div>·</div>
                 </S.ContainerTextBox>
@@ -169,8 +169,9 @@ const Third = () => {
                   {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT3.TITLE}
                 </S.ContainerText>
               </S.ContainerTextBox>
-              {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT3.TEXT.map((i) => (
-                <S.ContainerTextBox>
+
+              {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT3.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`five-c3-${idx}`}>
                   <S.ContainerText>{i}</S.ContainerText>
                   <div>·</div>
                 </S.ContainerTextBox>
@@ -179,8 +180,8 @@ const Third = () => {
           </S.Container1>
           <S.Container2>
             <S.Keywords>
-              {THIRDCONSTANT.TEXT.CONTENT.FIVE.KEYWORD.map((i) => (
-                <S.Keyword>{i}</S.Keyword>
+              {THIRDCONSTANT.TEXT.CONTENT.FIVE.KEYWORD.map((i, idx) => (
+                <S.Keyword key={`five-key-${idx}`}>{i}</S.Keyword>
               ))}
             </S.Keywords>
           </S.Container2>

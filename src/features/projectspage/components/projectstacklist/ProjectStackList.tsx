@@ -1,18 +1,21 @@
+"use client";
+
 import * as S from "./ProjectStackList.styled";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { stacks } from "lib/projectData";
 import Image from "next/image";
 
 interface Props {
   selectedCategory: string;
+  onOpen?: (slug: string) => void;
 }
 
 const convertCategory = (selected: string) => {
   return selected === "All Projects" ? "ALL" : selected;
 };
 
-const ProjectStackList = ({ selectedCategory }: Props) => {
+const ProjectStackList = ({ selectedCategory, onOpen }: Props) => {
   const category = convertCategory(selectedCategory);
 
   const filtered = stacks.filter(
@@ -28,21 +31,20 @@ const ProjectStackList = ({ selectedCategory }: Props) => {
           item.name.toLowerCase().replace(/\s+/g, "-")
         );
 
+        const handleClick = () => {
+          if (onOpen) onOpen(slug);
+          else router.push(`/projects?slug=${slug}`);
+        };
+
         return (
-          <S.Card
-            key={item.name}
-            onClick={() =>
-              router.push(`/projects?slug=${slug}`, undefined, {
-                shallow: true,
-              })
-            }
-          >
+          <S.Card key={item.name} onClick={handleClick}>
             <S.Thumbnail>
               <Image
                 src={item.image}
                 alt={item.name}
-                layout="fill"
-                objectFit="cover"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // ✅ 추가
+                style={{ objectFit: "cover" }}
                 priority={index === 0}
               />
             </S.Thumbnail>
