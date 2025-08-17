@@ -20,6 +20,7 @@ export interface ProjectsStack {
     solution: string;
     learnings: string;
   }[];
+  slug?: string;
 }
 
 export const stacks: ProjectsStack[] = [
