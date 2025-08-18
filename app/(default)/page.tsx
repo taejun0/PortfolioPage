@@ -1,8 +1,9 @@
 // app/(detail)/projects/page.tsx
+import type { Metadata } from "next";
 import MainPage from "@features/mainpage/MainPage";
 
-export const metadata = {
-  title: "Main | 오태준 포트폴리오",
+export const metadata: Metadata = {
+  title: "Main",
 };
 
 export default function Main() {

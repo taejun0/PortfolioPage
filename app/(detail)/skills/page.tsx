@@ -1,9 +1,8 @@
-// app/(detail)/projects/page.tsx
+// app/(detail)/skills/page.tsx
+import type { Metadata } from "next";
 import SkillsPage from "@features/skillspage/SkillsPage";
 
-export const metadata = {
-  title: "Skills | 오태준 포트폴리오",
-};
+export const metadata: Metadata = { title: "Skills" };
 
 export default function Skills() {
   return <SkillsPage />;

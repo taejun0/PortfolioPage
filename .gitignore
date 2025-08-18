@@ -49,3 +49,6 @@ coverage/
 
 # --- Misc ---
 *.tgz
+
+
+.DS_Store

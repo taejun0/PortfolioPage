@@ -1,9 +1,8 @@
 // app/(detail)/about/page.tsx
+import type { Metadata } from "next";
 import AboutPage from "@features/aboutpage/AboutPage";
 
-export const metadata = {
-  title: "About | 오태준 포트폴리오",
-};
+export const metadata: Metadata = { title: "About" };
 
 export default function About() {
   return <AboutPage />;
