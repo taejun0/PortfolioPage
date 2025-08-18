@@ -4,19 +4,14 @@ import ProjectsPage from "@features/projectspage/ProjectsPage";
 
 export const metadata: Metadata = { title: "Projects" };
 
-type SearchParamsPromise = Promise<
-  Record<string, string | string[] | undefined>
->;
+type SearchParams = Record<string, string | string[] | undefined>;
 
-export default async function Projects({
+export default function Projects({
   searchParams,
 }: {
-  searchParams: SearchParamsPromise;
+  searchParams?: SearchParams;
 }) {
-  const params = await searchParams;
-
-  const raw = params?.slug;
+  const raw = searchParams?.slug;
   const slug = Array.isArray(raw) ? raw[0] : raw ?? null;
-
   return <ProjectsPage initialSlug={slug} />;
 }
