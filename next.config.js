@@ -5,7 +5,13 @@ const nextConfig = {
     emotion: true,
   },
   images: {
-    domains: ["velog.velcdn.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "velog.velcdn.com",
+      },
+      { protocol: "https", hostname: "www.taejun0-portfolio.site" },
+    ],
   },
 };
 
