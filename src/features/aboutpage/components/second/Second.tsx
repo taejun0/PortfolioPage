@@ -10,7 +10,6 @@ const cardVariants = {
   onscreen: {
     y: 0,
     opacity: 1,
-    rotate: -4,
     transition: {
       type: "spring",
       bounce: 0.3,
@@ -40,6 +39,11 @@ const Second = () => {
   return (
     <S.Wrapper>
       <S.Title>{SECONDCONSTANT.TEXT.TITLE}</S.Title>
+      <S.SemiTitle>
+        제가 개발을 대하는 철학이 담긴 다소 긴 내용들이 준비되어있습니다.
+        <br />
+        넘어가주셔도 좋습니다. 😀
+      </S.SemiTitle>
       {SECONDCONSTANT.TEXT.PHILOSOPHIES.map((p, i) => (
         <Card key={i} {...p} index={i} />
       ))}

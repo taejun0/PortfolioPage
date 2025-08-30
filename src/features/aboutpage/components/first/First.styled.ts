@@ -58,6 +58,8 @@ export const Text = styled.div`
   color: ${({ theme }) => theme.colors.gray200};
   font-size: 1.125rem;
 
+  line-height: 1.5;
+
   @media (max-width: 760px) {
     font-size: 1rem;
   }
