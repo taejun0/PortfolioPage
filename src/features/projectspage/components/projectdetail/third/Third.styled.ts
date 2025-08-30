@@ -34,11 +34,6 @@ export const CategoryButton = styled.button<{ selected: boolean }>`
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.white};
   }
-
-  &:active {
-    background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.black};
-  }
 `;
 
 export const ContentWrapper = styled.div`
