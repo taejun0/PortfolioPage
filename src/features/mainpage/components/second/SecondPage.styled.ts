@@ -21,14 +21,14 @@ export const Container1 = styled.div`
   position: relative;
   flex: 1;
   display: flex;
-  padding: 2rem;
+  padding: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 
   @media (max-width: 760px) {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   @media (max-width: 600px) {
@@ -44,13 +44,13 @@ export const Container2 = styled.div`
   position: relative;
   flex: 1;
   display: flex;
-  padding: 2rem;
+  padding: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   @media (max-width: 760px) {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   @media (max-width: 600px) {
@@ -69,7 +69,7 @@ export const PortfolioImage = styled(Image)`
   width: 100%;
   height: auto;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 20px;
 `;
 
 export const GoAboutMe = styled.div`
@@ -79,7 +79,6 @@ export const GoAboutMe = styled.div`
 
   padding: 0.25rem;
 
-  border-radius: 0.25rem;
   border-radius: 0.25rem;
   box-shadow: inset 0 0 0 0 ${({ theme }) => theme.colors.black};
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -114,12 +113,20 @@ export const AboutTitle = styled.div`
 export const AboutText = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   color: ${({ theme }) => theme.colors.gray250};
+  font-size: 1.125rem;
+
   white-space: pre-line;
+  line-height: 1.5;
 
   margin-bottom: 2rem;
 
+  .highlight {
+    color: ${({ theme }) => theme.colors.black};
+    font-weight: ${({ theme }) => theme.fonts.weights.bold};
+  }
+
   @media (max-width: 760px) {
-    font-size: 1rem;
+    font-size: 1.125rem;
     margin-bottom: 1.5rem;
   }
 
@@ -127,11 +134,13 @@ export const AboutText = styled.div`
     top: -3.5rem;
     font-size: 0.8rem;
     margin-bottom: 1rem;
+    line-height: 1.25;
   }
 
   @media (max-width: 430px) {
     top: -2.5rem;
     font-size: 0.625rem;
     margin-bottom: 0.5rem;
+    line-height: 1;
   }
 `;
