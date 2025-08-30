@@ -10,7 +10,7 @@ interface FeatureProps {
   features: {
     problem: string[];
     user: string[];
-    admin: string[];
+    admin?: string[];
   };
   roles: string[];
   challenges: {
@@ -56,9 +56,9 @@ const Third = ({ stack, features, roles, challenges }: FeatureProps) => {
           <li key={`u-${idx}`}>{item}</li>
         ))}
       </ul>
-      <h4>운영자</h4>
+      {features.admin && <h4>운영자</h4>}
       <ul>
-        {features.admin.map((item, idx) => (
+        {features.admin?.map((item, idx) => (
           <li key={`a-${idx}`}>{item}</li>
         ))}
       </ul>

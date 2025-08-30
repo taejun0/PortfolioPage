@@ -84,7 +84,6 @@ export const PostCard = styled.a`
   transition: transform 0.2s;
   text-decoration: none;
   gap: 0.5rem;
-  max-width: 300px;
 
   &:hover {
     transform: translateY(-3px);

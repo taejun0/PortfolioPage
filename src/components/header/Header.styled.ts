@@ -28,22 +28,28 @@ export const NaviSet = styled.div`
   gap: 1rem;
 `;
 
-export const NaviTitle = styled.div`
+export const NaviTitle = styled.div<{ $active?: boolean }>`
   ${({ theme }) => theme.fonts.Pretendard};
-  color: ${({ theme }) => theme.colors.black100};
+  color: ${({ theme, $active }) =>
+    $active ? theme.colors.white : theme.colors.black100};
+  background-color: ${({ theme, $active }) =>
+    $active ? theme.colors.black : theme.colors.BG100};
 
-  cursor: pointer;
+  cursor: ${({ $active }) => ($active ? "default" : "pointer")};
 
   padding: 0.25rem;
-
   border-radius: 0.25rem;
   box-shadow: inset 0 0 0 0 ${({ theme }) => theme.colors.black};
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
-  :hover {
-    color: ${({ theme }) => theme.colors.white};
-    box-shadow: inset 200px 0 0 0 ${({ theme }) => theme.colors.black};
-  }
+  ${({ $active, theme }) =>
+    !$active &&
+    `
+      &:hover {
+        color: ${theme.colors.white};
+        box-shadow: inset 200px 0 0 0 ${theme.colors.black};
+      }
+    `}
 `;
 
 export const Button = styled.div``;

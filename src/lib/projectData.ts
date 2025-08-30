@@ -12,7 +12,7 @@ export interface ProjectsStack {
   features: {
     problem: string[];
     user: string[];
-    admin: string[];
+    admin?: string[];
   };
   roles: string[];
   challenges: {
@@ -126,10 +126,6 @@ export const stacks: ProjectsStack[] = [
         "부스 정보 통합 검색: 키워드를 통해 원하는 동아리 부스 검색",
         "공연 일정 실시간 제공: 현재 진행 중인 공연 및 예정 공연을 한눈에 확인",
         "모바일 친화 UI: 직관적인 모바일 UI/UX 및 QR코드 간편 접근",
-      ],
-      admin: [
-        "GitHub 및 Netlify를 통한 정적 배포 관리",
-        "향후 공연 정보 및 부스 배치 데이터 연동을 위한 컴포넌트 구조화 설계",
       ],
     },
     roles: [
@@ -265,11 +261,6 @@ export const stacks: ProjectsStack[] = [
         "모바일에서도 반응형으로 자연스러운 인터페이스 구현",
         "다크 그레이 톤 기반의 테마로 깔끔하고 집중도 있는 UI",
       ],
-      admin: [
-        "GitHub 및 Vercel 기반의 배포 자동화로 관리 효율성 향상",
-        "디자인-개발 분리 기반 구조 설계로 향후 유지보수 용이",
-        "모든 콘텐츠를 컴포넌트화하여 재사용성과 확장성 확보",
-      ],
     },
     roles: [
       "UX 기획: 스토리텔링 중심 구조 설계 및 슬라이드 레이아웃 구성",
@@ -280,25 +271,19 @@ export const stacks: ProjectsStack[] = [
     challenges: [
       {
         problem:
-          "초기 디자인 설계 없이 기능 위주로 개발 시 전체적인 흐름이 끊기고, 사용자 입장에서 어색한 경험을 제공하게 됨",
+          "포트폴리오 사이트의 Lighthouse 점수 중 Performance·SEO가 낮게 측정되었습니다. 사용자 경험과 검색 노출도를 개선하기 위해 핵심 병목 원인을 진단하고 점진적으로 최적화를 진행하였습니다.",
         solution:
-          "Figma를 활용해 사용자 관점에서 동선을 설계한 후 개발을 시작하였고, 각 섹션을 스토리텔링 방식으로 구성해 흐름 개선",
+          "1) SEO 메타 구성\n next/head(또는 App Router의 metadata)로 _app.tsx/레이아웃에 공통 메타 정의\n Open Graph / Twitter Card 삽입, 이미지 alt와 시맨틱 마크업 보완\n 2)라우팅/배포 정책 정리\n 메인 도메인에 프로덕션 연결, 보조 도메인은 308 Permanent Redirect로 일원화\n 불필요한 307(Temporary) 회전 제거 → 초기 재요청 비용 축소\n3) 이미지 최적화 & LCP 개선\n정적 자산 PNG → WebP 변환\n next/image 도입 → <picture>/WebP/사이즈 최적화 자동 처리\n LCP 후보에 우선순위 부여: 첫 카드/히어로 이미지를 priority로 지정",
         learnings:
-          "기획-디자인-개발의 흐름을 유기적으로 연결하는 중요성을 체감하였고, 사용자 경험 중심 개발에 대한 인사이트를 얻게 됨",
+          "수치(점수)를 올린 게 아니라 사용자가 실제로 더 빠르게 페이지를 경험하도록 만드는 과정을 통해 성능·SEO·접근성은 단순한 지표가 아니라 UX에 직결되는 요소라는 걸 체감했습니다.\n리디렉션 정책(307→308) 변경 하나로 FCP가 23.9s → 0.9s로 급격히 개선된 경험을 통해, 단순히 코드 최적화가 아니라 도메인·라우팅·배포 인프라까지 전체 흐름을 점검해야 한다는 깨달았습니다.\n이미지 포맷(WebP), LCP 우선 로딩, 시맨틱 마크업 보완 → UX, SEO, 접근성까지 다루는 포괄적 역할 수행하며, “프론트엔드는 단순히 화면 그리는 역할이 아니다”라는 확신을 얻었습니다.",
       },
       {
-        problem: "다양한 기술 스택을 표현하면서도 깔끔한 UI를 유지하기 어려움",
+        problem:
+          "포트폴리오 사이트에서 Next.js를 사용했으나 초반엔 단순히 파일 기반 라우팅의 편리함으로 도입했을 뿐 SSR이나 구조적 장점은 고려하지 않았습니다.\n그러나 프로젝트가 커지면서 레이아웃 중복, 라우팅 복잡성, 상태 관리 혼합 등의 문제가 발생했고, 이를 해결하기 위해 App Router로 리팩토링을 진행했습니다.",
         solution:
-          "Emotion으로 컴포넌트 단위 스타일을 관리하고, React Query와 Zustand로 로직을 모듈화해 UI와 기능을 분리",
+          "1) App Router 전환\n 중첩 레이아웃 구조: 경로별 layout.tsx 활용 + 라우팅 그룹으로 역할을 분리\n 서버 컴포넌트(RSC): 기본 서버 렌더링 → 불필요한 JS 제거, 보안 강화\n 클라이언트 컴포넌트 분리: 상호작용 영역에만 'use client' 선언\n URL 파라미터/쿼리 단순화: useRouter, useSearchParams 도입 → 직관적이고 가벼운 API\n SEO/파비콘 자동화: App Router의 metadata와 icon 설정으로 _document.tsx 불필요\n2) 시행착오\n useRouter/useSearchParams의 차이 → 비동기 객체여서 동기 접근 불가, 클라이언트 전용으로 사용\n 'use client' 선언 누락 시 오류 발생 → 서버/클라이언트 컴포넌트의 경계 개념을 이해하는 계기",
         learnings:
-          "모듈 단위로 로직을 관리하는 클린 아키텍처 설계의 중요성과 CSS-in-JS의 확장성과 편의성을 체험함",
-      },
-      {
-        problem: "포트폴리오 수정 시마다 수동 배포의 번거로움 존재",
-        solution:
-          "GitHub Actions를 활용해 push 이벤트 기반 자동 배포 파이프라인 구성",
-        learnings:
-          "CI/CD 자동화를 통해 개인 프로젝트에서도 효율적인 개발-배포 루틴을 구성할 수 있음을 경험함",
+          "단순 라우팅 → 중첩 레이아웃, 서버/클라 컴포넌트 분리로 프로젝트 아키텍처 자체가 단순·명확해지며 라우팅은 단순 경로가 아니라 전체 코드베이스 유지보수성에 직결된다는 인식을 얻었습니다.\n'use client' 선언과 서버 컴포넌트 경계에서 SSR, RSC 개념을 몸으로 체득하며 결과적으로 SEO/초기 로딩 속도 향상까지 직접 경험.했습니다.\nmetadata, next/navigation 등 새로운 Next.js 13에 익숙해지며 앞으로의 프로젝트 또한 현대적 아키텍처로 설계할 수 있는 기반을 확보했습니다.",
       },
     ],
   },

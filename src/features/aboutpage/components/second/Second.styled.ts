@@ -34,6 +34,24 @@ export const Title = styled.div`
   }
 `;
 
+export const SemiTitle = styled.div`
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 1.125rem;
+  text-align: center;
+
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 430px) {
+    font-size: 0.75rem;
+  }
+`;
+
 export const CardContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
