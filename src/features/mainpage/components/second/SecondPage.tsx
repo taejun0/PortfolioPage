@@ -2,8 +2,13 @@ import * as S from "./SecondPage.styled";
 
 import Link from "next/link";
 import { ROUTE_CONSTANTS } from "@constants/routeConstants";
+import { forwardRef } from "react";
 
-const SecondPage = () => {
+interface SecondPageProps {
+  profileRef: React.RefObject<HTMLImageElement>;
+}
+
+const SecondPage = ({ profileRef }: SecondPageProps) => {
   return (
     <S.Wrapper id="about">
       <S.Container>
@@ -51,6 +56,8 @@ const SecondPage = () => {
         </S.Container1>
         <S.Container2>
           <S.PortfolioImage
+            ref={profileRef}
+            className="dock-target"
             src="/images/portFolio/myPicture.jpeg"
             alt="오태준 프로필"
             width={640}

@@ -70,6 +70,10 @@ export const PortfolioImage = styled(Image)`
   height: auto;
   object-fit: contain;
   border-radius: 20px;
+  &.hidden-by-docking {
+    opacity: 0;
+    pointer-events: none;
+  }
 `;
 
 export const GoAboutMe = styled.div`
