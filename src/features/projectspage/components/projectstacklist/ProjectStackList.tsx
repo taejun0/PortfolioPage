@@ -1,6 +1,7 @@
 "use client";
 
 import * as S from "./ProjectStackList.styled";
+import { Shimmer } from "./ProjectStackList.styled";
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -57,7 +58,53 @@ const ProjectStackList = ({ selectedCategory, onOpen }: Props) => {
     };
   }, [selectedCategory]);
 
-  if (loading) return <S.Grid>Loading...</S.Grid>;
+  if (loading) {
+    // 카드 6개 정도 스켈레톤
+    const skeletons = Array.from({ length: 6 });
+    return (
+      <S.Grid>
+        {skeletons.map((_, i) => (
+          <S.SkeletonCard key={`sk-${i}`}>
+            <S.SkThumb>
+              <Shimmer />
+            </S.SkThumb>
+            <S.SkBody>
+              {/* 제목 굵은 줄 */}
+              <S.SkLine h="18px" w="70%" r="8px">
+                <Shimmer />
+              </S.SkLine>
+
+              {/* 설명 2~3줄 */}
+              <S.SkLine w="100%">
+                <Shimmer />
+              </S.SkLine>
+              <S.SkLine w="85%">
+                <Shimmer />
+              </S.SkLine>
+
+              {/* 태그 더미 */}
+              <S.SkTagRow>
+                <S.SkTag>
+                  <Shimmer />
+                </S.SkTag>
+                <S.SkTag>
+                  <Shimmer />
+                </S.SkTag>
+                <S.SkTag>
+                  <Shimmer />
+                </S.SkTag>
+              </S.SkTagRow>
+
+              {/* View Details 자리 */}
+              <S.SkLine w="40%" h="12px" style={{ marginTop: 12 }}>
+                <Shimmer />
+              </S.SkLine>
+            </S.SkBody>
+          </S.SkeletonCard>
+        ))}
+      </S.Grid>
+    );
+  }
   if (err) return <S.Grid>에러가 발생했어요: {err}</S.Grid>;
   if (!data || data.length === 0) return <S.Grid>No projects.</S.Grid>;
 

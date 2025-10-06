@@ -1,3 +1,4 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const Grid = styled.div`
@@ -101,3 +102,79 @@ export const ViewDetail = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
 `;
+
+// skeleton
+
+const shimmer = keyframes`
+  0% { transform: translateX(-60%); }
+  100% { transform: translateX(120%); }
+`;
+
+const skeletonBg = `
+  background: #e9ecef;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+`;
+
+const Shimmer = styled.span`
+  position: absolute;
+  inset: 0;
+  transform: translateX(-60%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: ${shimmer} 1.4s infinite;
+`;
+
+export const SkeletonCard = styled(Card)`
+  pointer-events: none;
+`;
+
+export const SkThumb = styled.div`
+  ${skeletonBg}
+  width: 100%;
+  aspect-ratio: 16/10;
+  & > ${Shimmer} {
+    display: block;
+  }
+`;
+
+export const SkBody = styled.div`
+  padding: 16px;
+`;
+
+export const SkLine = styled.div<{ w?: string; h?: string; r?: string }>`
+  ${skeletonBg}
+  height: ${({ h }) => h ?? "14px"};
+  width: ${({ w }) => w ?? "100%"};
+  border-radius: ${({ r }) => r ?? "6px"};
+  margin-bottom: 10px;
+
+  & > ${Shimmer} {
+    display: block;
+  }
+`;
+
+export const SkTagRow = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+`;
+
+export const SkTag = styled.div`
+  ${skeletonBg}
+  height: 22px;
+  width: 60px;
+  border-radius: 999px;
+
+  & > ${Shimmer} {
+    display: block;
+  }
+`;
+
+// 재사용용 Shimmer export
+export { Shimmer };
