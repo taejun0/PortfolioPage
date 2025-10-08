@@ -116,7 +116,7 @@ export const AboutTitle = styled.div`
 
 export const AboutText = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  color: ${({ theme }) => theme.colors.gray250};
+  color: ${({ theme }) => theme.colors.gray200};
   font-size: 1.125rem;
 
   white-space: pre-line;
