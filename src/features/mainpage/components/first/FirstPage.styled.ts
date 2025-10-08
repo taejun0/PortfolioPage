@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.BG100};
   position: sticky;
-  top: 51px;
+  top: 59px;
   width: 100%;
-  height: calc(100dvh - 51px);
-  margin-top: 51px;
+  height: calc(100dvh - 59px);
+  margin-top: 59px;
   display: flex;
   flex-direction: column;
   justify-content: center;

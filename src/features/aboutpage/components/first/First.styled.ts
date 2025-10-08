@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  height: calc(100dvh - 51px);
+  height: calc(100dvh - 59px);
   display: flex;
   flex-direction: column;
   justify-content: center;
