@@ -53,7 +53,7 @@ const projectList = [
 
 const FourPage = () => {
   return (
-    <S.Wrapper id="projects">
+    <S.Wrapper>
       <S.Inner>
         <S.Title>Featured Projects</S.Title>
         <S.NavigationWrapper>

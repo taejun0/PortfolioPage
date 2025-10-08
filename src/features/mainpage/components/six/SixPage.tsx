@@ -31,7 +31,7 @@ const SixPage = () => {
       });
   };
   return (
-    <S.Wrapper id="contact">
+    <S.Wrapper>
       <S.Box>
         <S.Title1>Contact</S.Title1>
         <S.SemiTitle>언제든 편하게 연락주세요</S.SemiTitle>

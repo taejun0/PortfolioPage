@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 const FirstPage = () => {
   return (
-    <S.Wrapper>
+    <S.Wrapper id="main">
       <S.NameTitle
         initial={{ x: -200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}

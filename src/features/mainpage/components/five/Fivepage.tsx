@@ -22,7 +22,7 @@ const FivePage = () => {
   }, []);
 
   return (
-    <S.Wrapper id="blog">
+    <S.Wrapper>
       <S.Title>Latest Articles</S.Title>
       <S.Inner>
         {posts.map((post, idx) => (

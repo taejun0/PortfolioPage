@@ -1,12 +1,12 @@
 "use client";
 
-import { useSectionObserver } from "@hooks/useSectionObserver";
+import { useActiveSection } from "@hooks/useActiveSection";
 import styled from "@emotion/styled";
 
 import Link from "next/link";
 
 const sections = [
-  { id: "", label: "Main" },
+  { id: "main", label: "Main" },
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
@@ -15,7 +15,15 @@ const sections = [
 ];
 
 const ScrollIndicator = () => {
-  const activeId = useSectionObserver(sections.map((s) => s.id));
+  const activeId = useActiveSection(
+    sections.map((s) => s.id),
+    {
+      offsetTop: 60,
+      activeRatio: 0.35,
+      topId: "main",
+    }
+  );
+  console.log("activeId:", activeId);
 
   return (
     <Wrapper>

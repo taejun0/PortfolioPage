@@ -22,14 +22,26 @@ const MainPage = () => {
   const secondImageRef = useRef<HTMLImageElement>(null);
 
   return (
-    <S.Wrapper>
+    <S.Wrapper data-scroll-root>
       <StickyAvatar targetRef={secondImageRef} />
-      <FirstPage />
-      <SecondPage profileRef={secondImageRef} />
-      <ThirdPage />
-      <FourPage />
-      <FivePage />
-      <SixPage />
+      <S.Section id="main">
+        <FirstPage />
+      </S.Section>
+      <S.Section id="about">
+        <SecondPage profileRef={secondImageRef} />
+      </S.Section>
+      <S.Section id="skills">
+        <ThirdPage />
+      </S.Section>
+      <S.Section id="projects">
+        <FourPage />
+      </S.Section>
+      <S.Section id="blog">
+        <FivePage />
+      </S.Section>
+      <S.Section id="contact">
+        <SixPage />
+      </S.Section>
     </S.Wrapper>
   );
 };

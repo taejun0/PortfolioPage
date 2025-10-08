@@ -10,10 +10,10 @@ interface SecondPageProps {
 
 const SecondPage = ({ profileRef }: SecondPageProps) => {
   return (
-    <S.Wrapper id="about">
+    <S.Wrapper>
       <S.Container>
         <S.Container1>
-          <S.AboutTitle>About ME</S.AboutTitle>
+          <S.AboutTitle>ABOUT ME</S.AboutTitle>
           <S.AboutText>
             <span className="highlight">소통</span>,&nbsp;
             <span className="highlight">경험</span>,&nbsp;

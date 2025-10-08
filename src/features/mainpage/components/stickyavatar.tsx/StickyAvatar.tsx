@@ -17,9 +17,9 @@ const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
 export default function StickyAvatar({
   targetRef,
-  startSize = 100,
-  endSize = 200,
-  marginTop = 100,
+  startSize = 150,
+  endSize = 300,
+  marginTop = 80,
   marginRight = 40,
   dockThresholdVh = 0.25,
 }: Props) {
