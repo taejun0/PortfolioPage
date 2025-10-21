@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   min-height: calc(100dvh);
+  width: 100%;
 `;
 
 export const Container = styled.div`
