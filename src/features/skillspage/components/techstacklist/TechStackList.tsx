@@ -2,11 +2,16 @@
 
 import * as S from "./TeckStackList.styled";
 
-import { useState, useRef, useLayoutEffect } from "react";
+import {
+  useState,
+  useRef,
+  useLayoutEffect,
+  useEffect,
+  useMemo,
+  useCallback,
+} from "react";
 
 import { motion, AnimatePresence } from "framer-motion";
-
-import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 import {
   SiHtml5,
@@ -165,7 +170,6 @@ interface Props {
   selectedCategory: string;
 }
 
-const MAX_LENGTH = 40;
 interface TechStack {
   name: string;
   icon: React.ReactNode;
@@ -178,58 +182,140 @@ const TechStackItem = ({
   tech,
   isExpanded,
   toggleItem,
+  index,
 }: {
   tech: TechStack;
   isExpanded: boolean;
   toggleItem: (name: string) => void;
+  index: number;
 }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState<number>(50);
+  const [height, setHeight] = useState<number>(0);
 
   useLayoutEffect(() => {
     if (contentRef.current) {
       if (isExpanded) {
         setHeight(contentRef.current.scrollHeight);
       } else {
-        setHeight(50);
+        // 3줄 높이 계산 (대략)
+        const lineHeight = 1.75;
+        const fontSize = 15; // 0.9375rem = 15px
+        setHeight(fontSize * lineHeight * 3);
       }
     }
   }, [isExpanded]);
 
-  const showToggle = tech.description.length > MAX_LENGTH;
+  const handleCardClick = useCallback(() => {
+    if (cardRef.current) {
+      // 이미 확장된 상태면 바로 토글만
+      if (isExpanded) {
+        toggleItem(tech.name);
+        return;
+      }
+
+      // 카드를 화면 중앙으로 스크롤
+      const rect = cardRef.current.getBoundingClientRect();
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const centerY =
+        rect.top + scrollTop - window.innerHeight / 2 + rect.height / 2;
+
+      window.scrollTo({
+        top: centerY,
+        behavior: "smooth",
+      });
+
+      // 스크롤 완료 후 확장
+      setTimeout(() => {
+        toggleItem(tech.name);
+      }, 300);
+    }
+  }, [tech.name, toggleItem, isExpanded]);
 
   return (
-    <S.Item>
-      <S.TitleBox category={tech.category}>
-        {tech.icon}
-        <S.Title>{tech.name}</S.Title>
-      </S.TitleBox>
-      {tech.tags && (
-        <S.TagContainer>
-          {tech.tags.map((tag: string) => (
-            <S.Tag key={tag}>#{tag}</S.Tag>
-          ))}
-        </S.TagContainer>
-      )}
-      <AnimatePresence initial={false}>
-        <motion.div
-          animate={{ height }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          style={{ overflow: "hidden" }}
-        >
-          <div ref={contentRef}>
-            <S.Text $expanded={isExpanded}>{tech.description}</S.Text>
+    <motion.div
+      ref={cardRef}
+      layout
+      initial={{ opacity: 0, y: 50, scale: 0.92 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -20, scale: 0.95 }}
+      transition={{
+        delay: index * 0.05,
+        duration: 0.5,
+        ease: [0.34, 1.56, 0.64, 1],
+        layout: { duration: 0.3, ease: "easeInOut" },
+      }}
+      whileHover={{ y: -6, scale: 1.02 }}
+      whileTap={{ scale: 0.97 }}
+    >
+      <S.Item
+        category={tech.category}
+        onClick={handleCardClick}
+        $isExpanded={isExpanded}
+      >
+        <S.TitleBox category={tech.category}>
+          <motion.div
+            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+            transition={{ duration: 0.5 }}
+          >
+            {tech.icon}
+          </motion.div>
+          <div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.08 + 0.1, duration: 0.4 }}
+            >
+              <S.Title>{tech.name}</S.Title>
+            </motion.div>
+            <S.CategoryBadge
+              category={tech.category}
+              initial={{ opacity: 0, x: -10, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ delay: index * 0.08 + 0.2, duration: 0.4 }}
+              whileHover={{ scale: 1.08, x: 2 }}
+            >
+              {tech.category}
+            </S.CategoryBadge>
           </div>
-        </motion.div>
-      </AnimatePresence>
-      {showToggle && (
-        <S.ToggleButtonWrapper>
-          <S.ToggleButton onClick={() => toggleItem(tech.name)}>
-            {isExpanded ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
-          </S.ToggleButton>
-        </S.ToggleButtonWrapper>
-      )}
-    </S.Item>
+        </S.TitleBox>
+        {tech.tags && tech.tags.length > 0 && (
+          <S.TagContainer>
+            {tech.tags.map((tag: string, tagIndex: number) => (
+              <S.Tag
+                key={tag}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.08 + tagIndex * 0.05 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {tag}
+              </S.Tag>
+            ))}
+          </S.TagContainer>
+        )}
+        <AnimatePresence initial={false}>
+          <motion.div
+            animate={{ height }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            style={{ overflow: "hidden" }}
+          >
+            <div ref={contentRef}>
+              <S.Text
+                $expanded={isExpanded}
+                initial={{ opacity: 0.8 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                {tech.description}
+              </S.Text>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </S.Item>
+    </motion.div>
   );
 };
 
@@ -237,27 +323,38 @@ const TechStackList = ({ selectedCategory }: Props) => {
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>(
     {}
   );
-  const toggleItem = (name: string) => {
+
+  // 필터 변경 시 expanded 상태 초기화
+  useEffect(() => {
+    setExpandedItems({});
+  }, [selectedCategory]);
+
+  const toggleItem = useCallback((name: string) => {
     setExpandedItems((prev) => ({
       ...prev,
       [name]: !prev[name],
     }));
-  };
-  const filtered =
-    selectedCategory === "All"
+  }, []);
+
+  const filtered = useMemo(() => {
+    return selectedCategory === "All"
       ? techStacks
       : techStacks.filter((t) => t.category === selectedCategory);
+  }, [selectedCategory]);
 
   return (
     <S.Grid>
-      {filtered.map((tech) => (
-        <TechStackItem
-          key={tech.name}
-          tech={tech}
-          isExpanded={!!expandedItems[tech.name]}
-          toggleItem={toggleItem}
-        />
-      ))}
+      <AnimatePresence mode="popLayout">
+        {filtered.map((tech, index) => (
+          <TechStackItem
+            key={`${tech.name}-${selectedCategory}`}
+            tech={tech}
+            isExpanded={!!expandedItems[tech.name]}
+            toggleItem={toggleItem}
+            index={index}
+          />
+        ))}
+      </AnimatePresence>
     </S.Grid>
   );
 };
