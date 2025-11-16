@@ -57,8 +57,8 @@ export const Text = styled.div`
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   color: ${({ theme }) => theme.colors.gray200};
   font-size: 1.125rem;
-
-  line-height: 1.5;
+  line-height: 1.8;
+  white-space: pre-wrap;
 
   @media (max-width: 760px) {
     font-size: 1rem;
@@ -71,7 +71,19 @@ export const Text = styled.div`
   @media (max-width: 430px) {
     font-size: 0.75rem;
   }
-  white-space: pre-wrap;
+`;
+
+export const Highlight = styled.span`
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  display: inline-block;
 `;
 
 export const Text2 = styled.div`

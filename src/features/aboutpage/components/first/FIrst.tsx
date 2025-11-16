@@ -18,7 +18,24 @@ const First = () => {
       <S.Container>
         <S.Container2>
           <S.Title>{FIRSTCONSTANT.TEXT.TITLE}</S.Title>
-          <S.Text>{FIRSTCONSTANT.TEXT.ABOUTME}</S.Text>
+          <S.Text>
+            {FIRSTCONSTANT.TEXT.ABOUTME.split(
+              /(집단에서 공유되는 정보가, 곧 그 집단의 IQ다|팀 전체의 성장|더 나은 방향으로 함께 나아갈 수 있도록|지식과 인사이트를)/
+            ).map((part, index) => {
+              const highlights = [
+                "집단에서 공유되는 정보가",
+                "팀 전체의 성장",
+                "더 나은 방향으로 함께 나아갈 수 있도록",
+                "지식과 인사이트를",
+              ];
+              const isHighlight = highlights.some((h) => part.includes(h));
+              return isHighlight ? (
+                <S.Highlight key={index}>{part}</S.Highlight>
+              ) : (
+                <span key={index}>{part}</span>
+              );
+            })}
+          </S.Text>
         </S.Container2>
         <S.Container2>
           <S.Text2>

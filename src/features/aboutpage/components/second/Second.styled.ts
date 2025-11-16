@@ -3,52 +3,63 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.colors.BG100} 0%,
+    ${({ theme }) => theme.colors.white} 20%
+  );
   min-height: 100vh;
-  padding: 2rem 2rem 6rem 2rem;
+  padding: 6rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   box-sizing: border-box;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
 `;
 
-export const Title = styled.div`
+export const Title = styled.h2`
+  ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
-  font-size: 3rem;
+  font-size: 3.5rem;
+  color: ${({ theme }) => theme.colors.black};
+  letter-spacing: -0.03em;
+  margin: 0;
+  padding-bottom: 1.5rem;
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 
-  padding-bottom: 2rem;
-
-  @media (max-width: 760px) {
-    font-size: 3rem;
+  @media (max-width: 768px) {
+    font-size: 2.75rem;
   }
 
-  @media (max-width: 600px) {
-    top: -3.5rem;
-    font-size: 2.5rem;
-  }
-
-  @media (max-width: 430px) {
-    top: -2.5rem;
-    font-size: 2rem;
+  @media (max-width: 480px) {
+    font-size: 2.25rem;
   }
 `;
 
-export const SemiTitle = styled.div`
-  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+export const SemiTitle = styled.p`
+  ${({ theme }) => theme.fonts.Pretendard};
+  font-weight: ${({ theme }) => theme.fonts.weights.regular};
   font-size: 1.125rem;
+  color: ${({ theme }) => theme.colors.gray300};
   text-align: center;
+  margin: 0;
+  line-height: 1.6;
+  margin-bottom: 3rem;
 
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
-  @media (max-width: 600px) {
-    font-size: 0.875rem;
-  }
-
-  @media (max-width: 430px) {
-    font-size: 0.75rem;
+  @media (max-width: 480px) {
+    font-size: 0.9375rem;
   }
 `;
 
@@ -57,37 +68,72 @@ export const CardContainer = styled(motion.div)`
   justify-content: center;
   align-items: center;
   position: relative;
-  padding-top: 20px;
-  margin-bottom: -40px;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
   width: 100%;
 `;
 
 export const CardInner = styled(motion.div)`
-  width: 80%;
+  width: 100%;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border-radius: 16px;
+  align-items: flex-start;
+  border-radius: 20px;
   background: ${({ theme }) => theme.colors.white};
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  padding: 2rem;
-  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 3rem;
+  text-align: left;
+  gap: 1.5rem;
+  border: 2px solid ${({ theme }) => theme.colors.gray150};
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
 
-  gap: 1rem;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    border-color: ${({ theme }) => theme.colors.black};
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+    gap: 1.25rem;
+  }
 `;
 
-export const CardTitle = styled.div`
+export const CardTitle = styled.h3`
   ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.fonts.weights.bold};
+  font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
+  font-size: 2rem;
+  color: ${({ theme }) => theme.colors.black};
+  margin: 0;
+  letter-spacing: -0.02em;
 
-  font-size: 1.25rem;
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
-export const CardText = styled.div`
+export const CardText = styled.p`
   ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.fonts.weights.medium};
-  font-size: 1rem;
-
+  font-weight: ${({ theme }) => theme.fonts.weights.regular};
+  font-size: 1.125rem;
+  color: ${({ theme }) => theme.colors.gray300};
+  line-height: 1.8;
+  margin: 0;
   white-space: pre-wrap;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9375rem;
+  }
 `;
