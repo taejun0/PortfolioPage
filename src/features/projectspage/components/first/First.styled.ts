@@ -4,51 +4,89 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 2rem 0 2rem;
-
-  gap: 1rem;
 `;
 
-export const Title = styled.div`
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 4rem 2rem 2.5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #000, transparent);
+    border-radius: 2px;
+    opacity: 0.1;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem 2rem;
+    gap: 1.5rem;
+  }
+`;
+
+export const Container2 = styled.div`
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.colors.BG100} 0%,
+    ${({ theme }) => theme.colors.white} 20%
+  );
+  width: 100%;
+  min-height: calc(100dvh - 400px);
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+`;
+
+export const Title = styled.h1`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
-  font-size: 3rem;
-  display: flex;
-  justify-content: center;
+  font-size: 3.5rem;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.black};
+  letter-spacing: -0.03em;
+  margin: 0;
 
-  @media (max-width: 760px) {
-    font-size: 3rem;
+  @media (max-width: 768px) {
+    font-size: 2.75rem;
   }
 
-  @media (max-width: 600px) {
-    top: -3.5rem;
-    font-size: 2.5rem;
-  }
-
-  @media (max-width: 430px) {
-    top: -2.5rem;
-    font-size: 2rem;
+  @media (max-width: 480px) {
+    font-size: 2.25rem;
   }
 `;
 
-export const SubTitle = styled.div`
+export const SubTitle = styled.p`
   ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-weight: ${({ theme }) => theme.fonts.weights.regular};
   font-size: 1.125rem;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.gray300};
+  margin: 0;
+  line-height: 1.6;
 
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     font-size: 1rem;
   }
 
-  @media (max-width: 600px) {
-    font-size: 0.875rem;
+  @media (max-width: 480px) {
+    font-size: 0.9375rem;
   }
-
-  @media (max-width: 430px) {
-    font-size: 0.75rem;
-  }
-  display: flex;
-  justify-content: center;
 `;
 
 export const Tags = styled.div`
@@ -61,9 +99,7 @@ export const Tags = styled.div`
 export const Tag = styled.div`
   display: flex;
   align-items: center;
-
   gap: 0.5rem;
-
   color: ${({ theme }) => theme.colors.gray200};
 
   .svg {
