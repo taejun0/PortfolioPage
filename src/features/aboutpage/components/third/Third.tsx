@@ -5,54 +5,45 @@ import { THIRDCONSTANT } from "./ThirdConstant";
 const Third = () => {
   return (
     <S.Wrapper>
-      <S.Title>{THIRDCONSTANT.TEXT.TITLE}</S.Title>
-      <S.SemiTitle>{THIRDCONSTANT.TEXT.SEMITITLE}</S.SemiTitle>
+      <S.HeaderSection>
+        <S.Title>{THIRDCONSTANT.TEXT.TITLE}</S.Title>
+        <S.SemiTitle>{THIRDCONSTANT.TEXT.SEMITITLE}</S.SemiTitle>
+      </S.HeaderSection>
       <S.Containers>
-        <S.Line />
         <S.ContainerWrap>
-          <S.Container1>
+          <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.ONE.TIME}</S.Time>
             <S.ContainerTitle>
               {THIRDCONSTANT.TEXT.CONTENT.ONE.TITLE}
             </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
-                <S.ContainerText>
+                <S.SemiTitleText>
                   {THIRDCONSTANT.TEXT.CONTENT.ONE.CONTENT.TITLE}
-                </S.ContainerText>
+                </S.SemiTitleText>
               </S.ContainerTextBox>
               {THIRDCONSTANT.TEXT.CONTENT.ONE.CONTENT.TEXT.map((i, idx) => (
                 <S.ContainerTextBox key={`one-${idx}`}>
                   <S.ContainerText>{i}</S.ContainerText>
-                  <div>·</div>
                 </S.ContainerTextBox>
               ))}
             </S.ContainerTextBoxCOL>
-          </S.Container1>
-          <S.Container2></S.Container2>
+          </S.JourneyCard>
         </S.ContainerWrap>
         <S.ContainerWrap>
-          <S.Container1>
-            <S.Keywords>
-              {THIRDCONSTANT.TEXT.CONTENT.TWO.KEYWORD.map((i, idx) => (
-                <S.Keyword key={`two-key-${idx}`}>{i}</S.Keyword>
-              ))}
-            </S.Keywords>
-          </S.Container1>
-          <S.Container2>
+          <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.TWO.TIME}</S.Time>
             <S.ContainerTitle>
               {THIRDCONSTANT.TEXT.CONTENT.TWO.TITLE}
             </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
-                <S.ContainerText>
+                <S.SemiTitleText>
                   {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT1.TITLE}
-                </S.ContainerText>
+                </S.SemiTitleText>
               </S.ContainerTextBox>
               {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT1.TEXT.map((i, idx) => (
                 <S.ContainerTextBox key={`two-c1-${idx}`}>
-                  <div>·</div>
                   <S.ContainerText>{i}</S.ContainerText>
                 </S.ContainerTextBox>
               ))}
@@ -60,21 +51,25 @@ const Third = () => {
 
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
-                <S.ContainerText>
+                <S.SemiTitleText>
                   {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT2.TITLE}
-                </S.ContainerText>
+                </S.SemiTitleText>
               </S.ContainerTextBox>
               {THIRDCONSTANT.TEXT.CONTENT.TWO.CONTENT2.TEXT.map((i, idx) => (
                 <S.ContainerTextBox key={`two-c2-${idx}`}>
-                  <div>·</div>
                   <S.ContainerText>{i}</S.ContainerText>
                 </S.ContainerTextBox>
               ))}
             </S.ContainerTextBoxCOL>
-          </S.Container2>
+            <S.Keywords>
+              {THIRDCONSTANT.TEXT.CONTENT.TWO.KEYWORD.map((i, idx) => (
+                <S.Keyword key={`two-key-${idx}`}>{i}</S.Keyword>
+              ))}
+            </S.Keywords>
+          </S.JourneyCard>
         </S.ContainerWrap>
         <S.ContainerWrap>
-          <S.Container1>
+          <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.THREE.TIME}</S.Time>
             <S.ContainerTitle>
               {THIRDCONSTANT.TEXT.CONTENT.THREE.TITLE}
@@ -83,108 +78,96 @@ const Third = () => {
               {THIRDCONSTANT.TEXT.CONTENT.THREE.CONTENT1.TEXT.map((i, idx) => (
                 <S.ContainerTextBox key={`three-c1-${idx}`}>
                   <S.ContainerText>{i}</S.ContainerText>
-                  <div>·</div>
                 </S.ContainerTextBox>
               ))}
             </S.ContainerTextBoxCOL>
-          </S.Container1>
-          <S.Container2></S.Container2>
+          </S.JourneyCard>
         </S.ContainerWrap>
         <S.ContainerWrap>
-          <S.Container1>
-            <S.Keywords>
-              {THIRDCONSTANT.TEXT.CONTENT.FOUR.KEYWORD.map((i, idx) => (
-                <S.Keyword key={`four-key-${idx}`}>{i}</S.Keyword>
-              ))}
-            </S.Keywords>
-          </S.Container1>
-          <S.Container2>
+          <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.FOUR.TIME}</S.Time>
             <S.ContainerTitle>
               {THIRDCONSTANT.TEXT.CONTENT.FOUR.TITLE}
             </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
-                <S.ContainerText>
+                <S.SemiTitleText>
                   {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT1.TITLE}
-                </S.ContainerText>
+                </S.SemiTitleText>
               </S.ContainerTextBox>
               {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT1.TEXT.map((i, idx) => (
                 <S.ContainerTextBox key={`four-c1-${idx}`}>
-                  <div>·</div>
                   <S.ContainerText>{i}</S.ContainerText>
                 </S.ContainerTextBox>
               ))}
             </S.ContainerTextBoxCOL>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
-                <S.ContainerText>
+                <S.SemiTitleText>
                   {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT2.TITLE}
-                </S.ContainerText>
+                </S.SemiTitleText>
               </S.ContainerTextBox>
               {THIRDCONSTANT.TEXT.CONTENT.FOUR.CONTENT2.TEXT.map((i, idx) => (
                 <S.ContainerTextBox key={`four-c2-${idx}`}>
-                  <div>·</div>
                   <S.ContainerText>{i}</S.ContainerText>
                 </S.ContainerTextBox>
               ))}
             </S.ContainerTextBoxCOL>
-          </S.Container2>
+            <S.Keywords>
+              {THIRDCONSTANT.TEXT.CONTENT.FOUR.KEYWORD.map((i, idx) => (
+                <S.Keyword key={`four-key-${idx}`}>{i}</S.Keyword>
+              ))}
+            </S.Keywords>
+          </S.JourneyCard>
         </S.ContainerWrap>
         <S.ContainerWrap>
-          <S.Container1>
+          <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.FIVE.TIME}</S.Time>
             <S.ContainerTitle>
               {THIRDCONSTANT.TEXT.CONTENT.FIVE.TITLE}
             </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
-                <S.ContainerText>
+                <S.SemiTitleText>
                   {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT1.TITLE}
-                </S.ContainerText>
+                </S.SemiTitleText>
               </S.ContainerTextBox>
               {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT1.TEXT.map((i, idx) => (
                 <S.ContainerTextBox key={`five-c1-${idx}`}>
                   <S.ContainerText>{i}</S.ContainerText>
-                  <div>·</div>
                 </S.ContainerTextBox>
               ))}
             </S.ContainerTextBoxCOL>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
-                <S.ContainerText>
+                <S.SemiTitleText>
                   {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT2.TITLE}
-                </S.ContainerText>
+                </S.SemiTitleText>
               </S.ContainerTextBox>
               {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT2.TEXT.map((i, idx) => (
                 <S.ContainerTextBox key={`five-c2-${idx}`}>
                   <S.ContainerText>{i}</S.ContainerText>
-                  <div>·</div>
-                </S.ContainerTextBox>
-              ))}
-            </S.ContainerTextBoxCOL>{" "}
-            <S.ContainerTextBoxCOL>
-              <S.ContainerTextBox>
-                <S.ContainerText>
-                  {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT3.TITLE}
-                </S.ContainerText>
-              </S.ContainerTextBox>
-
-              {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT3.TEXT.map((i, idx) => (
-                <S.ContainerTextBox key={`five-c3-${idx}`}>
-                  <S.ContainerText>{i}</S.ContainerText>
-                  <div>·</div>
                 </S.ContainerTextBox>
               ))}
             </S.ContainerTextBoxCOL>
-          </S.Container1>
-          <S.Container2>
+            <S.ContainerTextBoxCOL>
+              <S.ContainerTextBox>
+                <S.SemiTitleText>
+                  {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT3.TITLE}
+                </S.SemiTitleText>
+              </S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.FIVE.CONTENT3.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`five-c3-${idx}`}>
+                  <S.ContainerText>{i}</S.ContainerText>
+                </S.ContainerTextBox>
+              ))}
+            </S.ContainerTextBoxCOL>
             <S.Keywords>
               {THIRDCONSTANT.TEXT.CONTENT.FIVE.KEYWORD.map((i, idx) => (
                 <S.Keyword key={`five-key-${idx}`}>{i}</S.Keyword>
               ))}
             </S.Keywords>
-          </S.Container2>
+          </S.JourneyCard>
         </S.ContainerWrap>
       </S.Containers>
     </S.Wrapper>
