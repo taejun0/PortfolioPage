@@ -119,11 +119,14 @@ export const AboutText = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   color: ${({ theme }) => theme.colors.gray200};
   font-size: 1.125rem;
-
-  white-space: pre-line;
   line-height: 1.5;
-
   margin-bottom: 2rem;
+
+  hr {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid ${({ theme }) => theme.colors.gray150};
+  }
 
   .highlight {
     color: ${({ theme }) => theme.colors.black};
@@ -136,16 +139,25 @@ export const AboutText = styled.div`
   }
 
   @media (max-width: 600px) {
-    top: -3.5rem;
     font-size: 0.8rem;
     margin-bottom: 1rem;
     line-height: 1.25;
   }
 
   @media (max-width: 430px) {
-    top: -2.5rem;
     font-size: 0.625rem;
     margin-bottom: 0.5rem;
     line-height: 1;
+  }
+`;
+
+export const TextLine = styled.div`
+  display: block;
+  margin-bottom: 0.5rem;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 `;
