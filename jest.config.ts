@@ -16,7 +16,15 @@ const customJestConfig = {
     "^.+\\.(css|scss|sass)$": "identity-obj-proxy",
   },
   testEnvironment: "jsdom",
-  transform: {},
+  transform: {
+    "^.+\\.(js|jsx|ts|tsx)$": [
+      "babel-jest",
+      {
+        presets: ["next/babel"],
+        plugins: ["@emotion/babel-plugin"],
+      },
+    ] as [string, unknown],
+  },
 };
 
 export default createJestConfig(customJestConfig);
