@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.BG100};
   position: sticky;
-  top: 59px;
+
   width: 100%;
   height: calc(100dvh - 59px);
   margin-top: 59px;
@@ -161,11 +161,12 @@ export const ButtonList = styled(motion.div)`
 
 export const Buttons1 = styled(motion.div)`
   position: relative;
+  width: fit-content;
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   color: ${({ theme }) => theme.colors.white};
   background: linear-gradient(
     135deg,
-    ${({ theme }) => theme.colors.gray300} 0%,
+    ${({ theme }) => theme.colors.gray200} 100%,
     ${({ theme }) => theme.colors.gray350} 100%
   );
   padding: 1rem 2rem;
@@ -173,7 +174,7 @@ export const Buttons1 = styled(motion.div)`
   cursor: pointer;
   overflow: hidden;
   font-size: 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.gray200};
+  border: 1px solid ${({ theme }) => theme.colors.black};
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 
@@ -201,6 +202,7 @@ export const Buttons1 = styled(motion.div)`
 
 export const Buttons2 = styled(motion.div)`
   position: relative;
+  width: fit-content;
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   color: ${({ theme }) => theme.colors.gray400};
   background: linear-gradient(
@@ -304,7 +306,7 @@ export const DownArrow = styled(motion.div)`
   position: absolute;
   width: 40px;
   height: 40px;
-  bottom: 3rem;
+  bottom: -2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -325,8 +327,7 @@ export const DownArrow = styled(motion.div)`
   }
 
   @media (max-width: 600px) {
-    bottom: 2rem;
-
+    bottom: -1rem;
     svg {
       width: 28px;
       height: 28px;
