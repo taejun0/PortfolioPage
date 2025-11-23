@@ -3,10 +3,16 @@
 import * as S from "./MainPage.styled";
 import dynamic from "next/dynamic";
 import FirstPage from "./components/first/FirstPage";
-import SecondPage from "./components/second/SecondPage";
-import ThirdPage from "./components/third/ThirdPage";
 import { useRef } from "react";
 import StickyAvatar from "./components/stickyavatar.tsx/StickyAvatar";
+
+// 첫 화면은 즉시 로드, 나머지는 동적 임포트
+const SecondPage = dynamic(() => import("./components/second/SecondPage"), {
+  loading: () => null,
+});
+const ThirdPage = dynamic(() => import("./components/third/ThirdPage"), {
+  loading: () => null,
+});
 
 const FourPage = dynamic(() => import("./components/four/FourPage"), {
   ssr: false,
