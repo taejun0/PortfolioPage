@@ -186,8 +186,8 @@ export const Buttons1 = styled(motion.div)`
   &:hover {
     background: linear-gradient(
       135deg,
-      ${({ theme }) => theme.colors.gray350} 0%,
-      ${({ theme }) => theme.colors.gray400} 100%
+      ${({ theme }) => theme.colors.gray250} 0%,
+      ${({ theme }) => theme.colors.gray300} 100%
     );
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
