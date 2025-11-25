@@ -5,7 +5,7 @@ import { ROUTE_CONSTANTS } from "@constants/routeConstants";
 import { forwardRef } from "react";
 
 interface SecondPageProps {
-  profileRef: React.RefObject<HTMLImageElement>;
+  profileRef: React.RefObject<HTMLDivElement>;
 }
 
 const SecondPage = ({ profileRef }: SecondPageProps) => {
@@ -66,10 +66,8 @@ const SecondPage = ({ profileRef }: SecondPageProps) => {
             <S.GoAboutMe>저에 대해 자세히 알아봐요 {"->"}</S.GoAboutMe>
           </Link>
         </S.Container1>
-        <S.Container2>
+        <S.Container2 ref={profileRef} className="dock-target">
           <S.PortfolioImage
-            ref={profileRef}
-            className="dock-target"
             src="/images/portFolio/myPicture.jpeg"
             alt="오태준 프로필"
             width={640}

@@ -25,7 +25,7 @@ const SixPage = dynamic(() => import("./components/six/SixPage"), {
 });
 
 const MainPage = () => {
-  const secondImageRef = useRef<HTMLImageElement>(null);
+  const secondImageRef = useRef<HTMLDivElement>(null);
 
   return (
     <S.Wrapper data-scroll-root>

@@ -155,7 +155,7 @@ const FirstPage = () => {
               />
             </S.Buttons1>
           </Link>
-          <Link href="/resume_otj.pdf" download>
+          <a href="/resume_otj.pdf" download>
             <S.Buttons2
               whileHover={{
                 scale: 1.05,
@@ -178,7 +178,7 @@ const FirstPage = () => {
                 transition={{ duration: 0.3 }}
               />
             </S.Buttons2>
-          </Link>
+          </a>
         </S.ButtonList>
 
         <S.IconList

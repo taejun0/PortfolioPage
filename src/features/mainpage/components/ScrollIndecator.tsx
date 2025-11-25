@@ -23,7 +23,6 @@ const ScrollIndicator = () => {
       topId: "main",
     }
   );
-  console.log("activeId:", activeId);
 
   return (
     <Wrapper>
