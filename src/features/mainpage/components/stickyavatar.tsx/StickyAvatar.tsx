@@ -31,19 +31,13 @@ export default function StickyAvatar({
       "(prefers-reduced-motion: reduce)"
     ).matches;
     const avatar = avatarRef.current;
-    const target = targetRef.current;
-    if (!avatar || !target) return;
-
-    // 도킹 상태에서는 타깃은 보여야 하고, 이동 중엔 겹침 방지를 위해 타깃 숨김(선택)
-    const setTargetHidden = (hide: boolean) => {
-      if (hide) target.classList.add("hidden-by-docking");
-      else target.classList.remove("hidden-by-docking");
-    };
+    if (!avatar) return;
 
     let ticking = false;
 
     const update = () => {
       ticking = false;
+      const target = targetRef.current;
       if (!avatar || !target) return;
 
       const rect = target.getBoundingClientRect();
@@ -78,6 +72,12 @@ export default function StickyAvatar({
       const dx = curX - startCx;
       const dy = curY - startCy;
 
+      // 도킹 상태에서는 타깃은 보여야 하고, 이동 중엔 겹침 방지를 위해 타깃 숨김(선택)
+      const setTargetHidden = (hide: boolean) => {
+        if (hide) target.classList.add("hidden-by-docking");
+        else target.classList.remove("hidden-by-docking");
+      };
+
       // 움직이는 동안은 타깃을 숨겨서 겹쳐 보이지 않게
       if (!shouldDock) {
         setDocked(false);
@@ -108,12 +108,43 @@ export default function StickyAvatar({
       requestAnimationFrame(update);
     };
 
+    // 초기 위치 설정
     update();
+    
+    // 스크롤 이벤트를 window에 추가
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
+    
+    // target이 나중에 로드될 수 있으므로 주기적으로 체크 (최대 5초)
+    let checkCount = 0;
+    const maxChecks = 50; // 5초 (100ms * 50)
+    let checkInterval: NodeJS.Timeout | null = null;
+    
+    if (!targetRef.current) {
+      checkInterval = setInterval(() => {
+        checkCount++;
+        if (targetRef.current) {
+          update();
+          if (checkInterval) {
+            clearInterval(checkInterval);
+            checkInterval = null;
+          }
+        } else if (checkCount >= maxChecks) {
+          // 5초 후에도 target이 없으면 체크 중지
+          if (checkInterval) {
+            clearInterval(checkInterval);
+            checkInterval = null;
+          }
+        }
+      }, 100);
+    }
+    
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
+      if (checkInterval) {
+        clearInterval(checkInterval);
+      }
     };
   }, [targetRef, startSize, endSize, marginTop, marginRight, dockThresholdVh]);
 
