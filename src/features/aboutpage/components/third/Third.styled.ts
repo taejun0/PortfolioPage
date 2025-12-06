@@ -108,7 +108,16 @@ export const ContainerWrap = styled.div`
     margin-bottom: 1.5rem;
 
     &:not(:last-child)::after {
-      height: 1.5rem;
+      content: "";
+      position: absolute;
+      bottom: -3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 4rem;
+      background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.3) 100%);
+      opacity: 0.3;
+      z-index: 100000;
     }
   }
 `;
