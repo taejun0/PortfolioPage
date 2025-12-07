@@ -2,6 +2,7 @@
 
 import * as S from "./Third.styled";
 import AnimatedDetails from "./AnimatedDetails";
+import { AnimatePresence } from "framer-motion";
 
 import { useState } from "react";
 
@@ -110,12 +111,24 @@ const Third = ({ stack, features, roles, challenges }: FeatureProps) => {
             key={cat}
             selected={selected === idx}
             onClick={() => setSelected(idx)}
+            whileHover={{ scale: 1.02, x: 4 }}
+            whileTap={{ scale: 0.98 }}
           >
             {cat}
           </S.CategoryButton>
         ))}
       </S.CategorySelector>
-      <S.ContentWrapper>{contents[selected]}</S.ContentWrapper>
+      <AnimatePresence mode="wait">
+        <S.ContentWrapper
+          key={selected}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+        >
+          {contents[selected]}
+        </S.ContentWrapper>
+      </AnimatePresence>
     </S.Wrapper>
   );
 };
