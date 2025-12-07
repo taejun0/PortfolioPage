@@ -2,6 +2,8 @@
 
 import * as S from "./ProjectDetail.styled";
 import { useEffect } from "react";
+import type { MouseEvent } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import { stacks } from "lib/projectData";
 
@@ -32,25 +34,43 @@ const ProjectDetailModal = ({ slug, onClose }: Props) => {
   if (!project) return null;
 
   return (
-    <S.Backdrop onClick={onClose}>
-      <S.ModalBox onClick={(e) => e.stopPropagation()}>
-        <First
-          projectName={project.name}
-          projectdetailDescription={project.detailDescription}
-        />
-        <S.CloseButton onClick={onClose}>
-          <IoIosClose />
-        </S.CloseButton>
-        <Second SemiInfo={project.SemiInfo} overview={project.overview} />
-        <Third
-          stack={project.stack}
-          features={project.features}
-          roles={project.roles}
-          challenges={project.challenges}
-        />
-        <Four onClose={onClose} />
-      </S.ModalBox>
-    </S.Backdrop>
+    <AnimatePresence>
+      <S.Backdrop
+        onClick={onClose}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        <S.ModalBox
+          onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
+        >
+          <First
+            projectName={project.name}
+            projectdetailDescription={project.detailDescription}
+          />
+          <S.CloseButton
+            onClick={onClose}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <IoIosClose />
+          </S.CloseButton>
+          <Second SemiInfo={project.SemiInfo} overview={project.overview} />
+          <Third
+            stack={project.stack}
+            features={project.features}
+            roles={project.roles}
+            challenges={project.challenges}
+          />
+          <Four onClose={onClose} />
+        </S.ModalBox>
+      </S.Backdrop>
+    </AnimatePresence>
   );
 };
 
