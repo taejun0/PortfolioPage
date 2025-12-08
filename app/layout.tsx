@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Providers from "./providers";
+import GoogleAnalytics from "@components/analytics/GoogleAnalytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.taejun0-portfolio.site"),
@@ -21,6 +22,10 @@ export const metadata: Metadata = {
     ],
   },
   robots: { index: true, follow: true },
+  // Google Search Console verification
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
+        <GoogleAnalytics />
         <Providers>{children}</Providers>
       </body>
     </html>

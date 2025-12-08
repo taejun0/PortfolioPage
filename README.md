@@ -173,6 +173,14 @@ yarn install
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+
+# Google Analytics (GA4)
+# Google Analytics에서 측정 ID를 발급받아 설정하세요 (예: G-XXXXXXXXXX)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_measurement_id
+
+# Google Search Console
+# Google Search Console에서 사이트 소유권 확인 시 제공되는 verification 코드를 설정하세요
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your_verification_code
 ```
 
 ## 📜 스크립트
