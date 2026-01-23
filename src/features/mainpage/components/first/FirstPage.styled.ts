@@ -163,20 +163,16 @@ export const Buttons1 = styled(motion.div)`
   position: relative;
   width: fit-content;
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
-  color: ${({ theme }) => theme.colors.white};
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.gray200} 100%,
-    ${({ theme }) => theme.colors.gray350} 100%
-  );
+  color: ${({ theme }) => theme.colors.black};
+  background: ${({ theme }) => theme.colors.white};
   padding: 1rem 2rem;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
   font-size: 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.black};
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid ${({ theme }) => theme.colors.gray200};
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 
   span {
     position: relative;
@@ -184,12 +180,9 @@ export const Buttons1 = styled(motion.div)`
   }
 
   &:hover {
-    background: linear-gradient(
-      135deg,
-      ${({ theme }) => theme.colors.gray250} 0%,
-      ${({ theme }) => theme.colors.gray300} 100%
-    );
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: ${({ theme }) => theme.colors.gray300};
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 600px) {
@@ -204,20 +197,16 @@ export const Buttons2 = styled(motion.div)`
   position: relative;
   width: fit-content;
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
-  color: ${({ theme }) => theme.colors.gray400};
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.white} 0%,
-    ${({ theme }) => theme.colors.gray050} 100%
-  );
+  color: ${({ theme }) => theme.colors.black};
+  background: ${({ theme }) => theme.colors.white};
   padding: 1rem 2rem;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
   font-size: 1rem;
-  border: 1.5px solid ${({ theme }) => theme.colors.gray200};
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid ${({ theme }) => theme.colors.gray200};
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 
   span {
     position: relative;
@@ -225,13 +214,9 @@ export const Buttons2 = styled(motion.div)`
   }
 
   &:hover {
-    background: linear-gradient(
-      135deg,
-      ${({ theme }) => theme.colors.gray050} 0%,
-      ${({ theme }) => theme.colors.white} 100%
-    );
     border-color: ${({ theme }) => theme.colors.gray300};
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 600px) {

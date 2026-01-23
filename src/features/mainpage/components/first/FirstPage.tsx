@@ -133,12 +133,8 @@ const FirstPage = () => {
         >
           <Link href={ROUTE_CONSTANTS.PROJECTS}>
             <S.Buttons1
-              whileHover={{
-                scale: 1.05,
-                y: -4,
-                boxShadow: "0 12px 24px rgba(0, 0, 0, 0.15)",
-              }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <motion.span
@@ -148,21 +144,12 @@ const FirstPage = () => {
               >
                 프로젝트 보러가기
               </motion.span>
-              <S.ButtonUnderline
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.3 }}
-              />
             </S.Buttons1>
           </Link>
           <a href="/resume_otj.pdf" download>
             <S.Buttons2
-              whileHover={{
-                scale: 1.05,
-                y: -4,
-                boxShadow: "0 12px 24px rgba(0, 0, 0, 0.15)",
-              }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <motion.span
@@ -172,11 +159,6 @@ const FirstPage = () => {
               >
                 이력서 다운하기
               </motion.span>
-              <S.ButtonUnderline
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.3 }}
-              />
             </S.Buttons2>
           </a>
         </S.ButtonList>
