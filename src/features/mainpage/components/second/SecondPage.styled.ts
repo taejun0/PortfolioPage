@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Image from "next/image";
+import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
@@ -10,154 +10,147 @@ export const Wrapper = styled.div`
   justify-content: center;
   min-height: calc(100dvh);
   width: 100%;
+  padding: 4rem 2rem;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 1rem;
+  }
 `;
 
 export const Container = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-`;
-
-export const Container1 = styled.div`
-  position: relative;
-  flex: 1;
-  display: flex;
-  padding: 1rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-
-  @media (max-width: 760px) {
-    padding: 1rem;
-  }
-
-  @media (max-width: 600px) {
-    padding: 1rem;
-  }
-
-  @media (max-width: 430px) {
-    padding: 0.5rem;
-  }
-`;
-
-export const Container2 = styled.div`
-  position: relative;
-  flex: 1;
-  display: flex;
-  padding: 1rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  @media (max-width: 760px) {
-    padding: 1rem;
-  }
-
-  @media (max-width: 600px) {
-    padding: 1rem;
-  }
-
-  @media (max-width: 430px) {
-    padding: 0.5rem;
-    @media (max-width: 430px) {
-      display: none;
-    }
-  }
-`;
-
-export const PortfolioImage = styled(Image)`
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 20px;
-  &.hidden-by-docking {
-    opacity: 0;
-    pointer-events: none;
+  max-width: 900px;
+  margin: 0 auto;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  @media (max-width: 768px) {
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 2rem;
   }
 `;
 
-export const GoAboutMe = styled.div`
-  position: relative;
-
-  cursor: pointer;
-
-  padding: 0.25rem;
-
-  border-radius: 0.25rem;
-  box-shadow: inset 0 0 0 0 ${({ theme }) => theme.colors.black};
-  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
-  :hover {
-    color: ${({ theme }) => theme.colors.white};
-    box-shadow: inset 300px 0 0 0 ${({ theme }) => theme.colors.black};
-  }
-`;
-
-export const AboutTitle = styled.div`
+export const SectionLabel = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  color: ${({ theme }) => theme.colors.gray400};
-  font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
-  font-size: 3rem;
+  color: ${({ theme }) => theme.colors.gray300};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
 
-  @media (max-width: 760px) {
-    font-size: 3rem;
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
   }
+`;
 
-  @media (max-width: 600px) {
-    top: -3.5rem;
-    font-size: 2.5rem;
-  }
+export const MainText = styled.h2`
+  ${({ theme }) => theme.fonts.Pretendard};
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
+  font-size: 2.5rem;
+  line-height: 1.4;
+  margin: 0;
 
-  @media (max-width: 430px) {
-    top: -2.5rem;
+  @media (max-width: 768px) {
     font-size: 2rem;
   }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    line-height: 1.5;
+  }
 `;
 
-export const AboutText = styled.div`
+export const HighlightText = styled.span`
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: ${({ theme }) => theme.fonts.weights.bold};
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    right: 0;
+    height: 0.3em;
+    background-color: ${({ theme }) => theme.colors.gray100};
+    opacity: 0.4;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+`;
+
+export const Divider = styled.div`
+  width: 4rem;
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.gray200};
+  margin: 1rem 0;
+
+  @media (max-width: 480px) {
+    width: 3rem;
+  }
+`;
+
+export const Description = styled.p`
   ${({ theme }) => theme.fonts.Pretendard};
-  color: ${({ theme }) => theme.colors.gray200};
+  color: ${({ theme }) => theme.colors.gray300};
   font-size: 1.125rem;
-  line-height: 1.5;
-  margin-bottom: 2rem;
+  line-height: 1.8;
+  margin: 0;
+  font-weight: ${({ theme }) => theme.fonts.weights.regular};
 
-  hr {
-    margin: 1rem 0;
-    border: none;
-    border-top: 1px solid ${({ theme }) => theme.colors.gray150};
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
-  .highlight {
-    color: ${({ theme }) => theme.colors.black};
-    font-weight: ${({ theme }) => theme.fonts.weights.bold};
-  }
-
-  @media (max-width: 760px) {
-    font-size: 1.125rem;
-    margin-bottom: 1.5rem;
-  }
-
-  @media (max-width: 600px) {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    line-height: 1.25;
-  }
-
-  @media (max-width: 430px) {
-    font-size: 0.625rem;
-    margin-bottom: 0.5rem;
-    line-height: 1;
+  @media (max-width: 480px) {
+    font-size: 0.9375rem;
+    line-height: 1.6;
   }
 `;
 
-export const TextLine = styled.div`
-  display: block;
-  margin-bottom: 0.5rem;
-  word-break: keep-all;
-  overflow-wrap: break-word;
+export const LinkButton = styled(motion.div)`
+  ${({ theme }) => theme.fonts.Pretendard};
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
 
-  &:last-child {
-    margin-bottom: 0;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0.325rem;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: ${({ theme }) => theme.colors.black};
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9375rem;
   }
 `;
