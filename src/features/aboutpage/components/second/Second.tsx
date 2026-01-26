@@ -1,52 +1,52 @@
 import * as S from "./Second.styled";
 
 import { SECONDCONSTANT } from "./SecondConstant";
+import { motion } from "framer-motion";
 
-const cardVariants = {
-  offscreen: {
-    y: 100,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
     opacity: 1,
+    y: 0,
     transition: {
-      type: "spring",
-      bounce: 0.3,
-      duration: 0.8,
+      duration: 0.6,
+      ease: [0.4, 0, 0.2, 1],
     },
   },
-};
-
-const Card = ({ title, description, index }: any) => {
-  return (
-    <S.CardContainer
-      style={{ zIndex: index }}
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ amount: 0.8, once: true }}
-      variants={cardVariants}
-    >
-      <S.CardInner>
-        <S.CardTitle>{title}</S.CardTitle>
-        <S.CardText>{description}</S.CardText>
-      </S.CardInner>
-    </S.CardContainer>
-  );
 };
 
 const Second = () => {
   return (
     <S.Wrapper>
-      <S.Title>{SECONDCONSTANT.TEXT.TITLE}</S.Title>
-      <S.SemiTitle>
-        제가 개발을 대하는 철학이 담긴 다소 긴 내용들이 준비되어있습니다.
-        <br />
-        넘어가주셔도 좋습니다. 😀
-      </S.SemiTitle>
-      {SECONDCONSTANT.TEXT.PHILOSOPHIES.map((p, i) => (
-        <Card key={i} {...p} index={i} />
-      ))}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+      >
+        <S.Title>{SECONDCONSTANT.TEXT.TITLE}</S.Title>
+        <S.SemiTitle>
+          제가 개발을 대하는 철학이 담긴 다소 긴 내용들이 준비되어있습니다.
+          <br />
+          넘어가주셔도 좋습니다. 😀
+        </S.SemiTitle>
+      </motion.div>
+
+      <S.PhilosophiesContainer>
+        {SECONDCONSTANT.TEXT.PHILOSOPHIES.map((philosophy, index) => (
+          <S.PhilosophyItem
+            key={index}
+            as={motion.div}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={itemVariants}
+          >
+            <S.PhilosophyTitle>{philosophy.title}</S.PhilosophyTitle>
+            <S.PhilosophyDescription>{philosophy.description}</S.PhilosophyDescription>
+          </S.PhilosophyItem>
+        ))}
+      </S.PhilosophiesContainer>
     </S.Wrapper>
   );
 };

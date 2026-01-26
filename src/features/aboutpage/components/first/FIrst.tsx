@@ -3,64 +3,69 @@ import * as S from "./First.styled";
 import { FIRSTCONSTANT } from "./FirstConstant";
 
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
-
-import {
-  FaUser,
-  FaCalendar,
-  FaHouse,
-  FaComment,
-  FaGraduationCap,
-} from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const First = () => {
+  const quote = '집단에서 공유되는 정보가, 곧 그 집단의 IQ다';
+  const mainText = FIRSTCONSTANT.TEXT.ABOUTME.split("\n")
+    .filter((s) => s.trim() !== "" && !s.includes(quote))
+    .join("\n");
+
   return (
     <S.Wrapper>
-      <S.Container>
-        <S.Container2>
-          <S.Title>{FIRSTCONSTANT.TEXT.TITLE}</S.Title>
-          <S.Text>
-            {FIRSTCONSTANT.TEXT.ABOUTME.split(
-              /(집단에서 공유되는 정보가, 곧 그 집단의 IQ다|팀 전체의 성장|더 나은 방향으로 함께 나아갈 수 있도록|지식과 인사이트를)/
-            ).map((part, index) => {
-              const highlights = [
-                "집단에서 공유되는 정보가",
-                "팀 전체의 성장",
-                "더 나은 방향으로 함께 나아갈 수 있도록",
-                "지식과 인사이트를",
-              ];
-              const isHighlight = highlights.some((h) => part.includes(h));
-              return isHighlight ? (
-                <S.Highlight key={index}>{part}</S.Highlight>
-              ) : (
-                <span key={index}>{part}</span>
-              );
-            })}
-          </S.Text>
-        </S.Container2>
-        <S.Container2>
-          <S.Text2>
-            <FaUser />
-            {FIRSTCONSTANT.TEXT.CONTENT.NAME}
-          </S.Text2>
-          <S.Text2>
-            <FaCalendar />
-            {FIRSTCONSTANT.TEXT.CONTENT.BIRTH}
-          </S.Text2>
-          <S.Text2>
-            <FaHouse />
-            {FIRSTCONSTANT.TEXT.CONTENT.LOCATION}
-          </S.Text2>
-          <S.Text2>
-            <FaComment />
-            {FIRSTCONSTANT.TEXT.CONTENT.EMAIL}
-          </S.Text2>
-          <S.Text2>
-            <FaGraduationCap />
-            {FIRSTCONSTANT.TEXT.CONTENT.UNIVERSITY}
-          </S.Text2>
-        </S.Container2>
-      </S.Container>
-      {FIRSTCONSTANT.TEXT.HISTORY}
+      <S.MainContent>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <S.Quote>{quote}</S.Quote>
+        </motion.div>
+
+        <S.TextSection>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <S.MainText>{mainText}</S.MainText>
+          </motion.div>
+        </S.TextSection>
+
+        <S.InfoSection>
+          {[
+            { label: "이름", value: "오태준" },
+            { label: "생년월일", value: "2001.09.29" },
+            { label: "위치", value: "경기도 의정부시" },
+            { label: "이메일", value: "xownswns@naver.com" },
+            { label: "학력", value: "동국대학교 컴퓨터정보통신공학부" },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.6 + index * 0.1,
+              }}
+            >
+              <S.InfoItem>
+                <S.InfoLabel>{item.label}</S.InfoLabel>
+                <S.InfoValue>{item.value}</S.InfoValue>
+              </S.InfoItem>
+            </motion.div>
+          ))}
+        </S.InfoSection>
+      </S.MainContent>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.2 }}
+      >
+        <S.HistoryText>{FIRSTCONSTANT.TEXT.HISTORY}</S.HistoryText>
+      </motion.div>
+
       <S.DownArrow
         animate={{
           y: [0, 16, 0],

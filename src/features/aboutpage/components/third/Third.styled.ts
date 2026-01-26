@@ -6,16 +6,12 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100dvh;
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   gap: 3rem;
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.colors.white} 0%,
-    ${({ theme }) => theme.colors.BG100} 100%
-  );
+  background-color: ${({ theme }) => theme.colors.white};
 
   @media (max-width: 768px) {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.5rem;
     gap: 2rem;
   }
 `;
@@ -126,11 +122,10 @@ export const JourneyCard = styled.div`
   width: 100%;
   max-width: 800px;
   background: ${({ theme }) => theme.colors.white};
-  border: 2px solid ${({ theme }) => theme.colors.gray150};
-  border-radius: 20px;
+  border: 1px solid ${({ theme }) => theme.colors.gray150};
+  border-radius: 16px;
   padding: 2.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -139,8 +134,7 @@ export const JourneyCard = styled.div`
   gap: 1.5rem;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
     border-color: ${({ theme }) => theme.colors.gray200};
   }
 
