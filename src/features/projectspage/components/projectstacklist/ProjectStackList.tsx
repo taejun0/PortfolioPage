@@ -1,7 +1,6 @@
 "use client";
 
 import * as S from "./ProjectStackList.styled";
-import { Shimmer } from "./ProjectStackList.styled";
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -65,40 +64,24 @@ const ProjectStackList = ({ selectedCategory, onOpen }: Props) => {
       <S.Grid>
         {skeletons.map((_, i) => (
           <S.SkeletonCard key={`sk-${i}`}>
-            <S.SkThumb>
-              <Shimmer />
-            </S.SkThumb>
+            <S.SkThumb />
             <S.SkBody>
               {/* 제목 굵은 줄 */}
-              <S.SkLine h="18px" w="70%" r="8px">
-                <Shimmer />
-              </S.SkLine>
+              <S.SkLine h="20px" w="70%" r="8px" />
 
               {/* 설명 2~3줄 */}
-              <S.SkLine w="100%">
-                <Shimmer />
-              </S.SkLine>
-              <S.SkLine w="85%">
-                <Shimmer />
-              </S.SkLine>
+              <S.SkLine w="100%" h="14px" />
+              <S.SkLine w="85%" h="14px" />
 
               {/* 태그 더미 */}
               <S.SkTagRow>
-                <S.SkTag>
-                  <Shimmer />
-                </S.SkTag>
-                <S.SkTag>
-                  <Shimmer />
-                </S.SkTag>
-                <S.SkTag>
-                  <Shimmer />
-                </S.SkTag>
+                <S.SkTag />
+                <S.SkTag />
+                <S.SkTag />
               </S.SkTagRow>
 
               {/* View Details 자리 */}
-              <S.SkLine w="40%" h="12px" style={{ marginTop: 12 }}>
-                <Shimmer />
-              </S.SkLine>
+              <S.SkLine w="40%" h="14px" />
             </S.SkBody>
           </S.SkeletonCard>
         ))}

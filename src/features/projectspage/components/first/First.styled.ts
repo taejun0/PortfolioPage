@@ -28,11 +28,7 @@ export const Container = styled.div`
 `;
 
 export const Container2 = styled.div`
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.colors.BG100} 0%,
-    ${({ theme }) => theme.colors.white} 20%
-  );
+  background-color: ${({ theme }) => theme.colors.white};
   width: 100%;
   min-height: calc(100dvh - 400px);
   padding: 3rem 2rem;
@@ -49,7 +45,7 @@ export const Title = styled.h1`
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 3.5rem;
   text-align: center;
-  color: ${({ theme }) => theme.colors.gray400};
+  color: ${({ theme }) => theme.colors.black};
   letter-spacing: -0.03em;
   margin: 0;
 
@@ -71,7 +67,7 @@ export const SubTitle = styled.p`
   font-weight: ${({ theme }) => theme.fonts.weights.regular};
   font-size: 1.125rem;
   text-align: center;
-  color: ${({ theme }) => theme.colors.gray200};
+  color: ${({ theme }) => theme.colors.gray300};
   margin: 0;
   line-height: 1.6;
 
@@ -101,14 +97,14 @@ export const Tag = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: ${({ theme }) => theme.colors.gray200};
-  font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
+  color: ${({ theme }) => theme.colors.gray300};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
   font-size: 1rem;
 
   svg {
     width: 20px;
     height: 20px;
-    fill: ${({ theme }) => theme.colors.gray200};
+    fill: ${({ theme }) => theme.colors.gray300};
   }
 
   @media (max-width: 768px) {

@@ -5,14 +5,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 3rem 2rem;
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.colors.white} 0%,
-    ${({ theme }) => theme.colors.BG100} 10%,
-    ${({ theme }) => theme.colors.white} 100%
-  );
+  background-color: ${({ theme }) => theme.colors.white};
   min-height: calc(100dvh - 300px);
-
   gap: 2rem;
   
   @media (max-width: 768px) {
