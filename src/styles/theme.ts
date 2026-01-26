@@ -20,7 +20,7 @@ export const theme = {
     gray350: "#2B2B2B",
     gray400: "#0D0D0D",
 
-    BG100: "#F2F2F2",
+    BG100: "#FAFAFA",
     white: "#ffffff",
   },
   fonts: {

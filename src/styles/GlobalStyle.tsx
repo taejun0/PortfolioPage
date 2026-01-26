@@ -40,8 +40,8 @@ const GlobalStyle = () => (
 
       body {
         font-family: "Pretendard", sans-serif;
-        background-color: #f2f2f2;
-        color: #111111;
+        background-color: #ffffff;
+        color: #1a1a1a;
       }
 
       html,
