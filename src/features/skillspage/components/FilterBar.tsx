@@ -12,55 +12,29 @@ const Bar = styled.div`
 const Button = styled(motion.button)<{ selected: boolean }>`
   padding: 0.75rem 1.75rem;
   border-radius: 28px;
-  border: 2px solid
-    ${({ theme, selected }) =>
-      selected ? theme.colors.black : theme.colors.gray150};
+  border: 2px solid ${({ theme, selected }) =>
+    selected ? theme.colors.gray300 : theme.colors.gray150};
   background: ${({ theme, selected }) =>
-    selected
-      ? "linear-gradient(135deg, #000000 0%, #333333 100%)"
-      : "linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%)"};
+    selected ? theme.colors.gray050 : theme.colors.white};
   color: ${({ theme, selected }) =>
-    selected ? theme.colors.white : theme.colors.gray300};
+    selected ? theme.colors.black : theme.colors.gray300};
   cursor: pointer;
   font-weight: ${({ theme, selected }) =>
     selected ? theme.fonts.weights.bold : theme.fonts.weights.semiBold};
   font-size: 0.9375rem;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: ${({ selected }) =>
     selected
-      ? "0 4px 12px rgba(0, 0, 0, 0.15)"
+      ? "0 4px 12px rgba(0, 0, 0, 0.1)"
       : "0 2px 4px rgba(0, 0, 0, 0.05)"};
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
-    transition: left 0.5s ease;
-  }
-
-  &:hover::before {
-    left: 100%;
-  }
-
   &:hover {
-    border-color: ${({ theme }) => theme.colors.black};
+    border-color: ${({ theme, selected }) =>
+      selected ? theme.colors.gray300 : theme.colors.gray200};
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    background: ${({ theme, selected }) =>
-      selected
-        ? "linear-gradient(135deg, #000000 0%, #333333 100%)"
-        : "linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%)"};
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
 
   &:active {

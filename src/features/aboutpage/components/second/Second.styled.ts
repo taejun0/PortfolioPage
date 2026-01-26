@@ -94,7 +94,7 @@ export const CardInner = styled(motion.div)`
   &:hover {
     transform: translateY(-6px);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
-    border-color: ${({ theme }) => theme.colors.black};
+    border-color: ${({ theme }) => theme.colors.gray200};
   }
 
   @media (max-width: 768px) {

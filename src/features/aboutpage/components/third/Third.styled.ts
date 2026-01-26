@@ -141,7 +141,7 @@ export const JourneyCard = styled.div`
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-    border-color: ${({ theme }) => theme.colors.black};
+    border-color: ${({ theme }) => theme.colors.gray200};
   }
 
   @media (max-width: 768px) {
@@ -188,7 +188,7 @@ export const TimelineCard = styled.div`
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-    border-color: ${({ theme }) => theme.colors.black};
+    border-color: ${({ theme }) => theme.colors.gray200};
 
     &::before {
       width: 6px;
@@ -285,14 +285,24 @@ export const Time = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
   font-size: 1.125rem;
-  background: linear-gradient(135deg, #000000 0%, #333333 100%);
-  color: white;
+  color: ${({ theme }) => theme.colors.black};
   width: fit-content;
   padding: 0.5rem 1.25rem;
-  border-radius: 20px;
   margin: 0 auto 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0.2em;
+    left: 0.5rem;
+    right: 0.5rem;
+    height: 0.35em;
+    background-color: ${({ theme }) => theme.colors.gray100};
+    opacity: 0.5;
+    z-index: -1;
+  }
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -324,12 +334,24 @@ export const Keyword = styled.span`
   font-size: 0.875rem;
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, #000000 0%, #333333 100%);
-  color: white;
+  color: ${({ theme }) => theme.colors.black};
   border-radius: 20px;
   white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-block;
   transition: transform 0.2s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0.3em;
+    left: 0.5rem;
+    right: 0.5rem;
+    height: 0.3em;
+    background-color: ${({ theme }) => theme.colors.gray100};
+    opacity: 0.4;
+    z-index: -1;
+  }
 
   &:hover {
     transform: translateY(-2px);
