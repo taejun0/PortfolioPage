@@ -36,7 +36,6 @@ const Second = () => {
         {SECONDCONSTANT.TEXT.PHILOSOPHIES.map((philosophy, index) => (
           <S.PhilosophyItem
             key={index}
-            as={motion.div}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}

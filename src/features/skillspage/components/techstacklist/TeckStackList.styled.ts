@@ -43,10 +43,10 @@ export const Item = styled.div<{ category?: string; $isExpanded?: boolean }>`
     border-color: ${({ theme }) => theme.colors.gray200};
   }
 
-  ${({ $isExpanded }) =>
+  ${({ $isExpanded, theme }) =>
     $isExpanded &&
     `
-    border-color: ${({ theme }) => theme.colors.gray300};
+    border-color: ${theme.colors.gray300};
     z-index: 10;
   `}
 

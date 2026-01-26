@@ -40,13 +40,12 @@ const Third = () => {
         </S.HeaderSection>
       </motion.div>
       <S.Containers
-        as={motion.div}
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
       >
-        <S.ContainerWrap as={motion.div} variants={itemVariants}>
+        <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.ONE.TIME}</S.Time>
             <S.ContainerTitle>
@@ -66,7 +65,7 @@ const Third = () => {
             </S.ContainerTextBoxCOL>
           </S.JourneyCard>
         </S.ContainerWrap>
-        <S.ContainerWrap as={motion.div} variants={itemVariants}>
+        <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.TWO.TIME}</S.Time>
             <S.ContainerTitle>
@@ -104,7 +103,7 @@ const Third = () => {
             </S.Keywords>
           </S.JourneyCard>
         </S.ContainerWrap>
-        <S.ContainerWrap as={motion.div} variants={itemVariants}>
+        <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.THREE.TIME}</S.Time>
             <S.ContainerTitle>
@@ -119,7 +118,7 @@ const Third = () => {
             </S.ContainerTextBoxCOL>
           </S.JourneyCard>
         </S.ContainerWrap>
-        <S.ContainerWrap as={motion.div} variants={itemVariants}>
+        <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.FOUR.TIME}</S.Time>
             <S.ContainerTitle>
@@ -156,7 +155,7 @@ const Third = () => {
             </S.Keywords>
           </S.JourneyCard>
         </S.ContainerWrap>
-        <S.ContainerWrap as={motion.div} variants={itemVariants}>
+        <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.FIVE.TIME}</S.Time>
             <S.ContainerTitle>

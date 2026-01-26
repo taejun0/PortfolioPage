@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
@@ -60,7 +61,7 @@ export const PhilosophiesContainer = styled.div`
   }
 `;
 
-export const PhilosophyItem = styled.div`
+export const PhilosophyItem = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 2rem;

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -63,7 +64,7 @@ export const SemiTitle = styled.p`
   }
 `;
 
-export const Containers = styled.div`
+export const Containers = styled(motion.div)`
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -79,7 +80,7 @@ export const Containers = styled.div`
   }
 `;
 
-export const ContainerWrap = styled.div`
+export const ContainerWrap = styled(motion.div)`
   width: 100%;
   position: relative;
   display: flex;
