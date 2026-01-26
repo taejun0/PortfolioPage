@@ -10,22 +10,22 @@ export const Wrapper = styled.div`
   min-height: calc(100dvh);
   width: 100%;
 
-  padding: 2rem;
-  gap: 5rem;
+  padding: 4rem 2rem;
+  gap: 3rem;
 
   @media (max-width: 760px) {
-    padding: 1.5rem;
-    gap: 3rem;
+    padding: 3rem 1.5rem;
+    gap: 2.5rem;
   }
 
   @media (max-width: 600px) {
-    padding: 1rem;
+    padding: 2rem 1rem;
     gap: 2rem;
   }
 
   @media (max-width: 430px) {
-    padding: 0.5rem;
-    gap: 1rem;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
   }
 `;
 

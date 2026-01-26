@@ -1,28 +1,28 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.BG100};
+  background-color: ${({ theme }) => theme.colors.white};
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: calc(100dvh);
-  padding: 2rem;
+  padding: 4rem 2rem;
   gap: 2rem;
 
   @media (max-width: 760px) {
-    padding: 1.5rem;
+    padding: 3rem 1.5rem;
     gap: 1.5rem;
   }
 
   @media (max-width: 600px) {
-    padding: 1rem;
+    padding: 2rem 1rem;
     gap: 1rem;
   }
 
   @media (max-width: 430px) {
-    padding: 0.5rem;
+    padding: 1.5rem 1rem;
     gap: 0.75rem;
   }
 `;

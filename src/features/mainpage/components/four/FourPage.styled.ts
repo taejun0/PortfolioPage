@@ -10,20 +10,20 @@ export const Wrapper = styled.div`
   min-height: calc(100dvh);
   width: 100%;
 
-  padding: 2rem;
+  padding: 8rem 4rem;
 
   box-sizing: border-box;
 
   @media (max-width: 760px) {
-    padding: 1.5rem;
+    padding: 6rem 3rem;
   }
 
   @media (max-width: 600px) {
-    padding: 1rem;
+    padding: 4rem 2rem;
   }
 
   @media (max-width: 430px) {
-    padding: 0.5rem;
+    padding: 3rem 1.5rem;
   }
 `;
 

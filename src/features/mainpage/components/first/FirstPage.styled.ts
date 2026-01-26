@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.BG100};
+  background-color: ${({ theme }) => theme.colors.white};
   position: sticky;
 
   width: 100%;
@@ -24,15 +24,15 @@ export const BackgroundGradient = styled(motion.div)`
   height: 200%;
   background: linear-gradient(
     135deg,
-    #f2f2f2 0%,
-    #e8e8e8 25%,
-    #f5f5f5 50%,
-    #eeeeee 75%,
-    #f2f2f2 100%
+    #ffffff 0%,
+    #fafafa 25%,
+    #ffffff 50%,
+    #fafafa 75%,
+    #ffffff 100%
   );
   background-size: 200% 200%;
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0.3;
   pointer-events: none;
 `;
 
@@ -45,7 +45,7 @@ export const ContentContainer = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding: 2rem;
+  padding: 3rem 2rem;
 `;
 
 export const FrontEnd = styled(motion.h1)`
@@ -86,7 +86,7 @@ export const NameTitle = styled.h2`
   font-size: 2.5rem;
   position: relative;
   z-index: 1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -94,7 +94,7 @@ export const NameTitle = styled.h2`
   gap: 0.5em 0.3em;
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
-  line-height: 1.6;
+  line-height: 1.8;
   text-align: center;
 
   @media (max-width: 760px) {
@@ -128,11 +128,12 @@ export const WordWrapper = styled.span`
 `;
 
 export const TypewriterWrapper = styled(motion.div)`
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-size: 1.25rem;
   color: ${({ theme }) => theme.colors.gray300};
   text-align: center;
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  line-height: 1.8;
 
   @media (max-width: 600px) {
     font-size: 1rem;
@@ -165,13 +166,12 @@ export const Buttons1 = styled(motion.div)`
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   color: ${({ theme }) => theme.colors.black};
   background: ${({ theme }) => theme.colors.white};
-  padding: 1rem 2rem;
+  padding: 1.25rem 2.5rem;
   border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
   font-size: 1rem;
-  border: 2px solid ${({ theme }) => theme.colors.gray200};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid ${({ theme }) => theme.colors.gray150};
   transition: all 0.3s ease;
 
   span {
@@ -180,9 +180,8 @@ export const Buttons1 = styled(motion.div)`
   }
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.gray300};
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    border-color: ${({ theme }) => theme.colors.gray200};
+    transform: translateY(-1px);
   }
 
   @media (max-width: 600px) {
@@ -199,13 +198,12 @@ export const Buttons2 = styled(motion.div)`
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   color: ${({ theme }) => theme.colors.black};
   background: ${({ theme }) => theme.colors.white};
-  padding: 1rem 2rem;
+  padding: 1.25rem 2.5rem;
   border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
   font-size: 1rem;
-  border: 2px solid ${({ theme }) => theme.colors.gray200};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid ${({ theme }) => theme.colors.gray150};
   transition: all 0.3s ease;
 
   span {
@@ -214,9 +212,8 @@ export const Buttons2 = styled(motion.div)`
   }
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.gray300};
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    border-color: ${({ theme }) => theme.colors.gray200};
+    transform: translateY(-1px);
   }
 
   @media (max-width: 600px) {
@@ -245,7 +242,7 @@ export const ButtonUnderline = styled(motion.div)`
 export const IconList = styled(motion.div)`
   display: flex;
   gap: 2rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 
   a {
     position: relative;
@@ -255,11 +252,11 @@ export const IconList = styled(motion.div)`
     padding: 0.75rem;
     border-radius: 50%;
     background: ${({ theme }) => theme.colors.white};
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid ${({ theme }) => theme.colors.gray150};
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &:hover {
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      border-color: ${({ theme }) => theme.colors.gray200};
       background: ${({ theme }) => theme.colors.gray050};
     }
 
@@ -302,13 +299,11 @@ export const DownArrow = styled(motion.div)`
     width: 32px;
     height: 32px;
     color: ${({ theme }) => theme.colors.gray300};
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     transition: all 0.3s ease;
   }
 
   &:hover svg {
     color: ${({ theme }) => theme.colors.gray400};
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
   }
 
   @media (max-width: 600px) {

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.BG100};
+  background-color: ${({ theme }) => theme.colors.white};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -9,18 +9,18 @@ export const Wrapper = styled.div`
   align-items: center;
   min-height: calc(100dvh);
   gap: 2rem;
-  padding: 2rem;
+  padding: 4rem 2rem;
 
   @media (max-width: 760px) {
-    padding: 1.5rem;
+    padding: 3rem 1.5rem;
     gap: 1.5rem;
   }
   @media (max-width: 600px) {
-    padding: 1rem;
+    padding: 2rem 1rem;
     gap: 1rem;
   }
   @media (max-width: 430px) {
-    padding: 0.5rem;
+    padding: 1.5rem 1rem;
     gap: 0.75rem;
   }
 `;
@@ -75,34 +75,26 @@ export const Box = styled.div<{ $active?: boolean }>`
   width: 20vw;
   min-width: 200px;
   max-width: 360px;
-  gap: 0.75rem;
+  gap: 1rem;
 
-  padding: 0.75rem;
+  padding: 1.5rem;
   border-radius: 16px;
   border: 1px solid
     ${({ theme, $active }) =>
-      $active ? theme.colors.black : theme.colors.gray150};
+      $active ? theme.colors.gray200 : theme.colors.gray150};
   background: ${({ theme, $active }) =>
-    $active ? theme.colors.white : theme.colors.BG100};
-
-  box-shadow: ${({ $active }) =>
-    $active
-      ? "0 8px 24px rgba(0,0,0,0.10), inset 0 0 0 2px rgba(0,0,0,0.05)"
-      : "0 4px 14px rgba(0,0,0,0.04)"};
+    $active ? theme.colors.white : theme.colors.white};
 
   transform: ${({ $active }) =>
-    $active ? "translateY(-2px) scale(1.01)" : "translateY(0) scale(1)"};
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
+    $active ? "translateY(-1px)" : "translateY(0)"};
+  transition: transform 0.18s ease, background 0.18s ease,
     border-color 0.18s ease;
 
   cursor: pointer;
 
   &:hover {
-    transform: ${({ $active }) =>
-      $active
-        ? "translateY(-3px) scale(1.015)"
-        : "translateY(-2px) scale(1.005)"};
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+    border-color: ${({ theme }) => theme.colors.gray200};
   }
 
   @media (max-width: 760px) {
@@ -161,7 +153,7 @@ export const BoxText = styled.div<{ $active?: boolean }>`
     $active ? theme.colors.gray400 : theme.colors.gray250};
 
   /* 가독성 살짝 업 */
-  line-height: 1.5;
+  line-height: 1.7;
   transition: color 0.18s ease;
 
   @media (max-width: 760px) {

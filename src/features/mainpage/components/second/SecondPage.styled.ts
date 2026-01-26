@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 `;
 
@@ -60,7 +60,7 @@ export const MainText = styled.h2`
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   font-size: 2.5rem;
-  line-height: 1.4;
+  line-height: 1.6;
   margin: 0;
 
   @media (max-width: 768px) {
@@ -107,7 +107,7 @@ export const Description = styled.p`
   ${({ theme }) => theme.fonts.Pretendard};
   color: ${({ theme }) => theme.colors.gray300};
   font-size: 1.125rem;
-  line-height: 1.8;
+  line-height: 1.9;
   margin: 0;
   font-weight: ${({ theme }) => theme.fonts.weights.regular};
 
