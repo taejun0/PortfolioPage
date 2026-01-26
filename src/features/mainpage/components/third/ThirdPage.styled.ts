@@ -175,16 +175,43 @@ export const BoxText = styled.div<{ $active?: boolean }>`
   }
 `;
 
+export const SectionLabel = styled.div`
+  ${({ theme }) => theme.fonts.Pretendard};
+  color: ${({ theme }) => theme.colors.gray300};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+`;
+
 export const HowManyUse = styled.div`
   position: relative;
   cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  box-shadow: inset 0 0 0 0 ${({ theme }) => theme.colors.black};
-  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 0.25rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  transition: color 0.3s ease;
 
-  :hover {
-    color: ${({ theme }) => theme.colors.white};
-    box-shadow: inset 300px 0 0 0 ${({ theme }) => theme.colors.black};
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.0625rem;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: ${({ theme }) => theme.colors.black};
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 `;

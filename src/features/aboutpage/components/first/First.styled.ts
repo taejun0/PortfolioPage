@@ -75,15 +75,22 @@ export const Text = styled.div`
 
 export const Highlight = styled.span`
   color: ${({ theme }) => theme.colors.black};
-  font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.05) 100%
-  );
-  padding: 0.125rem 0.375rem;
-  border-radius: 4px;
+  font-weight: ${({ theme }) => theme.fonts.weights.bold};
+  position: relative;
   display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    right: 0;
+    height: 0.3em;
+    background-color: ${({ theme }) => theme.colors.gray100};
+    opacity: 0.4;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
 `;
 
 export const Text2 = styled.div`

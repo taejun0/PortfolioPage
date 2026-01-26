@@ -31,23 +31,33 @@ export const NaviSet = styled.div`
 export const NaviTitle = styled.div<{ $active?: boolean }>`
   ${({ theme }) => theme.fonts.Pretendard};
   color: ${({ theme, $active }) =>
-    $active ? theme.colors.white : theme.colors.black100};
-  background-color: ${({ theme, $active }) =>
-    $active ? theme.colors.black : theme.colors.BG100};
+    $active ? theme.colors.black : theme.colors.black100};
+  background-color: ${({ theme }) => theme.colors.BG100};
 
   cursor: ${({ $active }) => ($active ? "default" : "pointer")};
 
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  box-shadow: inset 0 0 0 0 ${({ theme }) => theme.colors.black};
-  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 0.25rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.0625rem;
+    left: 0;
+    width: ${({ $active }) => ($active ? "100%" : "0")};
+    height: 2px;
+    background-color: ${({ theme }) => theme.colors.black};
+    transition: width 0.3s ease;
+  }
 
   ${({ $active, theme }) =>
     !$active &&
     `
       &:hover {
-        color: ${theme.colors.white};
-        box-shadow: inset 200px 0 0 0 ${theme.colors.black};
+        &::after {
+          width: 100%;
+        }
       }
     `}
 `;

@@ -27,6 +27,23 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const SectionLabel = styled.div`
+  ${({ theme }) => theme.fonts.Pretendard};
+  color: ${({ theme }) => theme.colors.gray300};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+`;
+
 export const Title = styled.div`
   width: 100%;
   display: flex;
@@ -168,17 +185,27 @@ export const CustomPagination = styled.div`
 
 export const GoProjects = styled.div`
   position: relative;
-
   cursor: pointer;
+  padding: 0.25rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  transition: color 0.3s ease;
 
-  padding: 0.25rem;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.0625rem;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: ${({ theme }) => theme.colors.black};
+    transition: width 0.3s ease;
+  }
 
-  border-radius: 0.25rem;
-  box-shadow: inset 0 0 0 0 ${({ theme }) => theme.colors.black};
-  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
-  :hover {
-    color: ${({ theme }) => theme.colors.white};
-    box-shadow: inset 300px 0 0 0 ${({ theme }) => theme.colors.black};
+  &:hover::after {
+    width: 100%;
   }
 `;
