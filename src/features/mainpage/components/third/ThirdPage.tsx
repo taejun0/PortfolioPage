@@ -50,6 +50,7 @@ const ThirdPage = () => {
 
   return (
     <S.Wrapper>
+      <S.SectionLabel>SKILLS</S.SectionLabel>
       <S.Title>Core Tech</S.Title>
       <S.SemiTitle>{`개발자들 간의 코드 안정성과 유지 보수성을 중시하며
 현대적이고 성능이 좋은 웹 어플리케이션을 만들기 위해

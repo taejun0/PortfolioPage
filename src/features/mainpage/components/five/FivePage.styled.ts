@@ -27,6 +27,20 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const SectionLabel = styled.div`
+  ${({ theme }) => theme.fonts.Pretendard};
+  color: ${({ theme }) => theme.colors.gray300};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+`;
+
 export const Title = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   color: ${({ theme }) => theme.colors.gray400};

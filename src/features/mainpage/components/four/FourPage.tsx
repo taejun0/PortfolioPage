@@ -55,6 +55,7 @@ const FourPage = () => {
   return (
     <S.Wrapper>
       <S.Inner>
+        <S.SectionLabel>PROJECTS</S.SectionLabel>
         <S.Title>Featured Projects</S.Title>
         <S.NavigationWrapper>
           <S.CustomNav className="custom-prev">

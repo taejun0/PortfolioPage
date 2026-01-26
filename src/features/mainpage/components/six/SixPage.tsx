@@ -33,6 +33,7 @@ const SixPage = () => {
   return (
     <S.Wrapper>
       <S.Box>
+        <S.SectionLabel>CONTACT</S.SectionLabel>
         <S.Title1>Contact</S.Title1>
         <S.SemiTitle>언제든 편하게 연락주세요</S.SemiTitle>
       </S.Box>
