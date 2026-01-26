@@ -10,35 +10,24 @@ const Bar = styled.div`
 `;
 
 const Button = styled(motion.button)<{ selected: boolean }>`
-  padding: 0.75rem 1.75rem;
-  border-radius: 28px;
-  border: 2px solid ${({ theme, selected }) =>
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid ${({ theme, selected }) =>
     selected ? theme.colors.gray300 : theme.colors.gray150};
   background: ${({ theme, selected }) =>
-    selected ? theme.colors.gray050 : theme.colors.white};
+    selected ? theme.colors.white : theme.colors.white};
   color: ${({ theme, selected }) =>
     selected ? theme.colors.black : theme.colors.gray300};
   cursor: pointer;
   font-weight: ${({ theme, selected }) =>
-    selected ? theme.fonts.weights.bold : theme.fonts.weights.semiBold};
+    selected ? theme.fonts.weights.semiBold : theme.fonts.weights.medium};
   font-size: 0.9375rem;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s ease;
   position: relative;
-  overflow: visible;
-  box-shadow: ${({ selected }) =>
-    selected
-      ? "0 4px 12px rgba(0, 0, 0, 0.1)"
-      : "0 2px 4px rgba(0, 0, 0, 0.05)"};
 
   &:hover {
-    border-color: ${({ theme, selected }) =>
-      selected ? theme.colors.gray300 : theme.colors.gray200};
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  &:active {
-    transform: translateY(-1px) scale(1.02);
+    border-color: ${({ theme }) => theme.colors.gray200};
+    color: ${({ theme }) => theme.colors.black};
   }
 `;
 
@@ -56,8 +45,6 @@ const FilterBar = ({ categories, selected, onSelect }: Props) => {
           key={cat}
           selected={selected === cat}
           onClick={() => onSelect(cat)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.05 }}

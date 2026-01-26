@@ -237,17 +237,17 @@ const TechStackItem = ({
     <motion.div
       ref={cardRef}
       layout
-      initial={{ opacity: 0, y: 50, scale: 0.92 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -20, scale: 0.95 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
       transition={{
-        delay: index * 0.05,
-        duration: 0.5,
-        ease: [0.34, 1.56, 0.64, 1],
+        delay: index * 0.03,
+        duration: 0.4,
+        ease: [0.4, 0, 0.2, 1],
         layout: { duration: 0.3, ease: "easeInOut" },
       }}
-      whileHover={{ y: -6, scale: 1.02 }}
-      whileTap={{ scale: 0.97 }}
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.98 }}
     >
       <S.Item
         category={tech.category}
@@ -255,26 +255,16 @@ const TechStackItem = ({
         $isExpanded={isExpanded}
       >
         <S.TitleBox category={tech.category}>
-          <motion.div
-            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-            transition={{ duration: 0.5 }}
-          >
-            {tech.icon}
-          </motion.div>
           <div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.08 + 0.1, duration: 0.4 }}
-            >
-              <S.Title>{tech.name}</S.Title>
-            </motion.div>
+            {tech.icon}
+          </div>
+          <div>
+            <S.Title>{tech.name}</S.Title>
             <S.CategoryBadge
               category={tech.category}
-              initial={{ opacity: 0, x: -10, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ delay: index * 0.08 + 0.2, duration: 0.4 }}
-              whileHover={{ scale: 1.08, x: 2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.03 + 0.1, duration: 0.3 }}
             >
               {tech.category}
             </S.CategoryBadge>
@@ -285,11 +275,9 @@ const TechStackItem = ({
             {tech.tags.map((tag: string, tagIndex: number) => (
               <S.Tag
                 key={tag}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.08 + tagIndex * 0.05 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: index * 0.03 + tagIndex * 0.02 }}
               >
                 {tag}
               </S.Tag>

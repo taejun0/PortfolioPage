@@ -25,10 +25,9 @@ export const Container = styled.div`
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #000, transparent);
-    border-radius: 2px;
-    opacity: 0.1;
+    height: 1px;
+    background: ${({ theme }) => theme.colors.gray150};
+    opacity: 0.5;
   }
 
   @media (max-width: 768px) {
@@ -38,11 +37,7 @@ export const Container = styled.div`
 `;
 
 export const Container2 = styled.div`
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.colors.BG100} 0%,
-    ${({ theme }) => theme.colors.white} 20%
-  );
+  background-color: ${({ theme }) => theme.colors.white};
   width: 100%;
   min-height: calc(100dvh - 400px);
   padding: 3rem 2rem;
