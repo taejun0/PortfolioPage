@@ -19,6 +19,9 @@ export const Title = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   color: ${({ theme }) => theme.colors.black};
 
+  height: 100%;
+  display: flex;
+  align-items: center;
   cursor: pointer;
 `;
 

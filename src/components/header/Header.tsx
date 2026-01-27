@@ -10,7 +10,12 @@ import { ROUTE_CONSTANTS } from "@constants/routeConstants";
 const Header = () => {
   const pathname = usePathname();
 
-  const isActive = (route: string) => pathname === route;
+  const isActive = (route: string) => {
+    if (route === ROUTE_CONSTANTS.BLOG) {
+      return pathname === route || pathname.startsWith(`${route}/`);
+    }
+    return pathname === route;
+  };
 
   return (
     <S.Wrapper>
@@ -36,6 +41,11 @@ const Header = () => {
         <Link href={ROUTE_CONSTANTS.PROJECTS}>
           <S.NaviTitle $active={isActive(ROUTE_CONSTANTS.PROJECTS)}>
             Projects
+          </S.NaviTitle>
+        </Link>
+        <Link href={ROUTE_CONSTANTS.BLOG}>
+          <S.NaviTitle $active={isActive(ROUTE_CONSTANTS.BLOG)}>
+            Blog
           </S.NaviTitle>
         </Link>
       </S.NaviSet>

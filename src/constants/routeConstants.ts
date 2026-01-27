@@ -3,4 +3,5 @@ export const ROUTE_CONSTANTS = {
   ABOUT: "/about",
   SKILLS: "/skills",
   PROJECTS: "/projects",
+  BLOG: "/blog",
 };
