@@ -19,7 +19,7 @@ const First = () => {
             <FaCalendar /> 4 Tags
           </S.Tag>
           <S.Tag>
-            <HiSquare3Stack3D /> 2024 - 2025
+            <HiSquare3Stack3D /> 2024 -
           </S.Tag>
         </S.Tags>
       </S.Container>
