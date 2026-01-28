@@ -202,21 +202,97 @@ export const SeriesContainer = styled.div`
 export const SeriesSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0;
+`;
+
+export const SeriesHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.gray150};
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.gray050};
+    border-color: ${({ theme }) => theme.colors.gray200};
+  }
+`;
+
+export const SeriesTitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: ${({ theme }) => theme.colors.black};
 `;
 
 export const SeriesTitle = styled.h2`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   color: ${({ theme }) => theme.colors.black};
   margin: 0;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.gray150};
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
   }
+`;
+
+export const SeriesCount = styled.span`
+  ${({ theme }) => theme.fonts.Pretendard};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 0.875rem;
+  color: ${({ theme }) => theme.colors.gray300};
+  background: ${({ theme }) => theme.colors.gray050};
+  padding: 0.375rem 0.75rem;
+  border-radius: 8px;
+`;
+
+export const SeriesPostList = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  gap: 0.5rem;
+`;
+
+export const SeriesPostItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.gray150};
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.gray050};
+    border-color: ${({ theme }) => theme.colors.gray200};
+    transform: translateX(4px);
+  }
+`;
+
+export const SeriesPostTitle = styled.h3`
+  ${({ theme }) => theme.fonts.Pretendard};
+  font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
+  font-size: 1rem;
+  color: ${({ theme }) => theme.colors.black};
+  margin: 0;
+  flex: 1;
+`;
+
+export const SeriesPostDate = styled.span`
+  ${({ theme }) => theme.fonts.Pretendard};
+  font-weight: ${({ theme }) => theme.fonts.weights.regular};
+  font-size: 0.875rem;
+  color: ${({ theme }) => theme.colors.gray300};
+  margin-left: 1rem;
+  white-space: nowrap;
 `;
 
 // skeleton

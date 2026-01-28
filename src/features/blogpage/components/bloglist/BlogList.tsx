@@ -6,6 +6,8 @@ import { format } from "date-fns";
 import { ko } from "date-fns/locale/ko";
 import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi2";
+import { useState } from "react";
+import { FaChevronDown, FaChevronRight } from "react-icons/fa6";
 
 interface BlogPost {
   slug: string;
@@ -31,6 +33,7 @@ interface Props {
 
 const BlogList = ({ mode, posts, series, loading }: Props) => {
   const router = useRouter();
+  const [expandedSeries, setExpandedSeries] = useState<Set<string>>(new Set());
 
   // 시리즈 모드일 때 시리즈별로 그룹화 (시리즈가 있는 포스트만)
   const groupedBySeries = posts
@@ -96,7 +99,9 @@ const BlogList = ({ mode, posts, series, loading }: Props) => {
           );
 
           const thumbnailSrc = post.frontMatter.thumbnail
-            ? `/api/blog/${post.slug}/image/${post.frontMatter.thumbnail}`
+            ? post.frontMatter.thumbnail.startsWith("http")
+              ? post.frontMatter.thumbnail
+              : `/api/blog/${post.slug}/image/${post.frontMatter.thumbnail}`
             : null;
 
           return (
@@ -142,67 +147,65 @@ const BlogList = ({ mode, posts, series, loading }: Props) => {
     return <S.Grid>시리즈로 분류된 글이 없습니다.</S.Grid>;
   }
 
+  const toggleSeries = (seriesName: string) => {
+    setExpandedSeries((prev) => {
+      const next = new Set(prev);
+      if (next.has(seriesName)) {
+        next.delete(seriesName);
+      } else {
+        next.add(seriesName);
+      }
+      return next;
+    });
+  };
+
   return (
     <S.SeriesContainer>
       {(displayData as Array<{ series: string; posts: BlogPost[] }>).map(
-        ({ series: seriesName, posts: seriesPosts }) => (
-          <S.SeriesSection key={seriesName}>
-            <S.SeriesTitle>{seriesName}</S.SeriesTitle>
-            <S.Grid>
-              {seriesPosts.map((post, index) => {
-                const handleClick = () => {
-                  router.push(`/blog/${post.slug}`);
-                };
+        ({ series: seriesName, posts: seriesPosts }) => {
+          const isExpanded = expandedSeries.has(seriesName);
 
-                const formattedDate = format(
-                  new Date(post.frontMatter.date),
-                  "yyyy년 M월 d일",
-                  {
-                    locale: ko,
-                  }
-                );
+          return (
+            <S.SeriesSection key={seriesName}>
+              <S.SeriesHeader onClick={() => toggleSeries(seriesName)}>
+                <S.SeriesTitleWrapper>
+                  {isExpanded ? (
+                    <FaChevronDown size={16} />
+                  ) : (
+                    <FaChevronRight size={16} />
+                  )}
+                  <S.SeriesTitle>{seriesName}</S.SeriesTitle>
+                </S.SeriesTitleWrapper>
+                <S.SeriesCount>{seriesPosts.length}개</S.SeriesCount>
+              </S.SeriesHeader>
+              {isExpanded && (
+                <S.SeriesPostList>
+                  {seriesPosts.map((post) => {
+                    const handlePostClick = (e: React.MouseEvent) => {
+                      e.stopPropagation();
+                      router.push(`/blog/${post.slug}`);
+                    };
 
-                const thumbnailSrc = post.frontMatter.thumbnail
-                  ? `/api/blog/${post.slug}/image/${post.frontMatter.thumbnail}`
-                  : null;
+                    const formattedDate = format(
+                      new Date(post.frontMatter.date),
+                      "yyyy년 M월 d일",
+                      {
+                        locale: ko,
+                      }
+                    );
 
-                return (
-                  <S.Card key={post.slug} onClick={handleClick}>
-                    {thumbnailSrc && (
-                      <S.Thumbnail>
-                        <Image
-                          src={thumbnailSrc}
-                          alt={post.frontMatter.title}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          style={{ objectFit: "cover" }}
-                          priority={index === 0}
-                        />
-                      </S.Thumbnail>
-                    )}
-                    <S.Container>
-                      <S.Title>{post.frontMatter.title}</S.Title>
-                      {post.frontMatter.description && (
-                        <S.Desc>{post.frontMatter.description}</S.Desc>
-                      )}
-                      <S.TagContainer>
-                        {post.frontMatter.tags?.map((tag) => (
-                          <S.Tag key={tag}>#{tag}</S.Tag>
-                        ))}
-                      </S.TagContainer>
-                      <S.Footer>
-                        <S.Date>{formattedDate}</S.Date>
-                        <S.ViewDetail>
-                          Read More <HiArrowRight />
-                        </S.ViewDetail>
-                      </S.Footer>
-                    </S.Container>
-                  </S.Card>
-                );
-              })}
-            </S.Grid>
-          </S.SeriesSection>
-        )
+                    return (
+                      <S.SeriesPostItem key={post.slug} onClick={handlePostClick}>
+                        <S.SeriesPostTitle>{post.frontMatter.title}</S.SeriesPostTitle>
+                        <S.SeriesPostDate>{formattedDate}</S.SeriesPostDate>
+                      </S.SeriesPostItem>
+                    );
+                  })}
+                </S.SeriesPostList>
+              )}
+            </S.SeriesSection>
+          );
+        }
       )}
     </S.SeriesContainer>
   );
