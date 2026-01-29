@@ -76,20 +76,6 @@ export const MainText = styled.h2`
 export const HighlightText = styled.span`
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0.1em;
-    left: 0;
-    right: 0;
-    height: 0.3em;
-    background-color: ${({ theme }) => theme.colors.gray100};
-    opacity: 0.4;
-    z-index: -1;
-    transition: opacity 0.3s ease;
-  }
 `;
 
 export const Divider = styled.div`
@@ -141,7 +127,7 @@ export const LinkButton = styled(motion.div)`
     bottom: 0.325rem;
     left: 0;
     width: 0;
-    height: 1px;
+    height: 2px;
     background-color: ${({ theme }) => theme.colors.black};
     transition: width 0.3s ease;
   }

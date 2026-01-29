@@ -10,7 +10,7 @@ export const Grid = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin: 2rem auto 0;
+  margin: 1rem auto 0;
   padding: 0 1rem;
 
   @media (max-width: 768px) {
@@ -187,7 +187,7 @@ export const ViewDetail = styled.div`
 export const SeriesContainer = styled.div`
   width: 100%;
   max-width: 1400px;
-  margin: 2rem auto 0;
+  margin: 1rem auto 0;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
