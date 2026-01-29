@@ -16,7 +16,8 @@ const First = () => {
       <S.MainContent>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
           <S.Quote>{quote}</S.Quote>
@@ -25,8 +26,9 @@ const First = () => {
         <S.TextSection>
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.1 }}
           >
             <S.MainText>{mainText}</S.MainText>
           </motion.div>
@@ -43,10 +45,11 @@ const First = () => {
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, margin: "-50px" }}
               transition={{
                 duration: 0.5,
-                delay: 0.6 + index * 0.1,
+                delay: index * 0.1,
               }}
             >
               <S.InfoItem>
@@ -60,8 +63,9 @@ const First = () => {
 
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false, margin: "-100px" }}
+        transition={{ duration: 0.6, delay: 0.2 }}
       >
         <S.HistoryText>{FIRSTCONSTANT.TEXT.HISTORY}</S.HistoryText>
       </motion.div>

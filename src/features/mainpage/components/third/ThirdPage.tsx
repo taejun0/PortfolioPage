@@ -50,13 +50,18 @@ const ThirdPage = () => {
 
   return (
     <S.Wrapper>
-      <S.SectionLabel>SKILLS</S.SectionLabel>
-      <S.Title>Core Tech</S.Title>
-      <S.SemiTitle>{`개발자들 간의 코드 안정성과 유지 보수성을 중시하며
+      <S.Content>
+        <S.HeaderSection>
+          <S.SectionLabel>SKILLS</S.SectionLabel>
+          <S.Title>Core Tech</S.Title>
+          <S.SemiTitle>{`개발자들 간의 코드 안정성과 유지 보수성을 중시하며
 현대적이고 성능이 좋은 웹 어플리케이션을 만들기 위해
 신중하게 도구를 선택하고 사용합니다.`}</S.SemiTitle>
+        </S.HeaderSection>
 
-      <S.Container>
+        <S.Divider />
+
+        <S.Container>
         {skills.map((s, idx) => (
           <S.Box
             key={s.title}
@@ -79,13 +84,16 @@ const ThirdPage = () => {
             <S.BoxText $active={idx === active}>{s.desc}</S.BoxText>
           </S.Box>
         ))}
-      </S.Container>
+        </S.Container>
 
-      <Link href={ROUTE_CONSTANTS.SKILLS}>
-        <S.HowManyUse>
-          제가 사용하는 기술에 대해 자세히 알아봐요 {"->"}
-        </S.HowManyUse>
-      </Link>
+        <S.LinkWrapper>
+          <Link href={ROUTE_CONSTANTS.SKILLS}>
+            <S.HowManyUse>
+              제가 사용하는 기술에 대해 자세히 알아봐요 {"->"}
+            </S.HowManyUse>
+          </Link>
+        </S.LinkWrapper>
+      </S.Content>
     </S.Wrapper>
   );
 };
