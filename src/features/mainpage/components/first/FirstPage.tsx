@@ -36,24 +36,24 @@ const FirstPage = () => {
         }}
       />
 
-      <S.ContentContainer>
-        <S.FrontEnd
-          initial={{ y: -80, opacity: 0, scale: 0.95, filter: "blur(20px)" }}
-          animate={{
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            filter: "blur(0px)",
-          }}
-          transition={{
-            duration: 1.2,
-            ease: [0.34, 1.56, 0.64, 1],
-            delay: 0.2,
-          }}
-        >
-          FRONTEND
-        </S.FrontEnd>
+      <S.FrontEnd
+        initial={{ y: -80, opacity: 0, scale: 0.95, filter: "blur(20px)" }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)",
+        }}
+        transition={{
+          duration: 1.2,
+          ease: [0.34, 1.56, 0.64, 1],
+          delay: 0.2,
+        }}
+      >
+        FRONTEND
+      </S.FrontEnd>
 
+      <S.ContentContainer>
         <S.NameTitle>
           {titleWords.map((word, wordIndex) => (
             <S.WordWrapper key={wordIndex}>
