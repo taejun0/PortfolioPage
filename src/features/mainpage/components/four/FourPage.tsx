@@ -55,8 +55,13 @@ const FourPage = () => {
   return (
     <S.Wrapper>
       <S.Inner>
-        <S.SectionLabel>PROJECTS</S.SectionLabel>
-        <S.Title>Featured Projects</S.Title>
+        <S.HeaderSection>
+          <S.SectionLabel>PROJECTS</S.SectionLabel>
+          <S.Title>Featured Projects</S.Title>
+        </S.HeaderSection>
+
+        <S.Divider />
+
         <S.NavigationWrapper>
           <S.CustomNav className="custom-prev">
             <IoArrowBackOutline />
@@ -71,30 +76,29 @@ const FourPage = () => {
           pagination={{ clickable: true, el: ".custom-pagination" }}
           navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
           slidesPerView={1}
-          centeredSlides
-          loop
+          centeredSlides={false}
+          loop={false}
           spaceBetween={50}
           style={{ width: "100%" }}
         >
           {projectList.map((project, index) => (
             <SwiperSlide key={index}>
               <S.ProjectCard>
-                <Image
-                  src={project.image}
-                  alt={`${project.title} 대표 이미지`}
-                  width={1200}
-                  height={480}
-                  sizes="(max-width: 768px) 90vw, 70vw"
-                  loading="lazy"
-                  style={{
-                    display: "flex",
-                    alignContent: "center",
-                    width: "100%",
-                    height: "150px",
-                    objectFit: "contain",
-                    borderRadius: "1rem",
-                  }}
-                />
+                <S.ProjectImageWrapper>
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} 대표 이미지`}
+                    width={1200}
+                    height={480}
+                    sizes="(max-width: 768px) 100vw, 45vw"
+                    loading="lazy"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </S.ProjectImageWrapper>
                 <S.ProjectInfo>
                   <S.ProjectTitle>{project.title}</S.ProjectTitle>
                   <S.ProjectPeriod>{project.period}</S.ProjectPeriod>
