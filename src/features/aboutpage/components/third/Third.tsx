@@ -9,19 +9,26 @@ const Third = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { 
+      opacity: 0, 
+      y: 80,
+      scale: 0.9,
+    },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.4, 0, 0.2, 1],
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        mass: 0.8,
       },
     },
   };
@@ -31,7 +38,7 @@ const Third = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: false, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
         <S.HeaderSection>
@@ -43,7 +50,7 @@ const Third = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: false, margin: "-50px" }}
       >
         <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
