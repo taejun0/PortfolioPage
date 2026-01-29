@@ -10,6 +10,9 @@ import { ko } from "date-fns/locale/ko";
 import "highlight.js/styles/github-dark.css";
 import { useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa6";
+import { useState, useEffect, useMemo } from "react";
+import React from "react";
+import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 
 interface BlogDetailPageProps {
   post: {
@@ -27,8 +30,17 @@ interface BlogDetailPageProps {
   };
 }
 
+interface Heading {
+  id: string;
+  text: string;
+  level: number;
+}
+
 const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
   const router = useRouter();
+  const [headings, setHeadings] = useState<Heading[]>([]);
+  const [activeHeading, setActiveHeading] = useState<string>("");
+
   const formattedDate = format(new Date(post.frontMatter.date), "yyyy년 M월 d일", {
     locale: ko,
   });
@@ -38,6 +50,124 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
         locale: ko,
       })
     : null;
+
+  // 목차 생성 함수
+  // 헤딩 ID 생성 함수 (한글 포함)
+  const generateHeadingId = (text: string): string => {
+    return text
+      .toLowerCase()
+      .replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+      .trim();
+  };
+
+  const generateTOC = (content: string): Heading[] => {
+    const headingRegex = /^(#{1,4})\s+(.+)$/gm;
+    const toc: Heading[] = [];
+    let match;
+
+    while ((match = headingRegex.exec(content)) !== null) {
+      const level = match[1].length;
+      const text = match[2].trim();
+      const id = generateHeadingId(text);
+
+      toc.push({ id, text, level });
+    }
+
+    return toc;
+  };
+
+  // 목차 추출
+  useEffect(() => {
+    const toc = generateTOC(post.content);
+    setHeadings(toc);
+  }, [post.content]);
+
+  // 스크롤 시 활성 헤딩 감지
+  useEffect(() => {
+    if (headings.length === 0) return;
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = headings.length - 1; i >= 0; i--) {
+        const element = document.getElementById(headings[i].id);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveHeading(headings[i].id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // 초기 실행
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [headings]);
+
+  const scrollToHeading = (id: string) => {
+    // 약간의 지연을 두어 DOM이 완전히 렌더링된 후 스크롤
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 100; // 헤더 높이 고려
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      } else {
+        // ID가 정확히 일치하지 않을 경우, 대체 방법 시도
+        const allHeadings = document.querySelectorAll("h1, h2, h3, h4");
+        allHeadings.forEach((heading) => {
+          const headingText = heading.textContent?.trim() || "";
+          const headingId = generateHeadingId(headingText);
+          if (headingId === id) {
+            const offset = 100;
+            const elementPosition = heading.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      }
+    }, 50);
+  };
+
+  // 토글 컴포넌트
+  const ToggleBlock = ({ children }: { children: React.ReactNode }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    
+    // children에서 summary와 content 분리
+    const childrenArray = React.Children.toArray(children);
+    const summaryElement = childrenArray.find(
+      (child: any) => child?.type === "summary" || child?.props?.node?.tagName === "summary"
+    );
+    const contentElements = childrenArray.filter(
+      (child: any) => child?.type !== "summary" && child?.props?.node?.tagName !== "summary"
+    );
+
+    const summaryText = summaryElement 
+      ? (typeof summaryElement === 'object' && 'props' in summaryElement 
+          ? summaryElement.props.children 
+          : summaryElement)
+      : "토글";
+
+    return (
+      <S.ToggleContainer>
+        <S.ToggleHeader onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <FaChevronDown /> : <FaChevronRight />}
+          <span>{summaryText}</span>
+        </S.ToggleHeader>
+        {isOpen && <S.ToggleContent>{contentElements}</S.ToggleContent>}
+      </S.ToggleContainer>
+    );
+  };
 
   return (
     <S.Wrapper>
@@ -58,7 +188,7 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
           {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
             <S.TagContainer>
               {post.frontMatter.tags.map((tag) => (
-                <S.Tag key={tag}>#{tag}</S.Tag>
+                <S.Tag key={tag}>{tag.replace(/^#/, "")}</S.Tag>
               ))}
             </S.TagContainer>
           )}
@@ -79,15 +209,49 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
           </S.VelogNotice>
         )}
 
+        {headings.length > 0 && (
+          <S.TOCContainer>
+            <S.TOCTitle>목차</S.TOCTitle>
+            <S.TOCList>
+              {headings.map((heading) => (
+                <S.TOCItem
+                  key={heading.id}
+                  $level={heading.level}
+                  $active={activeHeading === heading.id}
+                  onClick={() => scrollToHeading(heading.id)}
+                >
+                  {heading.text}
+                </S.TOCItem>
+              ))}
+            </S.TOCList>
+          </S.TOCContainer>
+        )}
+
         <S.Content>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw, rehypeHighlight]}
             components={{
-              h1: ({ children }) => <S.MarkdownH1>{children}</S.MarkdownH1>,
-              h2: ({ children }) => <S.MarkdownH2>{children}</S.MarkdownH2>,
-              h3: ({ children }) => <S.MarkdownH3>{children}</S.MarkdownH3>,
-              h4: ({ children }) => <S.MarkdownH4>{children}</S.MarkdownH4>,
+              h1: ({ children }) => {
+                const id = generateHeadingId(String(children));
+                return <S.MarkdownH1 id={id}>{children}</S.MarkdownH1>;
+              },
+              h2: ({ children }) => {
+                const id = generateHeadingId(String(children));
+                return <S.MarkdownH2 id={id}>{children}</S.MarkdownH2>;
+              },
+              h3: ({ children }) => {
+                const id = generateHeadingId(String(children));
+                return <S.MarkdownH3 id={id}>{children}</S.MarkdownH3>;
+              },
+              h4: ({ children }) => {
+                const id = generateHeadingId(String(children));
+                return <S.MarkdownH4 id={id}>{children}</S.MarkdownH4>;
+              },
+              details: ({ children, ...props }) => {
+                return <ToggleBlock>{children}</ToggleBlock>;
+              },
+              summary: ({ children }) => <>{children}</>,
               p: ({ children }) => <S.MarkdownP>{children}</S.MarkdownP>,
               ul: ({ children }) => <S.MarkdownUl>{children}</S.MarkdownUl>,
               ol: ({ children }) => <S.MarkdownOl>{children}</S.MarkdownOl>,
