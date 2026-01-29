@@ -45,40 +45,66 @@ export const ContentContainer = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding: 3rem 2rem;
+  padding: 2rem 2rem;
+
+  @media (max-width: 600px) {
+    padding: 1.5rem 1rem;
+  }
 `;
 
 export const FrontEnd = styled(motion.h1)`
   color: ${({ theme }) => theme.colors.white};
   font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
-  font-size: 6rem;
+  font-size: clamp(5rem, 18vw, 12rem);
   position: absolute;
   z-index: 0;
-  top: -5rem;
-  letter-spacing: 0.1em;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  margin-top: -8rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.03) 0%,
-    rgba(0, 0, 0, 0.08) 100%
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0.18) 50%,
+    rgba(0, 0, 0, 0.12) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   user-select: none;
   pointer-events: none;
+  text-align: center;
+  width: 100%;
 
-  @media (max-width: 760px) {
-    font-size: 5.5rem;
+  @media (max-width: 1200px) {
+    font-size: clamp(4.5rem, 16vw, 10rem);
+  }
+
+  @media (max-width: 960px) {
+    font-size: clamp(4rem, 14vw, 9rem);
+    margin-top: -6rem;
+  }
+
+  @media (max-width: 800px) {
+    font-size: clamp(4.5rem, 18vw, 10rem);
+    margin-top: -6rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: clamp(4rem, 16vw, 9rem);
   }
 
   @media (max-width: 600px) {
-    top: -3.5rem;
-    font-size: 4rem;
+    font-size: clamp(3.5rem, 14vw, 8rem);
+    margin-top: -5rem;
   }
 
   @media (max-width: 430px) {
-    top: -2.5rem;
-    font-size: 3rem;
+    font-size: clamp(3rem, 12vw, 6rem);
+    margin-top: -4rem;
   }
 `;
 
@@ -86,6 +112,7 @@ export const NameTitle = styled.h2`
   font-size: 2.5rem;
   position: relative;
   z-index: 1;
+  margin-top: 0.5rem;
   margin-bottom: 2rem;
   width: 100%;
   display: flex;
@@ -97,16 +124,23 @@ export const NameTitle = styled.h2`
   line-height: 1.8;
   text-align: center;
 
+  @media (max-width: 960px) {
+    margin-top: 0.3rem;
+  }
+
   @media (max-width: 760px) {
     font-size: 2rem;
+    margin-top: 0.2rem;
   }
 
   @media (max-width: 600px) {
     font-size: 1.5rem;
+    margin-top: 0.1rem;
   }
 
   @media (max-width: 430px) {
     font-size: 1.25rem;
+    margin-top: 0;
   }
 `;
 
