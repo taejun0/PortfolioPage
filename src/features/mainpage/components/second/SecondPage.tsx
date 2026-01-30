@@ -93,7 +93,7 @@ const SecondPage = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                더 알아보기 →
+                저를 보러가요 →
               </S.LinkButton>
             </Link>
           </motion.div>
