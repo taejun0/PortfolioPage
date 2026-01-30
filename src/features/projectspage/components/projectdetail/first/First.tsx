@@ -4,10 +4,10 @@ import { IoIosArrowForward } from "react-icons/io";
 
 interface Props {
   projectName: string;
-  projectdetailDescription: string;
+  overview: string;
 }
 
-const First = ({ projectName, projectdetailDescription }: Props) => {
+const First = ({ projectName, overview }: Props) => {
   return (
     <S.Wrapper>
       <S.TitleBox>
@@ -17,7 +17,7 @@ const First = ({ projectName, projectdetailDescription }: Props) => {
         <S.AfterTitle>{projectName}</S.AfterTitle>
       </S.TitleBox>
       <S.Title>{projectName}</S.Title>
-      <S.SemiTitle>{projectdetailDescription}</S.SemiTitle>
+      <S.SemiTitle>{overview}</S.SemiTitle>
     </S.Wrapper>
   );
 };

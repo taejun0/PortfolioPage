@@ -35,11 +35,11 @@ export const stacks: ProjectsStack[] = [
     feature: true,
     image: "/images/projectsImage/D-order.webp",
     SemiInfo: [
-      "2025.05 - 현재 추가 개발 중",
+      "1차 개발 2025.05 - 2025.07\n2차 개발 2025.08 - 2025.10\n3차 개발 2026.02 - 현재 추가 개발 중",
       "Team project",
       "Frontend Team Leader",
-      "https://github.com/LikeLion-at-DGU/2025-d-order-frontend-admin https://github.com/LikeLion-at-DGU/2025-d-order-frontend-customer",
-      "",
+      "https://github.com/LikeLion-at-DGU/2025-d-order-frontend-admin \n https://github.com/LikeLion-at-DGU/2025-d-order-frontend-customer",
+      "https://taejun0.github.io/2025-d-order-fe-customer-v2/ \n https://taejun0.github.io/2025-d-order-fe-admin-v2/",
     ],
     stack: [
       "React & TypeScript - UI 상태 변화가 많은 주문 시스템에 적합한 컴포넌트 기반 프레임워크인 React와 TypeScript로 타입 안정성 확보했습니다.",

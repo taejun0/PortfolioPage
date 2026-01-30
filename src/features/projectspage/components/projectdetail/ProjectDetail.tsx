@@ -51,7 +51,7 @@ const ProjectDetailModal = ({ slug, onClose }: Props) => {
         >
           <First
             projectName={project.name}
-            projectdetailDescription={project.detailDescription}
+            overview={project.overview}
           />
           <S.CloseButton
             onClick={onClose}
@@ -60,7 +60,11 @@ const ProjectDetailModal = ({ slug, onClose }: Props) => {
           >
             <IoIosClose />
           </S.CloseButton>
-          <Second SemiInfo={project.SemiInfo} overview={project.overview} />
+          <Second
+            SemiInfo={project.SemiInfo}
+            overview={project.overview}
+            projectName={project.name}
+          />
           <Third
             stack={project.stack}
             features={project.features}
