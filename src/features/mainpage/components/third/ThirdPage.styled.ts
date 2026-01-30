@@ -47,22 +47,22 @@ export const Content = styled.div`
   }
 
   @media (max-width: 768px) {
-    gap: 1.25rem;
+    gap: 1.5rem;
     padding: 0 0.25rem;
   }
 
   @media (max-width: 600px) {
-    gap: 1rem;
+    gap: 1.25rem;
     padding: 0;
   }
 
   @media (max-width: 480px) {
-    gap: 0.75rem;
+    gap: 1.25rem;
     padding: 0;
   }
 
   @media (max-width: 400px) {
-    gap: 0.5rem;
+    gap: 1rem;
     padding: 0;
   }
 `;
@@ -72,7 +72,7 @@ export const HeaderSection = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1rem;
+  gap: 1.5rem;
 `;
 
 export const Title = styled.h2`
@@ -123,7 +123,7 @@ export const Container = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 0;
   margin-bottom: 1rem;
   width: 100%;
 
@@ -298,7 +298,7 @@ export const Divider = styled.div`
   width: 4rem;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.gray200};
-  margin: 1rem auto;
+  margin: 0 auto;
 
   @media (max-width: 480px) {
     width: 3rem;

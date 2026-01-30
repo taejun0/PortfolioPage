@@ -66,7 +66,7 @@ export const Inner = styled.div`
   padding: 0 1rem;
 
   @media (max-width: 960px) {
-    gap: 1.75rem;
+    gap: 1.5rem;
     padding: 0 0.5rem;
   }
 
@@ -81,8 +81,12 @@ export const Inner = styled.div`
   }
 
   @media (max-width: 480px) {
-    gap: 1rem;
+    gap: 1.25rem;
     padding: 0;
+  }
+
+  @media (max-width: 400px) {
+    gap: 1rem;
   }
 `;
 
@@ -98,7 +102,7 @@ export const Divider = styled.div`
   width: 4rem;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.gray200};
-  margin: 1rem auto;
+  margin: 0 auto;
 
   @media (max-width: 480px) {
     width: 3rem;

@@ -30,14 +30,26 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
+
+  @media (max-width: 960px) {
+    gap: 1.5rem;
+  }
 
   @media (max-width: 768px) {
-    gap: 2.5rem;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    gap: 1.25rem;
   }
 
   @media (max-width: 480px) {
-    gap: 2rem;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 400px) {
+    gap: 1rem;
   }
 `;
 
@@ -82,7 +94,7 @@ export const Divider = styled.div`
   width: 4rem;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.gray200};
-  margin: 1rem 0;
+  margin: 0 auto;
 
   @media (max-width: 480px) {
     width: 3rem;
