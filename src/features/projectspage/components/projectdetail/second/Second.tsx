@@ -24,8 +24,8 @@ const Second = ({ SemiInfo, overview, projectName = "" }: Props) => {
   const currentLink = links.length > 0 ? links[selectedLinkIndex] : null;
 
   // 모바일 전용 프로젝트 체크 (D-order admin, 포트폴리오 제외)
-  const isMobileOnly =
-    currentLink &&
+  const isMobileOnly: boolean =
+    currentLink !== null &&
     !currentLink.includes("d-order-fe-admin") &&
     !currentLink.includes("taejun0-portfolio") &&
     !currentLink.includes("portfolio.site");
