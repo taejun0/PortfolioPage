@@ -126,7 +126,7 @@ export const Title = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
   font-size: 1.75rem;
-
+  align-self: center;
   margin-bottom: 0.5rem;
 `;
 
@@ -134,7 +134,8 @@ export const Content = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 
   gap: 1rem;
 

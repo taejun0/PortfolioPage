@@ -39,7 +39,7 @@ const SixPage = () => {
       </S.Box>
       <S.ContainerWrap>
         <S.Container>
-          <S.Box>
+          <S.Box style={{ width: "80%", alignItems: "flex-start", marginLeft: "auto" }}>
             <S.Title>HOW</S.Title>
             <S.Content>
               <SiGmail size={47} />
