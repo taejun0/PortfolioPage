@@ -327,7 +327,6 @@ export const DownArrow = styled(motion.div)`
   justify-content: center;
   align-items: center;
   z-index: 1;
-  cursor: pointer;
 
   svg {
     width: 32px;

@@ -122,7 +122,7 @@ const FirstPage = () => {
           />
         </S.TypewriterWrapper>
 
-        <S.ButtonList
+        {/* <S.ButtonList
           initial={{ opacity: 0, y: 30 }}
           animate={isLoaded ? { opacity: 1, y: 0 } : {}}
           transition={{
@@ -161,7 +161,7 @@ const FirstPage = () => {
               </motion.span>
             </S.Buttons2>
           </a>
-        </S.ButtonList>
+        </S.ButtonList> */}
 
         <S.IconList
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -182,7 +182,11 @@ const FirstPage = () => {
               y: -5,
             }}
             whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            transition={{
+              scale: { type: "spring", stiffness: 400, damping: 17 },
+              y: { type: "spring", stiffness: 400, damping: 17 },
+              rotate: { duration: 0.45, ease: "easeInOut" },
+            }}
           >
             <SiGithub />
           </motion.a>
@@ -196,7 +200,11 @@ const FirstPage = () => {
               y: -5,
             }}
             whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            transition={{
+              scale: { type: "spring", stiffness: 400, damping: 17 },
+              y: { type: "spring", stiffness: 400, damping: 17 },
+              rotate: { duration: 0.45, ease: "easeInOut" },
+            }}
           >
             <SiVelog />
           </motion.a>
