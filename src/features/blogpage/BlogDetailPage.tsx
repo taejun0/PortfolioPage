@@ -41,9 +41,13 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeHeading, setActiveHeading] = useState<string>("");
 
-  const formattedDate = format(new Date(post.frontMatter.date), "yyyy년 M월 d일", {
-    locale: ko,
-  });
+  const formattedDate = format(
+    new Date(post.frontMatter.date),
+    "yyyy년 M월 d일",
+    {
+      locale: ko,
+    },
+  );
 
   const velogDate = post.frontMatter.velogDate
     ? format(new Date(post.frontMatter.velogDate), "yyyy년 M월 d일", {
@@ -128,7 +132,8 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
           if (headingId === id) {
             const offset = 100;
             const elementPosition = heading.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - offset;
             window.scrollTo({
               top: offsetPosition,
               behavior: "smooth",
@@ -142,20 +147,22 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
   // 토글 컴포넌트
   const ToggleBlock = ({ children }: { children: React.ReactNode }) => {
     const [isOpen, setIsOpen] = useState(false);
-    
+
     // children에서 summary와 content 분리
     const childrenArray = React.Children.toArray(children);
     const summaryElement = childrenArray.find(
-      (child: any) => child?.type === "summary" || child?.props?.node?.tagName === "summary"
+      (child: any) =>
+        child?.type === "summary" || child?.props?.node?.tagName === "summary",
     );
     const contentElements = childrenArray.filter(
-      (child: any) => child?.type !== "summary" && child?.props?.node?.tagName !== "summary"
+      (child: any) =>
+        child?.type !== "summary" && child?.props?.node?.tagName !== "summary",
     );
 
-    const summaryText = summaryElement 
-      ? (typeof summaryElement === 'object' && 'props' in summaryElement 
-          ? summaryElement.props.children 
-          : summaryElement)
+    const summaryText = summaryElement
+      ? typeof summaryElement === "object" && "props" in summaryElement
+        ? summaryElement.props.children
+        : summaryElement
       : "토글";
 
     return (
@@ -178,9 +185,7 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
 
         <S.Header>
           <S.Title>{post.frontMatter.title}</S.Title>
-          {post.frontMatter.isVelogPost && (
-            <S.VelogBadge>Velog</S.VelogBadge>
-          )}
+          {post.frontMatter.isVelogPost && <S.VelogBadge>Velog</S.VelogBadge>}
         </S.Header>
 
         <S.Meta>
@@ -197,7 +202,9 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
         {post.frontMatter.isVelogPost && post.frontMatter.velogUrl && (
           <S.VelogNotice>
             <S.VelogNoticeText>
-              {velogDate ? `${velogDate} 까지의 기술 블로그는 Velog에서 작성되었습니다.` : "까지의 기술 블로그는 Velog에서 작성되었습니다."}
+              {velogDate
+                ? `${velogDate} 까지의 기술 블로그는 Velog에서 작성되었습니다.`
+                : "까지의 기술 블로그는 Velog에서 작성되었습니다."}
             </S.VelogNoticeText>
             <S.VelogLink
               href={post.frontMatter.velogUrl}
@@ -263,7 +270,9 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
                     {children}
                   </S.MarkdownCodeBlock>
                 ) : (
-                  <S.MarkdownInlineCode {...props}>{children}</S.MarkdownInlineCode>
+                  <S.MarkdownInlineCode {...props}>
+                    {children}
+                  </S.MarkdownInlineCode>
                 );
               },
               pre: ({ children }) => <S.MarkdownPre>{children}</S.MarkdownPre>,
@@ -271,27 +280,34 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
                 <S.MarkdownBlockquote>{children}</S.MarkdownBlockquote>
               ),
               a: ({ href, children }) => (
-                <S.MarkdownLink href={href} target="_blank" rel="noopener noreferrer">
+                <S.MarkdownLink
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {children}
                 </S.MarkdownLink>
               ),
               img: ({ src, alt, ...props }) => {
                 if (!src) return null;
-                
+
                 // alt 텍스트에서 크기 정보 추출 (예: "설명|width:500" 또는 "설명|50%")
-                let imageAlt = alt || '';
+                let imageAlt = alt || "";
                 let width: string | undefined = undefined;
-                
-                if (imageAlt.includes('|')) {
-                  const parts = imageAlt.split('|');
+
+                if (imageAlt.includes("|")) {
+                  const parts = imageAlt.split("|");
                   imageAlt = parts[0];
                   const sizePart = parts[1]?.trim();
-                  
+
                   if (sizePart) {
                     // "width:500" 또는 "500px" 또는 "50%" 형식 지원
-                    if (sizePart.startsWith('width:')) {
-                      width = sizePart.replace('width:', '').trim();
-                    } else if (sizePart.endsWith('px') || sizePart.endsWith('%')) {
+                    if (sizePart.startsWith("width:")) {
+                      width = sizePart.replace("width:", "").trim();
+                    } else if (
+                      sizePart.endsWith("px") ||
+                      sizePart.endsWith("%")
+                    ) {
                       width = sizePart;
                     } else {
                       // 숫자만 있으면 px로 간주
@@ -299,28 +315,48 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
                     }
                   }
                 }
-                
+
                 // HTML 속성에서 width 추출 (HTML 이미지 태그 사용 시)
                 const htmlWidth = (props as any).width || width;
-                
+
                 // 절대 URL (http://, https://)인 경우 그대로 사용
-                if (src.startsWith('http://') || src.startsWith('https://')) {
-                  return <S.MarkdownImg src={src} alt={imageAlt} style={{ width: htmlWidth }} />;
+                if (src.startsWith("http://") || src.startsWith("https://")) {
+                  return (
+                    <S.MarkdownImg
+                      src={src}
+                      alt={imageAlt}
+                      style={{ width: htmlWidth }}
+                    />
+                  );
                 }
-                
+
                 // public 폴더의 이미지 (절대 경로로 시작)
-                if (src.startsWith('/')) {
-                  return <S.MarkdownImg src={src} alt={imageAlt} style={{ width: htmlWidth }} />;
+                if (src.startsWith("/")) {
+                  return (
+                    <S.MarkdownImg
+                      src={src}
+                      alt={imageAlt}
+                      style={{ width: htmlWidth }}
+                    />
+                  );
                 }
-                
+
                 // 상대 경로인 경우 (포스트 폴더 내 이미지)
                 // ./image.png 또는 image.png 형태
-                const cleanPath = src.replace(/^\.\//, '');
+                const cleanPath = src.replace(/^\.\//, "");
                 const imageSrc = `/api/blog/${post.slug}/image/${cleanPath}`;
-                return <S.MarkdownImg src={imageSrc} alt={imageAlt} style={{ width: htmlWidth }} />;
+                return (
+                  <S.MarkdownImg
+                    src={imageSrc}
+                    alt={imageAlt}
+                    style={{ width: htmlWidth }}
+                  />
+                );
               },
               hr: () => <S.MarkdownHr />,
-              strong: ({ children }) => <S.MarkdownStrong>{children}</S.MarkdownStrong>,
+              strong: ({ children }) => (
+                <S.MarkdownStrong>{children}</S.MarkdownStrong>
+              ),
               em: ({ children }) => <S.MarkdownEm>{children}</S.MarkdownEm>,
             }}
           >
@@ -333,4 +369,3 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
 };
 
 export default BlogDetailPage;
-
