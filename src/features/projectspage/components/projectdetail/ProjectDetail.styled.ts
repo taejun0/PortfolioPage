@@ -26,11 +26,11 @@ export const ModalBox = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
-  max-height: 90vh;
+  max-width: 1480px;
+  max-height: 92vh;
   overflow-y: auto;
   background: ${({ theme }) => theme.colors.white};
-  border-radius: 1.5rem 0 0 1.5rem;
+  border-radius: 1.5rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   overflow-x: hidden;
 
@@ -54,7 +54,7 @@ export const ModalBox = styled(motion.div)`
 
   @media (max-width: 768px) {
     max-height: 95vh;
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 1rem;
   }
 `;
 

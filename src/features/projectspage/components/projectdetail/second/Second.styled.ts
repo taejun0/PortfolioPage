@@ -4,25 +4,59 @@ export const Wrapper = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 2.5rem 2rem;
   gap: 2.5rem;
   
   @media (max-width: 768px) {
-    flex-direction: column;
     padding: 2rem 1.5rem;
     gap: 2rem;
   }
 `;
 
-export const Container1 = styled.div`
+export const Top = styled.div`
   width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+  gap: 2.5rem;
+  align-items: start;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+`;
+
+export const Preview = styled.div<{ $isMobile?: boolean }>`
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   
   @media (max-width: 768px) {
-    width: 100%;
+    gap: 1.25rem;
+  }
+
+  ${({ $isMobile }) =>
+    $isMobile
+      ? `
+    align-items: center;
+  `
+      : ""}
+`;
+
+export const Info = styled.div`
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
     gap: 1.25rem;
   }
 `;
@@ -185,7 +219,6 @@ export const CustomNav = styled.button`
 
 export const IframeWrapper = styled.div<{ $isMobile?: boolean }>`
   width: 100%;
-  margin-bottom: 2rem;
   border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -201,7 +234,6 @@ export const IframeWrapper = styled.div<{ $isMobile?: boolean }>`
       : ""}
   
   @media (max-width: 768px) {
-    margin-bottom: 1.5rem;
     border-radius: 0.5rem;
     ${({ $isMobile }) =>
       $isMobile

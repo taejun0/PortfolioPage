@@ -14,6 +14,9 @@ export const Wrapper = styled.div`
   border-radius: 0 0 1.5rem 1.5rem;
   padding: 2.5rem 2rem;
   gap: 1rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
   
   @media (max-width: 768px) {
     padding: 2rem 1.5rem;

@@ -11,7 +11,6 @@ import { IoIosClose } from "react-icons/io";
 
 import First from "./first/First";
 import Second from "./second/Second";
-import Third from "./third/Third";
 import Four from "./fort/Four";
 
 interface Props {
@@ -64,8 +63,6 @@ const ProjectDetailModal = ({ slug, onClose }: Props) => {
             SemiInfo={project.SemiInfo}
             overview={project.overview}
             projectName={project.name}
-          />
-          <Third
             stack={project.stack}
             features={project.features}
             roles={project.roles}
