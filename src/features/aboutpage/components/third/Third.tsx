@@ -211,6 +211,31 @@ const Third = () => {
             </S.Keywords>
           </S.JourneyCard>
         </S.ContainerWrap>
+        <S.ContainerWrap variants={itemVariants}>
+          <S.JourneyCard>
+            <S.Time>{THIRDCONSTANT.TEXT.CONTENT.SIX.TIME}</S.Time>
+            <S.ContainerTitle>
+              {THIRDCONSTANT.TEXT.CONTENT.SIX.TITLE}
+            </S.ContainerTitle>
+            <S.ContainerTextBoxCOL>
+              <S.ContainerTextBox>
+                <S.SemiTitleText>
+                  {THIRDCONSTANT.TEXT.CONTENT.SIX.CONTENT1.TITLE}
+                </S.SemiTitleText>
+              </S.ContainerTextBox>
+              {THIRDCONSTANT.TEXT.CONTENT.SIX.CONTENT1.TEXT.map((i, idx) => (
+                <S.ContainerTextBox key={`six-c1-${idx}`}>
+                  <S.ContainerText>{i}</S.ContainerText>
+                </S.ContainerTextBox>
+              ))}
+            </S.ContainerTextBoxCOL>
+            <S.Keywords>
+              {THIRDCONSTANT.TEXT.CONTENT.SIX.KEYWORD.map((i, idx) => (
+                <S.Keyword key={`six-key-${idx}`}>{i}</S.Keyword>
+              ))}
+            </S.Keywords>
+          </S.JourneyCard>
+        </S.ContainerWrap>
       </S.Containers>
     </S.Wrapper>
   );

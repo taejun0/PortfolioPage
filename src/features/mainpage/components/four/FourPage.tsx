@@ -19,11 +19,11 @@ import {
 const projectList = [
   {
     title: "D-Order",
-    description: `축제 현장 주문 플랫폼\nQR 기반 테이블 주문 구조\nReact + Zustand로 상태 관리\n프론트엔드 팀장으로 MVP 설계 및 핵심 기능 구현 전담`,
-    period: "2024.10 ~ 2024.11",
+    description: `축제/행사 현장 주문·운영 플랫폼\nQR 테이블 입장 + 장바구니·송금 확인 흐름\nv3 WebSocket(주문/테이블/직원호출) 실시간 반영\n프론트엔드 팀장으로 핵심 UX/연결 안정화 로직 주도`,
+    period: "2025.05 ~ (개선/운영 지속)",
     tags: ["Team", "React", "TypeScript", "Zustand", "MVP 설계"],
     image: "/images/projects/project4.svg",
-    link: "https://github.com/LikeLion-at-DGU/2025-d-order-frontend-admin",
+    link: "https://github.com/D-Order/2026-d-order-fe-admin-v3",
   },
   {
     title: "포트폴리오 페이지",
@@ -32,22 +32,6 @@ const projectList = [
     tags: ["Solo", "React", "TypeScript", "emotion", "NextJs"],
     image: "/images/projects/project5.png",
     link: "https://github.com/taejun0/PortfolioPage",
-  },
-  {
-    title: "우동친",
-    description: `우리 동네 친환경 동물 생태 지도\nNaver Map + Reverse Geocoding 기반, 마커 렌더링 개선 및 위치 기반 로직 개선 주도`,
-    period: "2025.05 ~ 2025.06",
-    tags: ["Team", "React", "PWA", "Naver Maps"],
-    image: "/images/projects/project2.svg",
-    link: "https://github.com/taejun0/2024_udongchin_front",
-  },
-  {
-    title: "동아리랑",
-    description: `중앙동아리 탐색 및 가입 흐름 UX 설계\n사용자 페르소나 기반 UI 구성 및 스타일링\nGA(Google Analytics)로 사용자 행동 데이터 수집`,
-    period: "2025.01 ~ 2025.02",
-    tags: ["Team", "React", "GA", "UX"],
-    image: "/images/projects/project3.svg",
-    link: "https://github.com/LikeLion-at-DGU/2025_DongBak_Frontend",
   },
 ];
 
