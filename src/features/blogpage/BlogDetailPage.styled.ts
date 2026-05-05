@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   min-height: 100dvh;
-  padding-top: 59px;
+  /* fixed header height compensation (desktop) */
+  padding-top: 88px;
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
@@ -15,7 +16,7 @@ export const Container = styled.div`
   gap: 1.5rem;
 
   @media (max-width: 768px) {
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
     gap: 1.5rem;
   }
 `;
@@ -435,4 +436,3 @@ export const ToggleContent = styled.div`
     padding: 1rem;
   }
 `;
-
