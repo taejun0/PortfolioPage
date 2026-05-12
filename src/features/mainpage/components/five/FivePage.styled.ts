@@ -64,10 +64,10 @@ export const Divider = styled.div`
 
 export const SectionLabel = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  color: ${({ theme }) => theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.gray200};
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   text-align: center;
@@ -83,7 +83,8 @@ export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   font-size: 2.5rem;
-  line-height: 1.6;
+  line-height: 1.55;
+  letter-spacing: -0.025em;
   margin: 0;
   text-align: center;
   width: 100%;

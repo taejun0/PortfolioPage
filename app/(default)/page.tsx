@@ -1,4 +1,4 @@
-// app/(detail)/projects/page.tsx
+// app/(default)/page.tsx — 메인 랜딩
 import type { Metadata } from "next";
 import MainPage from "@features/mainpage/MainPage";
 

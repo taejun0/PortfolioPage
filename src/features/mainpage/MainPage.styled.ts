@@ -7,9 +7,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Section = styled.section`
-  min-height: 100svh; /* 핵심: 한 섹션이 최소 한 화면 */
+  min-height: 100svh;
   width: 100%;
   display: flex;
-  align-items: center; /* 취향: 수직 가운데 정렬 */
-  justify-content: center; /* 취향 */
+  align-items: center;
+  justify-content: center;
+  padding-inline: clamp(1rem, 4vw, 2rem);
 `;

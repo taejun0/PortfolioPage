@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.gray050};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -11,30 +11,30 @@ export const Wrapper = styled.div`
   width: 100%;
 
   padding: 4rem 2rem;
-  gap: 3rem;
+  gap: 2rem;
 
   @media (max-width: 760px) {
     padding: 3rem 1.5rem;
-    gap: 2.5rem;
+    gap: 1.75rem;
   }
 
   @media (max-width: 600px) {
     padding: 2rem 1rem;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   @media (max-width: 430px) {
     padding: 1.5rem 1rem;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 `;
 
 export const SectionLabel = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  color: ${({ theme }) => theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.gray200};
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 

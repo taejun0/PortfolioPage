@@ -12,23 +12,23 @@ export const Wrapper = styled.div`
   padding: 4rem 2rem;
 
   @media (max-width: 960px) {
-    padding: 2.5rem 1.25rem;
+    padding: 2rem 1.25rem;
   }
 
   @media (max-width: 768px) {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   @media (max-width: 600px) {
-    padding: 1.5rem 0.875rem;
+    padding: 1.25rem 0.875rem;
   }
 
   @media (max-width: 480px) {
-    padding: 1.25rem 0.75rem;
+    padding: 1rem 0.75rem;
   }
 
   @media (max-width: 400px) {
-    padding: 1rem 0.625rem;
+    padding: 0.875rem 0.625rem;
   }
 `;
 
@@ -80,7 +80,8 @@ export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   font-size: 2.5rem;
-  line-height: 1.6;
+  line-height: 1.55;
+  letter-spacing: -0.025em;
   margin: 0;
   text-align: center;
   width: 100%;
@@ -169,8 +170,11 @@ export const Box = styled.div<{ $active?: boolean }>`
 
   transform: ${({ $active }) =>
     $active ? "translateY(-2px)" : "translateY(0)"};
-  transition: transform 0.2s ease, background 0.2s ease,
-    border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   cursor: pointer;
   box-shadow: ${({ $active }) =>
@@ -280,10 +284,10 @@ export const BoxText = styled.div<{ $active?: boolean }>`
 
 export const SectionLabel = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  color: ${({ theme }) => theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.gray200};
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   text-align: center;
@@ -295,9 +299,14 @@ export const SectionLabel = styled.div`
 `;
 
 export const Divider = styled.div`
-  width: 4rem;
+  width: 4.5rem;
   height: 1px;
-  background-color: ${({ theme }) => theme.colors.gray200};
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(13, 13, 13, 0.14),
+    transparent
+  );
   margin: 0 auto;
 
   @media (max-width: 480px) {

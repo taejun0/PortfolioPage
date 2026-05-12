@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.gray050};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -55,10 +55,10 @@ export const Content = styled.div`
 
 export const SectionLabel = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  color: ${({ theme }) => theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.gray200};
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 
@@ -72,7 +72,8 @@ export const MainText = styled.h2`
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   font-size: 2.5rem;
-  line-height: 1.6;
+  line-height: 1.55;
+  letter-spacing: -0.025em;
   margin: 0;
 
   @media (max-width: 768px) {
@@ -91,9 +92,14 @@ export const HighlightText = styled.span`
 `;
 
 export const Divider = styled.div`
-  width: 4rem;
+  width: 4.5rem;
   height: 1px;
-  background-color: ${({ theme }) => theme.colors.gray200};
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(13, 13, 13, 0.14),
+    transparent
+  );
   margin: 0 auto;
 
   @media (max-width: 480px) {

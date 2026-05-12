@@ -29,7 +29,7 @@ const FirstPage = () => {
           backgroundPosition: ["0% 0%", "100% 100%"],
         }}
         transition={{
-          duration: 15,
+          duration: 28,
           repeat: Infinity,
           repeatType: "reverse",
           ease: "linear",
@@ -176,17 +176,9 @@ const FirstPage = () => {
             href="https://github.com/taejun0"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{
-              scale: 1.2,
-              rotate: [0, -10, 10, -10, 0],
-              y: -5,
-            }}
-            whileTap={{ scale: 0.9 }}
-            transition={{
-              scale: { type: "spring", stiffness: 400, damping: 17 },
-              y: { type: "spring", stiffness: 400, damping: 17 },
-              rotate: { duration: 0.45, ease: "easeInOut" },
-            }}
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 520, damping: 28 }}
           >
             <SiGithub />
           </motion.a>
@@ -194,17 +186,9 @@ const FirstPage = () => {
             href="https://velog.io/@taejun0/posts"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{
-              scale: 1.2,
-              rotate: [0, -10, 10, -10, 0],
-              y: -5,
-            }}
-            whileTap={{ scale: 0.9 }}
-            transition={{
-              scale: { type: "spring", stiffness: 400, damping: 17 },
-              y: { type: "spring", stiffness: 400, damping: 17 },
-              rotate: { duration: 0.45, ease: "easeInOut" },
-            }}
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 520, damping: 28 }}
           >
             <SiVelog />
           </motion.a>

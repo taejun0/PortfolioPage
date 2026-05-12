@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.gray050};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -22,10 +22,10 @@ export const Wrapper = styled.div`
 
 export const SectionLabel = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
-  color: ${({ theme }) => theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.gray200};
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   text-align: center;
@@ -41,7 +41,8 @@ export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
   font-size: 2.5rem;
-  line-height: 1.6;
+  line-height: 1.55;
+  letter-spacing: -0.025em;
   margin: 0;
   text-align: center;
   width: 100%;
@@ -115,18 +116,18 @@ export const ProjectCard = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 3rem;
-  padding: 2.5rem 0;
+  gap: 2rem;
+  padding: 2rem 0;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 2rem;
-    padding: 2rem 0;
+    gap: 1rem;
+    padding: 1.5rem 0;
   }
 
   @media (max-width: 480px) {
-    padding: 1.5rem 0;
-    gap: 1.5rem;
+    padding: 1.25rem 0;
+    gap: 1rem;
   }
 `;
 
