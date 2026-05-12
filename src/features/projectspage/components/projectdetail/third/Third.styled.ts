@@ -10,16 +10,16 @@ export const Wrapper = styled.div`
   );
   display: flex;
   flex-direction: row;
-  padding: 2.5rem 2rem;
+  padding: 2rem 2rem;
   gap: 2rem;
-  
+
   @media (max-width: 968px) {
     flex-direction: column;
     gap: 1.5rem;
   }
-  
+
   @media (max-width: 768px) {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.5rem;
     gap: 1.5rem;
   }
 `;
@@ -29,21 +29,21 @@ export const CategorySelector = styled.div`
   flex-direction: column;
   gap: 0.75rem;
   min-width: 200px;
-  
+
   @media (max-width: 968px) {
     flex-direction: row;
     overflow-x: auto;
     min-width: 100%;
     padding-bottom: 0.5rem;
-    
+
     &::-webkit-scrollbar {
       height: 4px;
     }
-    
+
     &::-webkit-scrollbar-track {
       background: ${({ theme }) => theme.colors.gray050};
     }
-    
+
     &::-webkit-scrollbar-thumb {
       background: ${({ theme }) => theme.colors.gray150};
       border-radius: 2px;
@@ -66,8 +66,9 @@ export const CategoryButton = styled(motion.button)<{ selected: boolean }>`
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: left;
-  border: 2px solid ${({ selected, theme }) =>
-    selected ? theme.colors.gray150 : "transparent"};
+  border: 2px solid
+    ${({ selected, theme }) =>
+      selected ? theme.colors.gray150 : "transparent"};
   box-shadow: ${({ selected }) =>
     selected ? "0 2px 8px rgba(0, 0, 0, 0.08)" : "none"};
 
@@ -76,13 +77,13 @@ export const CategoryButton = styled(motion.button)<{ selected: boolean }>`
       selected ? theme.colors.white : theme.colors.gray050};
     color: ${({ theme }) => theme.colors.black};
   }
-  
+
   @media (max-width: 968px) {
     white-space: nowrap;
     text-align: center;
     min-width: fit-content;
   }
-  
+
   @media (max-width: 768px) {
     padding: 0.875rem 1rem;
     font-size: 0.875rem;
@@ -96,7 +97,7 @@ export const ContentWrapper = styled(motion.div)`
   padding: 2rem;
   border: 1px solid ${({ theme }) => theme.colors.gray150};
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  
+
   @media (max-width: 768px) {
     padding: 1.5rem;
   }
@@ -114,7 +115,7 @@ export const ContentSection = styled.div`
     color: ${({ theme }) => theme.colors.black};
     margin: 0 0 0.5rem 0;
     letter-spacing: -0.02em;
-    
+
     @media (max-width: 768px) {
       font-size: 1.75rem;
     }
@@ -126,11 +127,11 @@ export const ContentSection = styled.div`
     font-weight: ${({ theme }) => theme.fonts.weights.bold};
     margin: 1.5rem 0 0.75rem 0;
     color: ${({ theme }) => theme.colors.black};
-    
+
     &:first-of-type {
       margin-top: 0;
     }
-    
+
     @media (max-width: 768px) {
       font-size: 1.125rem;
       margin: 1.25rem 0 0.5rem 0;
@@ -144,14 +145,14 @@ export const ContentSection = styled.div`
     padding-left: 0;
     line-height: 1.8;
     margin: 0;
-    
+
     li {
       position: relative;
       padding-left: 1.5rem;
       margin-bottom: 0.75rem;
       color: ${({ theme }) => theme.colors.gray200};
       font-size: 1rem;
-      
+
       &::before {
         content: "•";
         position: absolute;
@@ -161,7 +162,7 @@ export const ContentSection = styled.div`
         font-size: 1.25rem;
       }
     }
-    
+
     @media (max-width: 768px) {
       li {
         font-size: 0.9375rem;
@@ -178,7 +179,7 @@ export const ContentSection = styled.div`
     font-size: 1rem;
     line-height: 1.8;
     margin: 0 0 1rem 0;
-    
+
     @media (max-width: 768px) {
       font-size: 0.9375rem;
       line-height: 1.7;

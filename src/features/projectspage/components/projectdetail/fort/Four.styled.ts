@@ -11,15 +11,12 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border-radius: 0 0 1.5rem 1.5rem;
-  padding: 2.5rem 2rem;
+  border-radius: 0;
+  padding: 2rem 2rem 2.5rem;
   gap: 1rem;
-  position: sticky;
-  bottom: 0;
-  z-index: 5;
-  
+
   @media (max-width: 768px) {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.5rem;
   }
 `;
 
@@ -41,7 +38,7 @@ export const Text = styled(motion.button)`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
   position: relative;
-  
+
   &::after {
     content: "";
     position: absolute;
@@ -53,21 +50,21 @@ export const Text = styled(motion.button)`
     transform: scaleX(0);
     transition: transform 0.2s ease;
   }
-  
+
   &:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
     border-color: ${({ theme }) => theme.colors.gray200};
-    
+
     &::after {
       transform: scaleX(1);
     }
   }
-  
+
   &:active {
     transform: translateY(0);
   }
-  
+
   @media (max-width: 768px) {
     font-size: 0.9375rem;
     padding: 0.875rem 1.75rem;

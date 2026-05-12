@@ -5,53 +5,22 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex-direction: column;
-  padding: 2.5rem 2rem;
+  padding: 2rem 2rem;
   gap: 2.5rem;
-  
+
   @media (max-width: 768px) {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.5rem;
     gap: 2rem;
   }
 `;
 
 export const Top = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
-  gap: 2.5rem;
-  align-items: start;
-
-  @media (max-width: 1024px) {
-    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-    gap: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-`;
-
-export const Preview = styled.div<{ $isMobile?: boolean }>`
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  
-  @media (max-width: 768px) {
-    gap: 1.25rem;
-  }
-
-  ${({ $isMobile }) =>
-    $isMobile
-      ? `
-    align-items: center;
-  `
-      : ""}
 `;
 
 export const Info = styled.div`
   min-width: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -67,7 +36,7 @@ export const SemiBox = styled.div`
   gap: 0.75rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray150};
-  
+
   &:last-child {
     border-bottom: none;
     padding-bottom: 0;
@@ -90,7 +59,7 @@ export const SemiTitle2 = styled.h2`
   color: ${({ theme }) => theme.colors.black};
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.02em;
-  
+
   @media (max-width: 768px) {
     font-size: 1.75rem;
   }
@@ -106,168 +75,73 @@ export const SemiContent = styled.div`
   overflow-wrap: break-word;
   max-width: 100%;
   font-size: 1rem;
-  
+
   a {
     color: ${({ theme }) => theme.colors.black};
     font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
     text-decoration: underline;
     transition: opacity 0.2s ease;
-    
+
     &:hover {
       opacity: 0.7;
     }
   }
-  
+
   @media (max-width: 768px) {
     font-size: 0.9375rem;
     line-height: 1.6;
   }
 `;
 
-export const OverviewHeader = styled.div`
+export const LinkPreviewList = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
 `;
 
-export const ViewButton = styled.a`
+export const LinkPreviewItem = styled.a`
   ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.fonts.weights.medium};
-  font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.black};
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.gray200};
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.gray100};
-    border-color: ${({ theme }) => theme.colors.gray300};
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 0.8125rem;
-    padding: 0.375rem 0.875rem;
-  }
-`;
-
-export const LinksSwiperWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  margin-top: 1rem;
-  
-  .swiper {
-    width: 100%;
-  }
-`;
-
-export const CustomNav = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.gray400};
-  font-size: 1.25rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  
-  &.links-prev {
-    left: 10px;
-  }
-  
-  &.links-next {
-    right: 10px;
-  }
-  
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.black};
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transform: translateY(-50%) scale(1.1);
-  }
-  
-  &:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 768px) {
-    width: 36px;
-    height: 36px;
-    font-size: 1.125rem;
-    
-    &.links-prev {
-      left: 5px;
-    }
-    
-    &.links-next {
-      right: 5px;
-    }
-  }
-`;
-
-export const IframeWrapper = styled.div<{ $isMobile?: boolean }>`
-  width: 100%;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  background-color: ${({ theme }) => theme.colors.gray100};
-  ${({ $isMobile }) =>
-    $isMobile
-      ? `
-    max-width: 375px;
-    margin-left: auto;
-    margin-right: auto;
-    aspect-ratio: 9 / 16;
-  `
-      : ""}
-  
-  @media (max-width: 768px) {
-    border-radius: 0.5rem;
-    ${({ $isMobile }) =>
-      $isMobile
-        ? `
-      max-width: 100%;
-      aspect-ratio: 9 / 16;
-    `
-        : ""}
-  }
-`;
+  border: 1px solid ${({ theme }) => theme.colors.gray150};
+  background: ${({ theme }) => theme.colors.gray050};
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
-export const Iframe = styled.iframe<{ $isMobile?: boolean }>`
-  width: 100%;
-  border: none;
-  display: block;
-  ${({ $isMobile }) =>
-    $isMobile
-      ? `
-    height: 100%;
-    aspect-ratio: 9 / 16;
-  `
-      : `
-    height: 600px;
-    
-    @media (max-width: 1024px) {
-      height: 500px;
+  span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    color: ${({ theme }) => theme.colors.gray300};
+    transition: color 0.2s ease;
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.white};
+    border-color: ${({ theme }) => theme.colors.gray200};
+    box-shadow: 0 2px 10px rgba(13, 13, 13, 0.06);
+
+    svg {
+      color: ${({ theme }) => theme.colors.black};
     }
-    
-    @media (max-width: 768px) {
-      height: 400px;
-    }
-    
-    @media (max-width: 480px) {
-      height: 300px;
-    }
-  `}
+  }
 `;

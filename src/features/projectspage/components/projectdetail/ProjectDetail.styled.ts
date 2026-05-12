@@ -24,37 +24,63 @@ export const ModalBox = styled(motion.div)`
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   max-width: 1480px;
-  max-height: 92vh;
-  overflow-y: auto;
+  max-height: min(92vh, calc(100dvh - 4rem));
+  min-height: 0;
   background: ${({ theme }) => theme.colors.white};
-  border-radius: 1.5rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  overflow-x: hidden;
+  border-radius: 1.25rem;
+  box-shadow:
+    0 24px 80px rgba(13, 13, 13, 0.18),
+    0 0 0 1px rgba(13, 13, 13, 0.06);
+  overflow: hidden;
+  isolation: isolate;
 
-  /* 스크롤바 스타일링 */
+  @media (max-width: 768px) {
+    max-height: min(96vh, calc(100dvh - 2rem));
+    border-radius: 1rem;
+  }
+`;
+
+/** 스크롤은 모달 껍데가 아니라 내부에서만 — radius와 스크롤바가 겹치지 않게 */
+export const ModalScrollBody = styled.div`
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme }) => `${theme.colors.gray200} transparent`};
+
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
 
   &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.gray050};
+    background: transparent;
+    margin: 10px 0;
   }
 
   &::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.gray200};
-    border-radius: 0 0.25rem 0.25rem 0;
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
 
     &:hover {
-      background: ${({ theme }) => theme.colors.gray300};
+      background: ${({ theme }) => theme.colors.gray250};
+      background-clip: padding-box;
     }
   }
 
   @media (max-width: 768px) {
-    max-height: 95vh;
-    border-radius: 1rem;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
   }
 `;
 
@@ -83,13 +109,8 @@ export const CloseButton = styled(motion.button)`
   }
 
   &:hover {
-    background: ${({ theme }) => theme.colors.black};
     transform: rotate(90deg);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-
-    svg {
-      color: ${({ theme }) => theme.colors.white};
-    }
   }
 
   @media (max-width: 768px) {

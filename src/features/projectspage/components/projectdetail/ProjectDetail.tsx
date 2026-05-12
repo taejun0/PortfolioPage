@@ -48,10 +48,6 @@ const ProjectDetailModal = ({ slug, onClose }: Props) => {
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
         >
-          <First
-            projectName={project.name}
-            overview={project.overview}
-          />
           <S.CloseButton
             onClick={onClose}
             whileHover={{ scale: 1.1 }}
@@ -59,16 +55,20 @@ const ProjectDetailModal = ({ slug, onClose }: Props) => {
           >
             <IoIosClose />
           </S.CloseButton>
-          <Second
-            SemiInfo={project.SemiInfo}
-            overview={project.overview}
-            projectName={project.name}
-            stack={project.stack}
-            features={project.features}
-            roles={project.roles}
-            challenges={project.challenges}
-          />
-          <Four onClose={onClose} />
+          <S.ModalScrollBody>
+            <First
+              projectName={project.name}
+              overview={project.overview}
+            />
+            <Second
+              SemiInfo={project.SemiInfo}
+              stack={project.stack}
+              features={project.features}
+              roles={project.roles}
+              challenges={project.challenges}
+            />
+            <Four onClose={onClose} />
+          </S.ModalScrollBody>
         </S.ModalBox>
       </S.Backdrop>
     </AnimatePresence>

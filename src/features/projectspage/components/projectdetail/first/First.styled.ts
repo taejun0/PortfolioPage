@@ -10,11 +10,11 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 1.5rem 1.5rem 0 0;
+  border-radius: 0;
   padding: 3rem 2rem 2.5rem;
   gap: 1.5rem;
   position: relative;
-  
+
   &::after {
     content: "";
     position: absolute;
@@ -23,12 +23,17 @@ export const Wrapper = styled.div`
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, transparent, ${({ theme }) => theme.colors.gray150}, transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      ${({ theme }) => theme.colors.gray150},
+      transparent
+    );
     border-radius: 2px;
   }
-  
+
   @media (max-width: 768px) {
-    padding: 2.5rem 1.5rem 2rem;
+    padding: 2rem 1.5rem 2rem;
     gap: 1.25rem;
   }
 `;
@@ -57,7 +62,7 @@ export const BeforeTitle = styled.div`
     height: 16px;
     fill: ${({ theme }) => theme.colors.gray200};
   }
-  
+
   @media (max-width: 768px) {
     font-size: 0.875rem;
   }
@@ -68,7 +73,7 @@ export const AfterTitle = styled.div`
   font-weight: ${({ theme }) => theme.fonts.weights.bold};
   color: ${({ theme }) => theme.colors.gray300};
   font-size: 0.9375rem;
-  
+
   @media (max-width: 768px) {
     font-size: 0.875rem;
   }
@@ -83,11 +88,11 @@ export const Title = styled.h1`
   margin: 0;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  
+
   @media (max-width: 768px) {
     font-size: 2.25rem;
   }
-  
+
   @media (max-width: 480px) {
     font-size: 1.875rem;
   }
@@ -103,12 +108,12 @@ export const SemiTitle = styled.p`
   font-size: 1.125rem;
   max-width: 800px;
   margin: 0;
-  
+
   @media (max-width: 768px) {
     font-size: 1rem;
     line-height: 1.6;
   }
-  
+
   @media (max-width: 480px) {
     font-size: 0.9375rem;
   }

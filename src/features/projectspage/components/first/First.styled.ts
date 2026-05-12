@@ -32,11 +32,9 @@ export const Container2 = styled.div`
   width: 100%;
   min-height: calc(100dvh - 400px);
   padding: 3rem 2rem;
-  margin-top: 2rem;
 
   @media (max-width: 768px) {
     padding: 2rem 1.5rem;
-    margin-top: 1.5rem;
   }
 `;
 
