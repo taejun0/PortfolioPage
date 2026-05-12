@@ -55,9 +55,6 @@ const Third = () => {
         <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.ONE.TIME}</S.Time>
-            <S.ContainerTitle>
-              {THIRDCONSTANT.TEXT.CONTENT.ONE.TITLE}
-            </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
                 <S.SemiTitleText>
@@ -75,9 +72,6 @@ const Third = () => {
         <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.TWO.TIME}</S.Time>
-            <S.ContainerTitle>
-              {THIRDCONSTANT.TEXT.CONTENT.TWO.TITLE}
-            </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
                 <S.SemiTitleText>
@@ -113,9 +107,6 @@ const Third = () => {
         <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.THREE.TIME}</S.Time>
-            <S.ContainerTitle>
-              {THIRDCONSTANT.TEXT.CONTENT.THREE.TITLE}
-            </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               {THIRDCONSTANT.TEXT.CONTENT.THREE.CONTENT1.TEXT.map((i, idx) => (
                 <S.ContainerTextBox key={`three-c1-${idx}`}>
@@ -128,9 +119,6 @@ const Third = () => {
         <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.FOUR.TIME}</S.Time>
-            <S.ContainerTitle>
-              {THIRDCONSTANT.TEXT.CONTENT.FOUR.TITLE}
-            </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
                 <S.SemiTitleText>
@@ -165,9 +153,6 @@ const Third = () => {
         <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.FIVE.TIME}</S.Time>
-            <S.ContainerTitle>
-              {THIRDCONSTANT.TEXT.CONTENT.FIVE.TITLE}
-            </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
                 <S.SemiTitleText>
@@ -214,9 +199,6 @@ const Third = () => {
         <S.ContainerWrap variants={itemVariants}>
           <S.JourneyCard>
             <S.Time>{THIRDCONSTANT.TEXT.CONTENT.SIX.TIME}</S.Time>
-            <S.ContainerTitle>
-              {THIRDCONSTANT.TEXT.CONTENT.SIX.TITLE}
-            </S.ContainerTitle>
             <S.ContainerTextBoxCOL>
               <S.ContainerTextBox>
                 <S.SemiTitleText>

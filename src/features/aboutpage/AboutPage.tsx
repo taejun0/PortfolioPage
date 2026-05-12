@@ -10,8 +10,8 @@ const AboutPage = () => {
   return (
     <S.Wrapper>
       <First />
-      <Second />
       <Third />
+      <Second />
     </S.Wrapper>
   );
 };

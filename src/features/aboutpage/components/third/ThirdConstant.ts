@@ -5,7 +5,6 @@ export const THIRDCONSTANT = {
     CONTENT: {
       ONE: {
         TIME: "2020",
-        TITLE: "코로나와 함께한 대학 입학",
         CONTENT: {
           TITLE: "동국대학교 입학",
           TEXT: [
@@ -16,7 +15,6 @@ export const THIRDCONSTANT = {
       },
       TWO: {
         TIME: "2021",
-        TITLE: "개발의 문을 열다",
         CONTENT1: {
           TITLE: "동국대학교 학술 창업 동아리, CAPS 34기 기획부원",
           TEXT: ["HTML 및 CSS 스터디"],
@@ -33,14 +31,12 @@ export const THIRDCONSTANT = {
       },
       THREE: {
         TIME: "2022 - 2023",
-        TITLE: "2년간의 군 복무",
         CONTENT1: {
           TEXT: ["병장 만기 전역", "서비스 정신과 책임감을 되새긴 시간"],
         },
       },
       FOUR: {
         TIME: "2024",
-        TITLE: "도전과 전환",
         CONTENT1: {
           TITLE: "DB 드림리더",
           TEXT: ["ESG 중 환경 분야에 대한 문제 도출 및 솔루션 진행"],
@@ -59,7 +55,6 @@ export const THIRDCONSTANT = {
       },
       FIVE: {
         TIME: "2025",
-        TITLE: "성장과 확장",
         CONTENT1: {
           TITLE: "IT 창업 연합동아리, 멋쟁이사자처럼 13기",
           TEXT: [
@@ -80,7 +75,6 @@ export const THIRDCONSTANT = {
       },
       SIX: {
         TIME: "2026",
-        TITLE: "SSAFY 합류",
         CONTENT1: {
           TITLE: "Samsung SW Academy For Youth (SSAFY)",
           TEXT: [

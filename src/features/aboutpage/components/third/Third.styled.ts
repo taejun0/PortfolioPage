@@ -8,12 +8,12 @@ export const Wrapper = styled.div`
   justify-content: center;
   min-height: 100dvh;
   padding: 4rem 2rem;
-  gap: 3rem;
+  gap: 2rem;
   background-color: ${({ theme }) => theme.colors.white};
 
   @media (max-width: 768px) {
     padding: 3rem 1.5rem;
-    gap: 2rem;
+    gap: 1rem;
   }
 `;
 
@@ -125,7 +125,7 @@ export const JourneyCard = styled.div`
   background: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.gray150};
   border-radius: 16px;
-  padding: 2.5rem;
+  padding: 2rem;
   transition: all 0.3s ease;
   position: relative;
   display: flex;
@@ -140,14 +140,14 @@ export const JourneyCard = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 2rem;
+    padding: 1.5rem;
     gap: 1.25rem;
     align-items: flex-start;
     text-align: start;
   }
 
   @media (max-width: 480px) {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 `;
 
@@ -192,25 +192,6 @@ export const TimelineCard = styled.div`
 
   @media (max-width: 768px) {
     padding: 1.5rem;
-  }
-`;
-
-export const ContainerTitle = styled.h3`
-  ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
-  font-size: 1.75rem;
-  color: ${({ theme }) => theme.colors.black};
-  margin: 0 0 1rem 0;
-  letter-spacing: -0.02em;
-  position: relative;
-  z-index: 1;
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.25rem;
   }
 `;
 

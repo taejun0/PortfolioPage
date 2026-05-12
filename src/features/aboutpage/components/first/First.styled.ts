@@ -7,13 +7,13 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6rem 4rem;
-  gap: 4rem;
+  padding: 4rem 2rem;
+  gap: 3rem;
   background-color: ${({ theme }) => theme.colors.white};
 
   @media (max-width: 768px) {
-    padding: 4rem 2rem;
-    gap: 3rem;
+    padding: 3rem 2rem;
+    gap: 2rem;
   }
 `;
 
@@ -22,11 +22,11 @@ export const MainContent = styled.div`
   max-width: 900px;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 1rem;
   align-items: center;
 
   @media (max-width: 768px) {
-    gap: 3rem;
+    gap: 1rem;
   }
 `;
 
@@ -170,7 +170,6 @@ export const DownArrow = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
 
   svg {
     width: 30px;
