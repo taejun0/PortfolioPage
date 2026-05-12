@@ -1,7 +1,9 @@
 import * as S from "./ModeToggle.styled";
 import { motion } from "framer-motion";
-import { HiSquare3Stack3D } from "react-icons/hi2";
-import { FaFolder } from "react-icons/fa6";
+import {
+  HiOutlineSquares2X2,
+  HiOutlineRectangleStack,
+} from "react-icons/hi2";
 
 interface ModeToggleProps {
   mode: "all" | "series";
@@ -18,8 +20,8 @@ const ModeToggle = ({ mode, onModeChange }: ModeToggleProps) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <HiSquare3Stack3D />
-          <span>전체글</span>
+          <HiOutlineSquares2X2 />
+          <span>전체 글</span>
         </S.ToggleButton>
         <S.ToggleButton
           $active={mode === "series"}
@@ -27,8 +29,8 @@ const ModeToggle = ({ mode, onModeChange }: ModeToggleProps) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <FaFolder />
-          <span>폴더</span>
+          <HiOutlineRectangleStack />
+          <span>시리즈</span>
         </S.ToggleButton>
       </S.ToggleContainer>
     </S.Wrapper>

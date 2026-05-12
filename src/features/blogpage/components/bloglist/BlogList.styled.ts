@@ -186,15 +186,15 @@ export const ViewDetail = styled.div`
 
 export const SeriesContainer = styled.div`
   width: 100%;
-  max-width: 1400px;
+  max-width: 900px;
   margin: 1rem auto 0;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.25rem;
 
   @media (max-width: 768px) {
-    gap: 2rem;
+    gap: 1rem;
     padding: 0 0.5rem;
   }
 `;
@@ -203,96 +203,124 @@ export const SeriesSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(13, 13, 13, 0.08);
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow:
+    0 1px 2px rgba(13, 13, 13, 0.04),
+    0 12px 40px -18px rgba(13, 13, 13, 0.12);
 `;
 
 export const SeriesHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 1.5rem;
-  background: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.gray150};
-  border-radius: 12px;
+  gap: 1rem;
+  padding: 1.125rem 1.35rem 1.125rem 1.15rem;
+  background: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.colors.gray050} 0%,
+    ${({ theme }) => theme.colors.white} 65%
+  );
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    background 0.22s ease,
+    filter 0.22s ease;
+  position: relative;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.gray050};
-    border-color: ${({ theme }) => theme.colors.gray200};
+    filter: brightness(0.995);
   }
 `;
 
 export const SeriesTitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   color: ${({ theme }) => theme.colors.black};
+  padding-left: 0.35rem;
 `;
 
 export const SeriesTitle = styled.h2`
   ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.fonts.weights.extraBold};
-  font-size: 1.25rem;
+  font-weight: ${({ theme }) => theme.fonts.weights.bold};
+  font-size: 1.0625rem;
+  letter-spacing: -0.03em;
   color: ${({ theme }) => theme.colors.black};
   margin: 0;
 
   @media (max-width: 768px) {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 `;
 
 export const SeriesCount = styled.span`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.medium};
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  letter-spacing: -0.02em;
   color: ${({ theme }) => theme.colors.gray300};
-  background: ${({ theme }) => theme.colors.gray050};
-  padding: 0.375rem 0.75rem;
-  border-radius: 8px;
+  background: transparent;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(13, 13, 13, 0.1);
 `;
 
 export const SeriesPostList = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 0.5rem;
-  padding-left: 1rem;
-  gap: 0.5rem;
+  margin: 0;
+  padding: 0.65rem 1rem 1rem 1.35rem;
+  gap: 0.45rem;
+  border-top: 1px solid rgba(13, 13, 13, 0.06);
+  background: ${({ theme }) => theme.colors.white};
 `;
 
 export const SeriesPostItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
-  background: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.gray150};
-  border-radius: 8px;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: ${({ theme }) => theme.colors.gray050};
+  border: 1px solid transparent;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.gray050};
-    border-color: ${({ theme }) => theme.colors.gray200};
-    transform: translateX(4px);
+    background: ${({ theme }) => theme.colors.white};
+    border-color: rgba(13, 13, 13, 0.09);
+    box-shadow: 0 4px 14px rgba(13, 13, 13, 0.06);
+    transform: translateY(-1px);
   }
 `;
 
 export const SeriesPostTitle = styled.h3`
   ${({ theme }) => theme.fonts.Pretendard};
-  font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
-  font-size: 1rem;
+  font-weight: ${({ theme }) => theme.fonts.weights.medium};
+  font-size: 0.9375rem;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
   color: ${({ theme }) => theme.colors.black};
   margin: 0;
   flex: 1;
+  text-align: left;
 `;
 
 export const SeriesPostDate = styled.span`
   ${({ theme }) => theme.fonts.Pretendard};
   font-weight: ${({ theme }) => theme.fonts.weights.regular};
-  font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.gray300};
-  margin-left: 1rem;
+  font-size: 0.8125rem;
+  color: ${({ theme }) => theme.colors.gray250};
+  margin-left: 0;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 `;
 
 // skeleton
@@ -394,4 +422,3 @@ export const SkTag = styled.div`
     width: 50%;
   }
 `;
-
