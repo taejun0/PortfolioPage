@@ -2,8 +2,9 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
   display: flex;
   position: fixed;
   top: 0;
@@ -13,9 +14,9 @@ export const Wrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 2rem;
+  padding: 1.125rem 2rem;
   z-index: 99;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(13, 13, 13, 0.06);
 
   @media (max-width: 640px) {
     padding: 1rem 1.5rem;
@@ -31,7 +32,8 @@ export const Title = styled.div`
   ${({ theme }) => theme.fonts.Pretendard};
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fonts.weights.semiBold};
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
+  letter-spacing: -0.02em;
   height: 100%;
   display: flex;
   align-items: center;
@@ -67,11 +69,12 @@ export const NaviTitle = styled.div<{ $active?: boolean }>`
   ${({ theme }) => theme.fonts.Pretendard};
   color: ${({ theme, $active }) =>
     $active ? theme.colors.black : theme.colors.black100};
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
   cursor: ${({ $active }) => ($active ? "default" : "pointer")};
   padding: 0.5rem 0;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.22s ease;
   white-space: nowrap;
 
   &::after {
@@ -81,16 +84,19 @@ export const NaviTitle = styled.div<{ $active?: boolean }>`
     left: 0;
     width: ${({ $active }) => ($active ? "100%" : "0")};
     height: 2px;
+    border-radius: 1px;
     background-color: ${({ theme }) => theme.colors.black};
-    transition: width 0.3s ease;
+    transition: width 0.22s ease;
   }
 
   ${({ $active, theme }) =>
     !$active &&
     `
       &:hover {
+        color: ${theme.colors.black};
         &::after {
           width: 100%;
+          background-color: ${theme.colors.gray250};
         }
       }
     `}
