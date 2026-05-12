@@ -25,7 +25,7 @@ export const Grid = styled.div`
 
 export const Item = styled.div<{ category?: string; $isExpanded?: boolean }>`
   position: relative;
-  padding: 2.5rem;
+  padding: 2rem;
   background: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.gray150};
   border-radius: 16px;
@@ -51,7 +51,7 @@ export const Item = styled.div<{ category?: string; $isExpanded?: boolean }>`
   `}
 
   @media screen and (max-width: 480px) {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 `;
 
