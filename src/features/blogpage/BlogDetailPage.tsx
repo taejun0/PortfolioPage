@@ -3,6 +3,7 @@
 import * as S from "./BlogDetailPage.styled";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import { format } from "date-fns";
@@ -236,7 +237,7 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
 
         <S.Content>
           <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
+            remarkPlugins={[remarkGfm, remarkBreaks]}
             rehypePlugins={[rehypeRaw, rehypeHighlight]}
             components={{
               h1: ({ children }) => {

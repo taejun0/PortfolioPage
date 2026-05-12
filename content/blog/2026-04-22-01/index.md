@@ -1,5 +1,5 @@
 ---
-title: "왜 Next.js를 선택했는가 (이 프로젝트에서의 문제→적용 회고)"
+title: "왜 Next.js를 선택했는가 (프로젝트에서의 문제→적용 회고)"
 date: "2025-04-22"
 description: "React로 시작한 포트폴리오를 Next.js(App Router)로 옮기며 겪은 문제와, 그 문제를 Next 기능으로 어떻게 해결했는지 정리합니다."
 tags:
