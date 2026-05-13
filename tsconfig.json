@@ -41,6 +41,9 @@
       "@styles/*": [
         "styles/*"
       ],
+      "@constants": [
+        "constants/index.ts"
+      ],
       "@constants/*": [
         "constants/*"
       ],
