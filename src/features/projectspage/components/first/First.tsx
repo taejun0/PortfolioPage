@@ -3,8 +3,10 @@ import * as S from "./First.styled";
 import { FaCode, FaCalendar } from "react-icons/fa6";
 import { HiSquare3Stack3D } from "react-icons/hi2";
 import { PROJECTS_HERO_UI } from "@constants";
+import { memo } from "react";
 
-const First = () => {
+/** 필터 state 변경 시 히어로는 다시 그리지 않음 */
+const First = memo(function First() {
   return (
     <S.Wrapper>
       <S.Container>
@@ -24,6 +26,6 @@ const First = () => {
       </S.Container>
     </S.Wrapper>
   );
-};
+});
 
 export default First;

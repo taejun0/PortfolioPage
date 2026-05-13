@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
+import { memo, useState } from "react";
 
 const Bar = styled.div`
   display: flex;
@@ -32,19 +33,25 @@ const Button = styled(motion.button)<{ selected: boolean }>`
 `;
 
 interface Props {
-  categories: string[];
-  selected: string;
+  categories: readonly string[] | string[];
+  defaultCategory: string;
   onSelect: (category: string) => void;
 }
 
-const FilterBar = ({ categories, selected, onSelect }: Props) => {
+function FilterBarInner({ categories, defaultCategory, onSelect }: Props) {
+  const [selected, setSelected] = useState(defaultCategory);
+
   return (
     <Bar>
       {categories.map((cat, index) => (
         <Button
           key={cat}
           selected={selected === cat}
-          onClick={() => onSelect(cat)}
+          onClick={() => {
+            if (cat === selected) return;
+            setSelected(cat);
+            onSelect(cat);
+          }}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.05 }}
@@ -54,6 +61,8 @@ const FilterBar = ({ categories, selected, onSelect }: Props) => {
       ))}
     </Bar>
   );
-};
+}
+
+const FilterBar = memo(FilterBarInner);
 
 export default FilterBar;

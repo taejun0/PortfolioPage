@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
+import { memo, useState } from "react";
 
 const Bar = styled.div`
   display: flex;
@@ -32,19 +33,26 @@ const Button = styled(motion.button)<{ selected: boolean }>`
 `;
 
 interface Props {
-  categories: string[];
-  selected: string;
+  categories: readonly string[] | string[];
+  /** 초기값만 사용 — 이후 선택은 내부 state (부모 리렌더와 무관) */
+  defaultCategory: string;
   onSelect: (category: string) => void;
 }
 
-const FilterBar = ({ categories, selected, onSelect }: Props) => {
+function FilterBarInner({ categories, defaultCategory, onSelect }: Props) {
+  const [selected, setSelected] = useState(defaultCategory);
+
   return (
     <Bar>
       {categories.map((cat, index) => (
         <Button
           key={cat}
           selected={selected === cat}
-          onClick={() => onSelect(cat)}
+          onClick={() => {
+            if (cat === selected) return;
+            setSelected(cat);
+            onSelect(cat);
+          }}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.05 }}
@@ -54,6 +62,9 @@ const FilterBar = ({ categories, selected, onSelect }: Props) => {
       ))}
     </Bar>
   );
-};
+}
+
+/** 부모에서 selected를 넘기지 않음 → 리스트 갱신으로 부모가 리렌더돼도 이 트리는 props 동일로 스킵 */
+const FilterBar = memo(FilterBarInner);
 
 export default FilterBar;

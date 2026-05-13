@@ -54,15 +54,17 @@ const Second = ({ initialSlug }: { initialSlug: string | null }) => {
     router.push(qs ? `/projects?${qs}` : "/projects");
   }, [router, searchParams]);
 
+  const handleFilterSelect = useCallback((cat: string) => {
+    trackProjectFilter(cat);
+    setSelectedCategory(cat);
+  }, []);
+
   return (
     <S.Wrapper>
       <FilterBar
         categories={PROJECT_FILTER_CATEGORIES}
-        selected={selectedCategory}
-        onSelect={(cat) => {
-          trackProjectFilter(cat);
-          setSelectedCategory(cat);
-        }}
+        defaultCategory={PROJECT_FILTER_DEFAULT}
+        onSelect={handleFilterSelect}
       />
       <ProjectStackList selectedCategory={selectedCategory} />
       {selectedSlug && (
