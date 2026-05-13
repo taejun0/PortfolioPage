@@ -14,45 +14,6 @@ export const Wrapper = styled.div`
   align-items: center;
   overflow: hidden;
   position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background: radial-gradient(
-        110% 75% at 88% 8%,
-        rgba(13, 13, 13, 0.04) 0%,
-        transparent 52%
-      ),
-      radial-gradient(
-        95% 72% at 8% 92%,
-        rgba(191, 191, 191, 0.18) 0%,
-        transparent 48%
-      );
-    opacity: 1;
-  }
-`;
-
-export const BackgroundGradient = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    125deg,
-    #ffffff 0%,
-    ${({ theme }) => theme.colors.gray050} 28%,
-    #ffffff 52%,
-    ${({ theme }) => theme.colors.gray050} 78%,
-    #ffffff 100%
-  );
-  background-size: 200% 200%;
-  z-index: 0;
-  opacity: 0.45;
-  pointer-events: none;
 `;
 
 export const ContentContainer = styled.div`

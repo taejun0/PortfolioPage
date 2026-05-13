@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.gray050};
   position: relative;
   display: flex;
   flex-direction: column;

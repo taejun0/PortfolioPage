@@ -1,7 +1,6 @@
 import * as S from "./FirstPage.styled";
 
-import Link from "next/link";
-import { ROUTE_CONSTANTS, MAIN_FIRST_PAGE_UI } from "@constants";
+import { MAIN_FIRST_PAGE_UI } from "@constants";
 
 import { SiVelog, SiGithub } from "react-icons/si";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
@@ -9,33 +8,47 @@ import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import TypewriterComponent from "typewriter-effect";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { memo, useMemo } from "react";
 
-const FirstPage = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+const HeroTypewriter = memo(function HeroTypewriter() {
+  const strings = useMemo(
+    () => [...MAIN_FIRST_PAGE_UI.typewriterLines],
+    []
+  );
+  return (
+    <TypewriterComponent
+      options={{
+        strings,
+        autoStart: true,
+        loop: true,
+        delay: 60,
+        deleteSpeed: 30,
+        cursor: "|",
+        skipAddStyles: false,
+      }}
+    />
+  );
+});
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
-  // 타이틀 텍스트를 단어별로 분리
+const FirstPage = memo(function FirstPage() {
   const titleText = MAIN_FIRST_PAGE_UI.heroTitle;
   const titleWords = titleText.split(" ");
 
+  const charAnimate = {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    scale: 1,
+  };
+
+  const fadeUpAnimate = {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+  };
+
   return (
     <S.Wrapper id="main">
-      <S.BackgroundGradient
-        animate={{
-          backgroundPosition: ["0% 0%", "100% 100%"],
-        }}
-        transition={{
-          duration: 28,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "linear",
-        }}
-      />
-
       <S.FrontEnd
         initial={{ y: -80, opacity: 0, scale: 0.95, filter: "blur(20px)" }}
         animate={{
@@ -66,16 +79,7 @@ const FirstPage = () => {
                     filter: "blur(10px)",
                     scale: 0.8,
                   }}
-                  animate={
-                    isLoaded
-                      ? {
-                          opacity: 1,
-                          y: 0,
-                          filter: "blur(0px)",
-                          scale: 1,
-                        }
-                      : {}
-                  }
+                  animate={charAnimate}
                   transition={{
                     duration: 0.5,
                     ease: [0.34, 1.56, 0.64, 1],
@@ -91,78 +95,19 @@ const FirstPage = () => {
 
         <S.TypewriterWrapper
           initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-          animate={
-            isLoaded
-              ? {
-                  opacity: 1,
-                  y: 0,
-                  filter: "blur(0px)",
-                }
-              : {}
-          }
+          animate={fadeUpAnimate}
           transition={{
             duration: 0.8,
             ease: [0.4, 0, 0.2, 1],
             delay: 1.2,
           }}
         >
-          <TypewriterComponent
-            options={{
-              strings: [...MAIN_FIRST_PAGE_UI.typewriterLines],
-              autoStart: true,
-              loop: true,
-              delay: 60,
-              deleteSpeed: 30,
-              cursor: "|",
-              skipAddStyles: false,
-            }}
-          />
+          <HeroTypewriter />
         </S.TypewriterWrapper>
-
-        {/* <S.ButtonList
-          initial={{ opacity: 0, y: 30 }}
-          animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-          transition={{
-            duration: 0.6,
-            ease: [0.34, 1.56, 0.64, 1],
-            delay: 1.5,
-          }}
-        >
-          <Link href={ROUTE_CONSTANTS.PROJECTS}>
-            <S.Buttons1
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <motion.span
-                initial={{ x: -10, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 1.7, duration: 0.4 }}
-              >
-                프로젝트 보러가기
-              </motion.span>
-            </S.Buttons1>
-          </Link>
-          <a href="/resume_otj.pdf" download>
-            <S.Buttons2
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <motion.span
-                initial={{ x: -10, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 1.8, duration: 0.4 }}
-              >
-                이력서 다운하기
-              </motion.span>
-            </S.Buttons2>
-          </a>
-        </S.ButtonList> */}
 
         <S.IconList
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={isLoaded ? { opacity: 1, scale: 1, y: 0 } : {}}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{
             duration: 0.6,
             ease: [0.34, 1.56, 0.64, 1],
@@ -210,6 +155,6 @@ const FirstPage = () => {
       </S.ContentContainer>
     </S.Wrapper>
   );
-};
+});
 
 export default FirstPage;
