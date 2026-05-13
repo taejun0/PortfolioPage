@@ -4,29 +4,24 @@ import { useState } from "react";
 import * as S from "./First.styled";
 import FilterBar from "../FilterBar";
 import TechStackList from "../techstacklist/TechStackList";
-
-const categories = [
-  "All",
-  "Frontend",
-  "Backend",
-  "Styling",
-  "Testing",
-  "DevOps",
-  "Tools",
-];
+import {
+  SKILLS_FILTER_ALL,
+  SKILLS_FILTER_CATEGORIES,
+  SKILLS_HERO_UI,
+} from "@constants";
 
 const First = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    SKILLS_FILTER_ALL
+  );
 
   return (
     <S.Wrapper>
       <S.Container>
-        <S.Title>Skills</S.Title>
-        <S.SubTitle>
-          제가 기술들을 어떻게 사용하였는지 보실 수 있습니다
-        </S.SubTitle>
+        <S.Title>{SKILLS_HERO_UI.title}</S.Title>
+        <S.SubTitle>{SKILLS_HERO_UI.subtitle}</S.SubTitle>
         <FilterBar
-          categories={categories}
+          categories={SKILLS_FILTER_CATEGORIES}
           selected={selectedCategory}
           onSelect={setSelectedCategory}
         />

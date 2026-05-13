@@ -3,6 +3,8 @@
 import * as S from "./Second.styled";
 import Third from "../third/Third";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import { trackProjectOutboundLink } from "@lib/analytics/events";
+import { PROJECT_DETAIL_SECOND_UI } from "@constants";
 
 function hostLabel(url: string, index: number): string {
   try {
@@ -13,6 +15,8 @@ function hostLabel(url: string, index: number): string {
     return `Link ${index + 1}`;
   }
 }
+
+const L = PROJECT_DETAIL_SECOND_UI;
 
 interface Props {
   SemiInfo: string[];
@@ -46,24 +50,24 @@ const Second = ({
       <S.Top>
         <S.Info>
           <S.SemiBox>
-            <S.SemiTitle>Timeline</S.SemiTitle>
+            <S.SemiTitle>{L.timeline}</S.SemiTitle>
             <S.SemiContent>{SemiInfo[0]}</S.SemiContent>
           </S.SemiBox>
           <S.SemiBox>
-            <S.SemiTitle>Team</S.SemiTitle>
+            <S.SemiTitle>{L.team}</S.SemiTitle>
             <S.SemiContent>{SemiInfo[1]}</S.SemiContent>
           </S.SemiBox>
           <S.SemiBox>
-            <S.SemiTitle>Role</S.SemiTitle>
+            <S.SemiTitle>{L.role}</S.SemiTitle>
             <S.SemiContent>{SemiInfo[2]}</S.SemiContent>
           </S.SemiBox>
           <S.SemiBox>
-            <S.SemiTitle>Github</S.SemiTitle>
+            <S.SemiTitle>{L.github}</S.SemiTitle>
             <S.SemiContent>{SemiInfo[3]}</S.SemiContent>
           </S.SemiBox>
           {links.length > 0 && (
             <S.SemiBox>
-              <S.SemiTitle>Links</S.SemiTitle>
+              <S.SemiTitle>{L.links}</S.SemiTitle>
               <S.LinkPreviewList>
                 {links.map((link, index) => (
                   <S.LinkPreviewItem
@@ -71,6 +75,17 @@ const Second = ({
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                      try {
+                        const u = new URL(link);
+                        trackProjectOutboundLink(
+                          link,
+                          u.hostname.replace(/^www\./, "")
+                        );
+                      } catch {
+                        trackProjectOutboundLink(link, "invalid_url");
+                      }
+                    }}
                   >
                     <span>{hostLabel(link, index)}</span>
                     <HiOutlineExternalLink aria-hidden />

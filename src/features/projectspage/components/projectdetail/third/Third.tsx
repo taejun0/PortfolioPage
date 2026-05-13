@@ -5,6 +5,10 @@ import AnimatedDetails from "./AnimatedDetails";
 import { AnimatePresence } from "framer-motion";
 
 import { useState } from "react";
+import {
+  PROJECT_DETAIL_THIRD_UI,
+  projectDetailChallengeSummary,
+} from "@constants";
 
 interface FeatureProps {
   stack: string[];
@@ -21,19 +25,15 @@ interface FeatureProps {
   }[];
 }
 
-const categories = [
-  "기술적 의사결정",
-  "주요 기능",
-  "담당 역할",
-  "Challenge & Solution",
-];
+const U = PROJECT_DETAIL_THIRD_UI;
+const categories = [...U.tabs];
 
 const Third = ({ stack, features, roles, challenges }: FeatureProps) => {
   const [selected, setSelected] = useState(0);
 
   const stackContent = (
     <S.ContentSection>
-      <h3>기술적 의사결정</h3>
+      <h3>{U.stackHeading}</h3>
       <ul>
         {stack.map((item, idx) => (
           <li key={idx}>{item}</li>
@@ -44,20 +44,20 @@ const Third = ({ stack, features, roles, challenges }: FeatureProps) => {
 
   const featureContent = (
     <S.ContentSection>
-      <h3>주요 기능</h3>
-      <h4>문제 정의</h4>
+      <h3>{U.featureHeading}</h3>
+      <h4>{U.problemDef}</h4>
       <ul>
         {features.problem.map((item, idx) => (
           <li key={`p-${idx}`}>{item}</li>
         ))}
       </ul>
-      <h4>사용자</h4>
+      <h4>{U.user}</h4>
       <ul>
         {features.user.map((item, idx) => (
           <li key={`u-${idx}`}>{item}</li>
         ))}
       </ul>
-      {features.admin && <h4>운영자</h4>}
+      {features.admin && <h4>{U.admin}</h4>}
       <ul>
         {features.admin?.map((item, idx) => (
           <li key={`a-${idx}`}>{item}</li>
@@ -68,7 +68,7 @@ const Third = ({ stack, features, roles, challenges }: FeatureProps) => {
 
   const roleContent = (
     <S.ContentSection>
-      <h3>담당 역할</h3>
+      <h3>{U.roleHeading}</h3>
       <ul>
         {roles.map((role, idx) => (
           <li key={idx}>{role}</li>
@@ -79,17 +79,17 @@ const Third = ({ stack, features, roles, challenges }: FeatureProps) => {
 
   const challengeContent = (
     <S.ContentSection>
-      <h3>Challenge & Solution</h3>
+      <h3>{U.challengeHeading}</h3>
       {challenges.map((challenge, idx) => (
         <AnimatedDetails
           key={idx}
-          summary={`트러블슈팅 회고 (${idx + 1} / ${challenges.length})`}
+          summary={projectDetailChallengeSummary(idx, challenges.length)}
         >
-          <h4>문제 상황</h4>
+          <h4>{U.problemSituation}</h4>
           <p>{challenge.problem}</p>
-          <h4>해결 시도 방법</h4>
+          <h4>{U.solutionApproach}</h4>
           <p>{challenge.solution}</p>
-          <h4>알게된 점</h4>
+          <h4>{U.learnings}</h4>
           <p>{challenge.learnings}</p>
         </AnimatedDetails>
       ))}

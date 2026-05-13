@@ -1,29 +1,40 @@
+"use client";
+
 import * as S from "./VelogNotice.styled";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale/ko";
+import { trackOutboundProfile } from "@lib/analytics/events";
+import { BLOG_DATE_FORMAT, BLOG_VELOG_NOTICE_UI } from "@constants";
 
 interface VelogNoticeProps {
   cutoffDate?: string; // Velog 마이그레이션 기준 날짜
   velogUrl?: string; // Velog 프로필 URL
 }
 
-const VelogNotice = ({ 
-  cutoffDate = "2026-01-02", 
-  velogUrl = "https://velog.io/@taejun0" 
+const VelogNotice = ({
+  cutoffDate = "2026-01-02",
+  velogUrl = "https://velog.io/@taejun0",
 }: VelogNoticeProps) => {
   const formattedDate = cutoffDate
-    ? format(new Date(cutoffDate), "yyyy년 M월 d일", { locale: ko })
+    ? format(new Date(cutoffDate), BLOG_DATE_FORMAT, { locale: ko })
     : null;
 
   return (
     <S.Wrapper>
       <S.Container>
         <S.Text>
-          {formattedDate 
-            ? `${formattedDate} 까지의 기술 블로그는 Velog에서 작성되었습니다. ` 
-            : "이전의 기술 블로그는 Velog에서 작성되었습니다. "}
-          <S.Link href={velogUrl} target="_blank" rel="noopener noreferrer">
-            Velog에서 보기 →
+          {formattedDate
+            ? `${formattedDate}${BLOG_VELOG_NOTICE_UI.withCutoff}`
+            : BLOG_VELOG_NOTICE_UI.legacy}
+          <S.Link
+            href={velogUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              trackOutboundProfile(velogUrl, "blog_velog_notice_link")
+            }
+          >
+            {BLOG_VELOG_NOTICE_UI.link}
           </S.Link>
         </S.Text>
       </S.Container>
@@ -32,4 +43,3 @@ const VelogNotice = ({
 };
 
 export default VelogNotice;
-

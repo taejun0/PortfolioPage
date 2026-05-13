@@ -5,6 +5,11 @@ import * as S from "./ProjectStackList.styled";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { trackProjectCardClick } from "@lib/analytics/events";
+import {
+  PROJECT_FILTER_DEFAULT,
+  PROJECT_STACK_LIST_UI,
+} from "@constants";
 
 interface Project {
   name: string;
@@ -29,7 +34,7 @@ const ProjectStackList = ({ selectedCategory, onOpen }: Props) => {
 
   useEffect(() => {
     const url =
-      selectedCategory === "All Projects"
+      selectedCategory === PROJECT_FILTER_DEFAULT
         ? "/api/projects"
         : `/api/projects?category=${encodeURIComponent(selectedCategory)}`;
 
@@ -88,13 +93,24 @@ const ProjectStackList = ({ selectedCategory, onOpen }: Props) => {
       </S.Grid>
     );
   }
-  if (err) return <S.Grid>에러가 발생했어요: {err}</S.Grid>;
-  if (!data || data.length === 0) return <S.Grid>No projects.</S.Grid>;
+  if (err)
+    return (
+      <S.Grid>
+        {PROJECT_STACK_LIST_UI.errorPrefix} {err}
+      </S.Grid>
+    );
+  if (!data || data.length === 0)
+    return <S.Grid>{PROJECT_STACK_LIST_UI.empty}</S.Grid>;
 
   return (
     <S.Grid>
       {data.map((item, index) => {
         const handleClick = () => {
+          trackProjectCardClick({
+            slug: item.slug,
+            name: item.name,
+            list_category: selectedCategory,
+          });
           if (onOpen) onOpen(item.slug);
           else router.push(`/projects?slug=${item.slug}`);
         };
@@ -111,7 +127,9 @@ const ProjectStackList = ({ selectedCategory, onOpen }: Props) => {
                 priority={index === 0}
               />
             </S.Thumbnail>
-            {item.feature && <S.Featured>featured</S.Featured>}
+            {item.feature && (
+              <S.Featured>{PROJECT_STACK_LIST_UI.featured}</S.Featured>
+            )}
 
             <S.Container>
               <S.Title>{item.name}</S.Title>
@@ -123,7 +141,10 @@ const ProjectStackList = ({ selectedCategory, onOpen }: Props) => {
                 ))}
               </S.TagContainer>
 
-              <S.ViewDetail>View Details {"==>"}</S.ViewDetail>
+              <S.ViewDetail>
+                {PROJECT_STACK_LIST_UI.viewDetails}{" "}
+                {PROJECT_STACK_LIST_UI.viewDetailsArrow}
+              </S.ViewDetail>
             </S.Container>
           </S.Card>
         );

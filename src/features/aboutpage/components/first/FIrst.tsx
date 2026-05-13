@@ -1,12 +1,13 @@
 import * as S from "./First.styled";
 
 import { FIRSTCONSTANT } from "./FirstConstant";
+import { ABOUT_FIRST_UI } from "@constants";
 
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { motion } from "framer-motion";
 
 const First = () => {
-  const quote = '집단에서 공유되는 정보가, 곧 그 집단의 IQ다';
+  const quote = ABOUT_FIRST_UI.quote;
   const mainText = FIRSTCONSTANT.TEXT.ABOUTME.split("\n")
     .filter((s) => s.trim() !== "" && !s.includes(quote))
     .join("\n");
@@ -35,13 +36,7 @@ const First = () => {
         </S.TextSection>
 
         <S.InfoSection>
-          {[
-            { label: "이름", value: "오태준" },
-            { label: "생년월일", value: "2001.09.29" },
-            { label: "위치", value: "경기도 의정부시" },
-            { label: "이메일", value: "xownswns@naver.com" },
-            { label: "학력", value: "동국대학교 컴퓨터정보통신공학부" },
-          ].map((item, index) => (
+          {ABOUT_FIRST_UI.fields.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -20 }}

@@ -2,7 +2,7 @@
 
 import * as S from "./ThirdPage.styled";
 import Link from "next/link";
-import { ROUTE_CONSTANTS } from "@constants/routeConstants";
+import { ROUTE_CONSTANTS } from "@constants";
 import { SiReact, SiTypescript, SiNextdotjs } from "react-icons/si";
 import { IoColorPalette } from "react-icons/io5";
 import { useState, useCallback } from "react";

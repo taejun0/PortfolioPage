@@ -5,10 +5,15 @@ import * as S from "./Header.styled";
 import Link from "next/link";
 
 import { usePathname } from "next/navigation";
-import { ROUTE_CONSTANTS } from "@constants/routeConstants";
+import {
+  HEADER_NAV_ITEMS,
+  HEADER_SITE_TITLE,
+  ROUTE_CONSTANTS,
+} from "@constants";
 import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { AnimatePresence } from "framer-motion";
+import { trackNavClick } from "@lib/analytics/events";
 
 const Header = () => {
   const pathname = usePathname();
@@ -46,22 +51,25 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
-  const navItems = [
-    { route: ROUTE_CONSTANTS.MAIN, label: "Main" },
-    { route: ROUTE_CONSTANTS.ABOUT, label: "About" },
-    { route: ROUTE_CONSTANTS.SKILLS, label: "Skills" },
-    { route: ROUTE_CONSTANTS.PROJECTS, label: "Projects" },
-    { route: ROUTE_CONSTANTS.BLOG, label: "Blog" },
-  ];
-
   return (
     <S.Wrapper>
-      <Link href={ROUTE_CONSTANTS.MAIN}>
-        <S.Title>Taejun's PortFolio</S.Title>
+      <Link
+        href={ROUTE_CONSTANTS.MAIN}
+        onClick={() =>
+          trackNavClick("logo", ROUTE_CONSTANTS.MAIN, "header_logo")
+        }
+      >
+        <S.Title>{HEADER_SITE_TITLE}</S.Title>
       </Link>
       <S.NaviSet>
-        {navItems.map((item) => (
-          <Link key={item.route} href={item.route}>
+        {HEADER_NAV_ITEMS.map((item) => (
+          <Link
+            key={item.route}
+            href={item.route}
+            onClick={() =>
+              trackNavClick(item.label, item.route, "header_desktop")
+            }
+          >
             <S.NaviTitle $active={isActive(item.route)}>
               {item.label}
             </S.NaviTitle>
@@ -80,7 +88,7 @@ const Header = () => {
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
           >
             <S.MobileMenuContent>
-              {navItems.map((item, index) => (
+              {HEADER_NAV_ITEMS.map((item, index) => (
                 <S.MobileMenuItemWrapper
                   key={item.route}
                   initial={{ opacity: 0, y: -20 }}
@@ -88,7 +96,13 @@ const Header = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ delay: index * 0.1, duration: 0.3 }}
                 >
-                  <Link href={item.route} onClick={closeMobileMenu}>
+                  <Link
+                    href={item.route}
+                    onClick={() => {
+                      trackNavClick(item.label, item.route, "header_mobile");
+                      closeMobileMenu();
+                    }}
+                  >
                     <S.MobileMenuItem $active={isActive(item.route)}>
                       {item.label}
                     </S.MobileMenuItem>

@@ -1,6 +1,7 @@
 import * as S from "./First.styled";
 
 import { IoIosArrowForward } from "react-icons/io";
+import { PROJECT_DETAIL_MODAL_FIRST_UI } from "@constants";
 
 interface Props {
   projectName: string;
@@ -12,7 +13,7 @@ const First = ({ projectName, overview }: Props) => {
     <S.Wrapper>
       <S.TitleBox>
         <S.BeforeTitle>
-          Projects <IoIosArrowForward />
+          {PROJECT_DETAIL_MODAL_FIRST_UI.beforeTitle} <IoIosArrowForward />
         </S.BeforeTitle>
         <S.AfterTitle>{projectName}</S.AfterTitle>
       </S.TitleBox>

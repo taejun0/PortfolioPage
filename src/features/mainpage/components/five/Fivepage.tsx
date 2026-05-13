@@ -5,7 +5,7 @@ import * as S from "./FivePage.styled";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ROUTE_CONSTANTS } from "@constants/routeConstants";
+import { ROUTE_CONSTANTS } from "@constants";
 import fetchVelogPosts, { type VelogData } from "utils/fetchVelog";
 
 const FivePage = () => {

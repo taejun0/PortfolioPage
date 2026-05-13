@@ -2,7 +2,7 @@ import * as S from "./FourPage.styled";
 
 import Image from "next/image";
 import Link from "next/link";
-import { ROUTE_CONSTANTS } from "@constants/routeConstants";
+import { ROUTE_CONSTANTS, MAIN_FEATURED_PROJECTS, MAIN_FOUR_PAGE_UI } from "@constants";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
@@ -16,32 +16,15 @@ import {
   IoLogoGithub,
 } from "react-icons/io5";
 
-const projectList = [
-  {
-    title: "D-Order",
-    description: `축제/행사 현장 주문·운영 플랫폼\nQR 테이블 입장 + 장바구니·송금 확인 흐름\nv3 WebSocket(주문/테이블/직원호출) 실시간 반영\n프론트엔드 팀장으로 핵심 UX/연결 안정화 로직 주도`,
-    period: "2025.05 ~ (개선/운영 지속)",
-    tags: ["Team", "React", "TypeScript", "Zustand", "MVP 설계"],
-    image: "/images/projects/project4.svg",
-    link: "https://github.com/D-Order/2026-d-order-fe-admin-v3",
-  },
-  {
-    title: "포트폴리오 페이지",
-    description: `Emotion 기반 스타일 시스템 설계\nNext.js + TypeScript 기반 SSR 구성\n애니메이션과 섹션 스크롤로 시각적 몰입 강화`,
-    period: "2025.07",
-    tags: ["Solo", "React", "TypeScript", "emotion", "NextJs"],
-    image: "/images/projects/project5.png",
-    link: "https://github.com/taejun0/PortfolioPage",
-  },
-];
+const U = MAIN_FOUR_PAGE_UI;
 
 const FourPage = () => {
   return (
     <S.Wrapper>
       <S.Inner>
         <S.HeaderSection>
-          <S.SectionLabel>PROJECTS</S.SectionLabel>
-          <S.Title>Featured Projects</S.Title>
+          <S.SectionLabel>{U.sectionLabel}</S.SectionLabel>
+          <S.Title>{U.title}</S.Title>
         </S.HeaderSection>
 
         <S.Divider />
@@ -65,13 +48,13 @@ const FourPage = () => {
           spaceBetween={50}
           style={{ width: "100%" }}
         >
-          {projectList.map((project, index) => (
+          {MAIN_FEATURED_PROJECTS.map((project, index) => (
             <SwiperSlide key={index}>
               <S.ProjectCard>
                 <S.ProjectImageWrapper>
                   <Image
                     src={project.image}
-                    alt={`${project.title} 대표 이미지`}
+                    alt={`${project.title} ${U.imageAltSuffix}`}
                     width={1200}
                     height={480}
                     sizes="(max-width: 768px) 100vw, 45vw"
@@ -97,7 +80,7 @@ const FourPage = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    프로젝트 보러가기
+                    {U.projectLinkCta}
                     <IoLogoGithub />
                   </S.ProjectLink>
                 </S.ProjectInfo>
@@ -107,7 +90,9 @@ const FourPage = () => {
         </Swiper>
       </S.Inner>
       <Link href={ROUTE_CONSTANTS.PROJECTS}>
-        <S.GoProjects>저의 모든 프로젝트를 보러가요 {"->"}</S.GoProjects>
+        <S.GoProjects>
+          {U.goProjects} {U.goProjectsArrow}
+        </S.GoProjects>
       </Link>
     </S.Wrapper>
   );

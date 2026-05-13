@@ -1,7 +1,7 @@
 import * as S from "./FirstPage.styled";
 
 import Link from "next/link";
-import { ROUTE_CONSTANTS } from "@constants/routeConstants";
+import { ROUTE_CONSTANTS, MAIN_FIRST_PAGE_UI } from "@constants";
 
 import { SiVelog, SiGithub } from "react-icons/si";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
@@ -19,7 +19,7 @@ const FirstPage = () => {
   }, []);
 
   // 타이틀 텍스트를 단어별로 분리
-  const titleText = "웹의 형태로 표현하고 소통하는 오태준입니다";
+  const titleText = MAIN_FIRST_PAGE_UI.heroTitle;
   const titleWords = titleText.split(" ");
 
   return (
@@ -108,10 +108,7 @@ const FirstPage = () => {
         >
           <TypewriterComponent
             options={{
-              strings: [
-                "만나서 반갑습니다",
-                "제 포트폴리오에 와주셔서 감사합니다",
-              ],
+              strings: [...MAIN_FIRST_PAGE_UI.typewriterLines],
               autoStart: true,
               loop: true,
               delay: 60,

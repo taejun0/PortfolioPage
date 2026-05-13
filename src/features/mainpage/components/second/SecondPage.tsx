@@ -1,6 +1,6 @@
 import * as S from "./SecondPage.styled";
 import Link from "next/link";
-import { ROUTE_CONSTANTS } from "@constants/routeConstants";
+import { ROUTE_CONSTANTS } from "@constants";
 import { motion } from "framer-motion";
 
 const SecondPage = () => {

@@ -8,11 +8,19 @@ import { useRouter, useSearchParams } from "next/navigation";
 import FilterBar from "../FilterBar";
 import ProjectStackList from "../projectstacklist/ProjectStackList";
 import ProjectDetail from "../projectdetail/ProjectDetail";
-
-const categories = ["All Projects", "React", "Next.js", "Solo", "Team"];
+import {
+  PROJECT_FILTER_CATEGORIES,
+  PROJECT_FILTER_DEFAULT,
+} from "@constants";
+import {
+  trackProjectDetailOpen,
+  trackProjectFilter,
+} from "@lib/analytics/events";
 
 const Second = ({ initialSlug }: { initialSlug: string | null }) => {
-  const [selectedCategory, setSelectedCategory] = useState("All Projects");
+  const [selectedCategory, setSelectedCategory] = useState(
+    PROJECT_FILTER_DEFAULT
+  );
   const [selectedSlug, setSelectedSlug] = useState<string | null>(initialSlug);
 
   const router = useRouter();
@@ -21,6 +29,12 @@ const Second = ({ initialSlug }: { initialSlug: string | null }) => {
   useEffect(() => {
     setSelectedSlug(searchParams.get("slug"));
   }, [searchParams]);
+
+  useEffect(() => {
+    if (selectedSlug) {
+      trackProjectDetailOpen(selectedSlug);
+    }
+  }, [selectedSlug]);
 
   // 필요한 경우 현재 쿼리를 보존하면서 slug만 교체하는 버전
   const openProject = useCallback(
@@ -43,9 +57,12 @@ const Second = ({ initialSlug }: { initialSlug: string | null }) => {
   return (
     <S.Wrapper>
       <FilterBar
-        categories={categories}
+        categories={PROJECT_FILTER_CATEGORIES}
         selected={selectedCategory}
-        onSelect={setSelectedCategory}
+        onSelect={(cat) => {
+          trackProjectFilter(cat);
+          setSelectedCategory(cat);
+        }}
       />
       <ProjectStackList selectedCategory={selectedCategory} />
       {selectedSlug && (

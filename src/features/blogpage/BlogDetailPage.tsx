@@ -14,6 +14,17 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { useState, useEffect, useMemo } from "react";
 import React from "react";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
+import {
+  trackBlogBackToList,
+  trackBlogPostEngage,
+  trackOutboundProfile,
+} from "@lib/analytics/events";
+import {
+  BLOG_DATE_FORMAT,
+  BLOG_DETAIL_UI,
+  blogVelogPostNoticeNoDate,
+  blogVelogPostNoticeWithDate,
+} from "@constants";
 
 interface BlogDetailPageProps {
   post: {
@@ -44,14 +55,14 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
 
   const formattedDate = format(
     new Date(post.frontMatter.date),
-    "yyyy년 M월 d일",
+    BLOG_DATE_FORMAT,
     {
       locale: ko,
     },
   );
 
   const velogDate = post.frontMatter.velogDate
-    ? format(new Date(post.frontMatter.velogDate), "yyyy년 M월 d일", {
+    ? format(new Date(post.frontMatter.velogDate), BLOG_DATE_FORMAT, {
         locale: ko,
       })
     : null;
@@ -88,6 +99,10 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
     const toc = generateTOC(post.content);
     setHeadings(toc);
   }, [post.content]);
+
+  useEffect(() => {
+    trackBlogPostEngage(post.slug, post.frontMatter.title);
+  }, [post.slug, post.frontMatter.title]);
 
   // 스크롤 시 활성 헤딩 감지
   useEffect(() => {
@@ -164,7 +179,7 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
       ? typeof summaryElement === "object" && "props" in summaryElement
         ? summaryElement.props.children
         : summaryElement
-      : "토글";
+      : BLOG_DETAIL_UI.markdownToggleFallback;
 
     return (
       <S.ToggleContainer>
@@ -180,13 +195,20 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
   return (
     <S.Wrapper>
       <S.Container>
-        <S.BackButton onClick={() => router.push("/blog")}>
-          <FaArrowLeft /> 목록으로
+        <S.BackButton
+          onClick={() => {
+            trackBlogBackToList();
+            router.push("/blog");
+          }}
+        >
+          <FaArrowLeft /> {BLOG_DETAIL_UI.backToList}
         </S.BackButton>
 
         <S.Header>
           <S.Title>{post.frontMatter.title}</S.Title>
-          {post.frontMatter.isVelogPost && <S.VelogBadge>Velog</S.VelogBadge>}
+          {post.frontMatter.isVelogPost && (
+            <S.VelogBadge>{BLOG_DETAIL_UI.velogBadge}</S.VelogBadge>
+          )}
         </S.Header>
 
         <S.Meta>
@@ -204,22 +226,28 @@ const BlogDetailPage = ({ post }: BlogDetailPageProps) => {
           <S.VelogNotice>
             <S.VelogNoticeText>
               {velogDate
-                ? `${velogDate} 까지의 기술 블로그는 Velog에서 작성되었습니다.`
-                : "까지의 기술 블로그는 Velog에서 작성되었습니다."}
+                ? blogVelogPostNoticeWithDate(velogDate)
+                : blogVelogPostNoticeNoDate}
             </S.VelogNoticeText>
             <S.VelogLink
               href={post.frontMatter.velogUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackOutboundProfile(
+                  post.frontMatter.velogUrl!,
+                  "blog_post_velog_link"
+                )
+              }
             >
-              Velog에서 보기 →
+              {BLOG_DETAIL_UI.velogCta}
             </S.VelogLink>
           </S.VelogNotice>
         )}
 
         {headings.length > 0 && (
           <S.TOCContainer>
-            <S.TOCTitle>목차</S.TOCTitle>
+            <S.TOCTitle>{BLOG_DETAIL_UI.tocTitle}</S.TOCTitle>
             <S.TOCList>
               {headings.map((heading) => (
                 <S.TOCItem

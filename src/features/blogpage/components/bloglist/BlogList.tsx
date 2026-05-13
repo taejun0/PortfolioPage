@@ -8,6 +8,8 @@ import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi2";
 import { useState } from "react";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa6";
+import { trackBlogPostCardClick } from "@lib/analytics/events";
+import { BLOG_DATE_FORMAT, BLOG_LIST_UI } from "@constants";
 
 interface BlogPost {
   slug: string;
@@ -80,19 +82,20 @@ const BlogList = ({ mode, posts, series, loading }: Props) => {
 
   if (mode === "all") {
     if (!displayData || displayData.length === 0) {
-      return <S.Grid>작성된 글이 없습니다.</S.Grid>;
+      return <S.Grid>{BLOG_LIST_UI.emptyAll}</S.Grid>;
     }
 
     return (
       <S.Grid>
         {(displayData as BlogPost[]).map((post, index) => {
           const handleClick = () => {
+            trackBlogPostCardClick(post.slug, post.frontMatter.title);
             router.push(`/blog/${post.slug}`);
           };
 
           const formattedDate = format(
             new Date(post.frontMatter.date),
-            "yyyy년 M월 d일",
+            BLOG_DATE_FORMAT,
             {
               locale: ko,
             }
@@ -131,7 +134,7 @@ const BlogList = ({ mode, posts, series, loading }: Props) => {
                 <S.Footer>
                   <S.Date>{formattedDate}</S.Date>
                   <S.ViewDetail>
-                    Read More <HiArrowRight />
+                    {BLOG_LIST_UI.readMore} <HiArrowRight />
                   </S.ViewDetail>
                 </S.Footer>
               </S.Container>
@@ -144,7 +147,7 @@ const BlogList = ({ mode, posts, series, loading }: Props) => {
 
   // 시리즈 모드
   if (!displayData || displayData.length === 0) {
-    return <S.Grid>시리즈로 분류된 글이 없습니다.</S.Grid>;
+    return <S.Grid>{BLOG_LIST_UI.emptySeries}</S.Grid>;
   }
 
   const toggleSeries = (seriesName: string) => {
@@ -176,19 +179,23 @@ const BlogList = ({ mode, posts, series, loading }: Props) => {
                   )}
                   <S.SeriesTitle>{seriesName}</S.SeriesTitle>
                 </S.SeriesTitleWrapper>
-                <S.SeriesCount>{seriesPosts.length}개</S.SeriesCount>
+                <S.SeriesCount>
+                  {seriesPosts.length}
+                  {BLOG_LIST_UI.seriesCountSuffix}
+                </S.SeriesCount>
               </S.SeriesHeader>
               {isExpanded && (
                 <S.SeriesPostList>
                   {seriesPosts.map((post) => {
                     const handlePostClick = (e: React.MouseEvent) => {
                       e.stopPropagation();
+                      trackBlogPostCardClick(post.slug, post.frontMatter.title);
                       router.push(`/blog/${post.slug}`);
                     };
 
                     const formattedDate = format(
                       new Date(post.frontMatter.date),
-                      "yyyy년 M월 d일",
+                      BLOG_DATE_FORMAT,
                       {
                         locale: ko,
                       }

@@ -6,6 +6,9 @@ import { SiMinutemailer, SiGithub, SiGmail } from "react-icons/si";
 
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { MAIN_SIX_PAGE_UI } from "@constants";
+
+const U = MAIN_SIX_PAGE_UI;
 
 const SixPage = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -23,36 +26,36 @@ const SixPage = () => {
         "ZEmVbSIFSzfLGWnrQ"
       )
       .then(() => {
-        alert("메일이 성공적으로 전송되었습니다!");
+        alert(U.alertSuccess);
         formRef.current?.reset();
       })
       .catch(() => {
-        alert("메일 전송에 실패했습니다. 다시 시도해주세요.");
+        alert(U.alertError);
       });
   };
   return (
     <S.Wrapper>
       <S.Box>
-        <S.SectionLabel>CONTACT</S.SectionLabel>
-        <S.Title1>Contact</S.Title1>
-        <S.SemiTitle>언제든 편하게 연락주세요</S.SemiTitle>
+        <S.SectionLabel>{U.sectionLabel}</S.SectionLabel>
+        <S.Title1>{U.title}</S.Title1>
+        <S.SemiTitle>{U.semiTitle}</S.SemiTitle>
       </S.Box>
       <S.ContainerWrap>
         <S.Container>
           <S.Box style={{ width: "80%", alignItems: "flex-start", marginLeft: "auto" }}>
-            <S.Title>HOW</S.Title>
+            <S.Title>{U.howTitle}</S.Title>
             <S.Content>
               <SiGmail size={47} />
               <S.Content2>
-                <S.Text>Email</S.Text>
-                <S.Text2>xownswns@naver.com</S.Text2>
+                <S.Text>{U.emailLabel}</S.Text>
+                <S.Text2>{U.emailValue}</S.Text2>
               </S.Content2>
             </S.Content>
             <S.Content>
               <SiGithub size={47} />
               <S.Content2>
-                <S.Text>Github</S.Text>
-                <S.Text2>github.com/taejun0</S.Text2>
+                <S.Text>{U.githubLabel}</S.Text>
+                <S.Text2>{U.githubPath}</S.Text2>
               </S.Content2>
             </S.Content>
           </S.Box>
@@ -68,20 +71,25 @@ const SixPage = () => {
               ref={formRef}
               onSubmit={handleSendEmail}
             >
-              <S.Input type="text" name="name" placeholder="이름" required />
+              <S.Input
+                type="text"
+                name="name"
+                placeholder={U.placeholders.name}
+                required
+              />
               <S.Input
                 type="email"
                 name="email"
-                placeholder="이메일"
+                placeholder={U.placeholders.email}
                 required
               />
               <S.TextArea
                 name="message"
-                placeholder="메시지를 입력하세요"
+                placeholder={U.placeholders.message}
                 required
               />
               <S.SendButton type="submit">
-                메일 보내기 <SiMinutemailer />
+                {U.submit} <SiMinutemailer />
               </S.SendButton>
             </form>
           </S.Box>

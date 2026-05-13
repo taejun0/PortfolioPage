@@ -1,4 +1,5 @@
 import * as S from "./Four.styled";
+import { PROJECT_DETAIL_FOUR_UI } from "@constants";
 
 interface Props {
   onClose: () => void;
@@ -12,7 +13,7 @@ const Four = ({ onClose }: Props) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        {"<-"} View All Projects
+        {PROJECT_DETAIL_FOUR_UI.cta}
       </S.Text>
     </S.Wrapper>
   );

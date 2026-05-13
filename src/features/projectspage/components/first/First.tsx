@@ -2,24 +2,23 @@ import * as S from "./First.styled";
 
 import { FaCode, FaCalendar } from "react-icons/fa6";
 import { HiSquare3Stack3D } from "react-icons/hi2";
+import { PROJECTS_HERO_UI } from "@constants";
 
 const First = () => {
   return (
     <S.Wrapper>
       <S.Container>
-        <S.Title>My Projects</S.Title>
-        <S.SubTitle>
-          제가 지금까지 만들어온 프로젝트를 보실 수 있습니다
-        </S.SubTitle>
+        <S.Title>{PROJECTS_HERO_UI.title}</S.Title>
+        <S.SubTitle>{PROJECTS_HERO_UI.subtitle}</S.SubTitle>
         <S.Tags>
           <S.Tag>
-            <FaCode /> 6 Projects
+            <FaCode /> {PROJECTS_HERO_UI.tagCode}
           </S.Tag>
           <S.Tag>
-            <FaCalendar /> 4 Tags
+            <FaCalendar /> {PROJECTS_HERO_UI.tagCalendar}
           </S.Tag>
           <S.Tag>
-            <HiSquare3Stack3D /> 2024 -
+            <HiSquare3Stack3D /> {PROJECTS_HERO_UI.tagStack}
           </S.Tag>
         </S.Tags>
       </S.Container>
