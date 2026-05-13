@@ -1,28 +1,39 @@
 import type { Metadata } from "next";
 import Providers from "./providers";
 import GoogleAnalytics from "@components/analytics/GoogleAnalytics";
+import {
+  DEFAULT_OG_IMAGE_PATH,
+  DEFAULT_SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_ORIGIN,
+} from "@lib/siteConfig";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.taejun0-portfolio.site"),
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
-    default: "오태준 포트폴리오",
-    template: "%s | 오태준 포트폴리오",
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "프론트엔드 개발자 오태준의 기술과 프로젝트를 소개하는 포트폴리오입니다.",
+  description: DEFAULT_SITE_DESCRIPTION,
+  /** 세그먼트에서 title/description/url을 덮어쓰기 쉽도록 루트 OG는 사이트 공통만 둡니다. */
   openGraph: {
-    title: "오태준 포트폴리오",
-    description: "프론트엔드 개발자 오태준의 기술과 프로젝트를 소개합니다.",
+    siteName: SITE_NAME,
+    locale: "ko_KR",
     type: "website",
-    url: "https://www.taejun0-portfolio.site",
     images: [
       {
-        url: "https://www.taejun0-portfolio.site/images/projectsImage/PortFolio.png",
+        url: DEFAULT_OG_IMAGE_PATH,
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: [DEFAULT_OG_IMAGE_PATH],
+  },
   robots: { index: true, follow: true },
-  // Google Search Console verification
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
